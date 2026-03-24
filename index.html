@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Holiday Windows, School Holiday Deals for Australian Families</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,900;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:       #FAFAF8;
+  --bg2:      #F3F1ED;
+  --bg3:      #ECEAE5;
+  --navy:     #0A1628;
+  --navy2:    #152238;
+  --navy3:    #1E3352;
+  --border:   rgba(10,22,40,0.1);
+  --border2:  rgba(10,22,40,0.06);
+  --sun:      #E8940A;
+  --sun-lt:   #F5A623;
+  --sun-bg:   #FEF3DC;
+  --coral:    #E84B2A;
+  --ocean:    #1557B0;
+  --ocean-lt: #2470CC;
+  --teal:     #0B7A6E;
+  --green:    #1A9E6A;
+  --green-bg: #E6F7F1;
+  --muted:    rgba(10,22,40,0.5);
+  --muted2:   rgba(10,22,40,0.3);
+  --muted3:   rgba(10,22,40,0.15);
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--navy);
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:1rem 2.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(250,250,248,0);
+  transition:background 0.3s,box-shadow 0.3s;
+}
+nav.scrolled{
+  background:rgba(250,250,248,0.96);
+  backdrop-filter:blur(16px);
+  box-shadow:0 1px 0 var(--border);
+}
+.logo{
+  font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;
+  color:var(--navy);text-decoration:none;letter-spacing:-0.01em;
+}
+.logo span{color:var(--sun);}
+.nav-right{display:flex;align-items:center;gap:1.25rem;}
+.nav-link{font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color 0.15s;}
+.nav-link:hover{color:var(--navy);}
+.nav-cta{
+  font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;
+  padding:0.45rem 1.1rem;
+  background:var(--navy);color:#fff;
+  border:none;border-radius:0.3rem;
+  cursor:pointer;text-decoration:none;transition:all 0.15s;
+}
+.nav-cta:hover{background:var(--navy2);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  padding:8rem 2.5rem 4rem;
+  gap:4rem;align-items:center;
+  max-width:1200px;margin:0 auto;
+  position:relative;
+}
+.hero-content{position:relative;z-index:1;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--sun);background:var(--sun-bg);
+  padding:0.3rem 0.75rem;border-radius:2rem;
+  margin-bottom:1.5rem;
+}
+h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.4rem,4.5vw,3.75rem);
+  font-weight:900;line-height:1.05;letter-spacing:-0.025em;
+  color:var(--navy);margin-bottom:1.25rem;
+}
+h1 em{font-style:italic;font-weight:300;color:var(--sun);}
+.hero-body{
+  font-size:1rem;font-weight:300;color:var(--muted);
+  line-height:1.75;max-width:460px;margin-bottom:2rem;
+}
+.hero-body strong{color:var(--navy);font-weight:600;}
+
+/* Form */
+.form-stack{display:flex;flex-direction:column;gap:0.6rem;max-width:420px;}
+.form-row{display:flex;gap:0.4rem;}
+.form-row input.form-row select{
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;
+  padding:0.7rem 0.875rem;
+  background:white;
+  border:1.5px solid var(--border);
+  border-radius:0.375rem;color:var(--navy);outline:none;
+  transition:border-color 0.15s;
+}
+.form-row input{flex:1;min-width:0;}
+.form-row input::placeholder{color:var(--muted2);}
+.form-row input:focus{border-color:var(--ocean);}
+.form-row select{cursor:pointer;color:var(--navy);}
+.btn-navy{
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:700;
+  padding:0.7rem 1.25rem;
+  background:var(--navy);color:white;
+  border:none;border-radius:0.375rem;cursor:pointer;
+  white-space:nowrap;transition:all 0.15s;
+}
+.btn-navy:hover{background:var(--navy2);}
+.form-proof{
+  font-size:0.7rem;color:var(--muted2);
+  display:flex;align-items:center;gap:0.5rem;
+}
+.dot{width:3px;height:3px;border-radius:50%;background:var(--muted3);}
+
+/* Hero image side */
+/* removed - hero panel replaces image */
+/* removed - hero panel replaces image */
+/* removed - hero panel replaces image */
+
+/* ── STAT STRIP ── */
+/* stat-strip CSS removed */
+.ph-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.sec-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean);margin-bottom:0.6rem;}
+h2{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3vw,2.25rem);font-weight:900;line-height:1.1;margin-bottom:0.75rem;color:var(--navy);}
+h2 em{font-style:italic;font-weight:300;color:var(--sun);}
+.sec-body{font-size:0.92rem;color:var(--muted);line-height:1.75;max-width:520px;margin-bottom:2rem;}
+
+.ph-feats{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;}
+.ph-feat{display:flex;align-items:flex-start;gap:0.625rem;font-size:0.82rem;color:var(--muted);}
+.ph-feat-dot{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--green-bg);color:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.55rem;flex-shrink:0;margin-top:1px;font-weight:700;
+}
+.btn-ocean{
+  font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:700;
+  padding:0.75rem 1.5rem;
+  background:var(--ocean);color:white;
+  border:none;border-radius:0.375rem;cursor:pointer;
+  text-decoration:none;display:inline-block;transition:all 0.15s;
+}
+.btn-ocean:hover{background:var(--ocean-lt);}
+
+/* Mini planner card */
+.mini-planner{
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:0.875rem;overflow:hidden;
+  box-shadow:0 8px 32px rgba(10,22,40,0.08);
+}
+.mp-head{
+  padding:0.875rem 1.1rem;
+  background:var(--navy);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.mp-title{font-family:'Fraunces',serif;font-size:0.85rem;font-weight:700;color:white;}
+.mp-state{font-size:0.65rem;color:var(--sun-lt);background:rgba(255,255,255,0.1);padding:0.15rem 0.45rem;border-radius:0.2rem;}
+.mp-row{
+  padding:0.875rem 1.1rem;border-bottom:1px solid var(--border2);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.mp-row:last-child{border-bottom:none;}
+.mp-name{font-size:0.82rem;font-weight:600;color:var(--navy);}
+.mp-dates{font-size:0.65rem;color:var(--muted);margin-top:0.1rem;}
+.mp-r{text-align:right;}
+.mp-days{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:900;color:var(--navy);}
+.mp-sub{font-size:0.6rem;color:var(--muted2);}
+.mp-bar{height:3px;background:var(--border2);border-radius:2px;margin-top:0.3rem;overflow:hidden;}
+.mp-fill{height:100%;border-radius:2px;}
+
+/* ── WINDOWS ── */
+.windows-section{padding:5rem 2.5rem;background:var(--bg2);}
+.windows{
+  max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+  margin-top:2.5rem;
+}
+.win{
+  background:white;border-radius:0.875rem;
+  overflow:hidden;border:1.5px solid var(--border2);
+  transition:box-shadow 0.2s,transform 0.2s;
+  cursor:pointer;
+}
+.win:hover{
+  box-shadow:0 12px 40px rgba(10,22,40,0.12);
+  transform:translateY(-3px);
+}
+.win-img{
+  height:180px;background-size:cover;background-position:center;
+  position:relative;
+}
+.win-badge{
+  position:absolute;top:0.75rem;left:0.75rem;
+  background:white;color:var(--navy);
+  font-size:0.58rem;font-weight:800;
+  padding:0.2rem 0.5rem;border-radius:0.2rem;
+  letter-spacing:0.05em;text-transform:uppercase;
+  box-shadow:0 2px 8px rgba(10,22,40,0.15);
+}
+.win-body{padding:1rem 1.1rem 1.1rem;}
+.win-accent{
+  width:24px;height:3px;border-radius:2px;
+  margin-bottom:0.6rem;
+}
+.win-period{font-size:0.6rem;font-weight:600;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.25rem;text-transform:uppercase;}
+.win-name{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;}
+.win-stats{display:flex;gap:0.5rem;margin-bottom:0.5rem;flex-wrap:wrap;}
+.ws{font-size:0.68rem;color:var(--muted);}
+.ws strong{color:var(--navy);font-family:'Fraunces',serif;font-size:1rem;font-weight:900;display:block;line-height:1;}
+.win-dest{font-size:0.67rem;color:var(--muted2);line-height:1.5;}
+
+/* ── DEAL PREVIEW ── */
+.deal-section{
+  padding:5rem 2.5rem;
+  background:white;
+  border-top:1px solid var(--border2);
+  border-bottom:1px solid var(--border2);
+}
+.deal-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:5rem;align-items:start;}
+.deal-feats{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;}
+.deal-card{
+  background:var(--navy);border-radius:0.875rem;overflow:hidden;
+  box-shadow:0 20px 60px rgba(10,22,40,0.15);
+}
+.dc-head{
+  padding:0.875rem 1.25rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.dc-from{font-size:0.7rem;color:rgba(255,255,255,0.5);}
+.dc-from strong{color:white;}
+.dc-pill{
+  font-size:0.58rem;font-weight:700;padding:0.18rem 0.5rem;
+  background:rgba(245,166,35,0.15);color:var(--sun-lt);
+  border-radius:0.2rem;border:1px solid rgba(245,166,35,0.25);
+}
+.dc-img{
+  height:200px;
+  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80') center 70%/cover;
+  position:relative;
+}
+.dc-img-overlay{
+  position:absolute;bottom:0.875rem;left:0.875rem;right:0.875rem;
+  background:rgba(10,22,40,0.8);backdrop-filter:blur(8px);
+  border-radius:0.375rem;padding:0.4rem 0.75rem;
+  display:flex;justify-content:space-between;
+  border:1px solid rgba(255,255,255,0.06);
+}
+.dc-loc{font-size:0.72rem;font-weight:700;color:white;}
+.dc-wx{font-size:0.68rem;color:var(--green);}
+.dc-body{padding:1.1rem 1.25rem;}
+.dc-hed{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:white;line-height:1.25;margin-bottom:0.4rem;}
+.dc-meta{font-size:0.74rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:0.875rem;}
+.dc-price-row{display:flex;align-items:baseline;gap:0.75rem;margin-bottom:0.75rem;}
+.dc-price{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:var(--sun-lt);}
+.dc-price-note{font-size:0.68rem;color:rgba(255,255,255,0.4);line-height:1.4;}
+.dc-win-tag{
+  display:flex;gap:0.5rem;align-items:center;
+  padding:0.4rem 0.7rem;
+  background:rgba(255,255,255,0.05);
+  border-radius:0.3rem;font-size:0.7rem;
+  color:rgba(255,255,255,0.5);margin-bottom:0.875rem;
+  border:1px solid rgba(255,255,255,0.07);
+}
+.dc-win-tag strong{color:rgba(255,255,255,0.85);}
+.dc-cta-wrap{position:relative;}
+.dc-cta{
+  width:100%;padding:0.8rem;
+  background:var(--sun);color:var(--navy);
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:700;
+  border:none;border-radius:0.375rem;cursor:pointer;
+}
+.dc-blur{
+  position:absolute;inset:0;border-radius:0.375rem;
+  background:rgba(10,22,40,0.6);backdrop-filter:blur(5px);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:700;
+  color:white;cursor:pointer;transition:background 0.15s;
+}
+.dc-blur:hover{background:rgba(10,22,40,0.4);}
+.dc-note{text-align:center;font-size:0.65rem;color:rgba(255,255,255,0.25);margin-top:0.875rem;}
+
+/* ── HOW IT WORKS ── */
+.how-section{padding:5rem 2.5rem;background:var(--bg2);}
+.steps{max-width:1080px;margin:2rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+.step{padding:1.5rem;background:white;border:1.5px solid var(--border2);border-radius:0.75rem;}
+.step-n{font-family:'Fraunces',serif;font-size:2.25rem;font-weight:900;color:var(--border);line-height:1;margin-bottom:0.5rem;}
+.step-title{font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;}
+.step-desc{font-size:0.75rem;color:var(--muted);line-height:1.65;}
+.how-inner{max-width:1080px;margin:0 auto;}
+
+/* ── TRUST ── */
+.trust-section{padding:5rem 2.5rem;background:white;}
+.trust-inner{max-width:1080px;margin:0 auto;}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
+.tc{padding:1.25rem 1.5rem;background:var(--bg);border:1.5px solid var(--border2);border-radius:0.625rem;}
+.tc-icon{font-size:1.3rem;margin-bottom:0.5rem;}
+.tc-title{font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem;}
+.tc-desc{font-size:0.75rem;color:var(--muted);line-height:1.6;}
+
+/* ── FOOTER SIGNUP ── */
+.fs-section{
+  padding:5rem 2.5rem;background:var(--navy);
+  text-align:center;
+}
+.fs-section .sec-tag{color:var(--sun-lt);}
+.fs-section h2{color:white;}
+.fs-section h2 em{color:var(--sun-lt);}
+.fs-section p{font-size:0.92rem;color:rgba(255,255,255,0.5);margin-bottom:1.75rem;max-width:440px;margin-left:auto;margin-right:auto;}
+.fs-form{display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;max-width:460px;margin:0 auto 0.75rem;}
+.fs-form input.fs-form select{
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;
+  padding:0.65rem 0.875rem;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:0.375rem;color:white;outline:none;
+  transition:border-color 0.15s;
+}
+.fs-form input{flex:1;min-width:180px;}
+.fs-form input::placeholder{color:rgba(255,255,255,0.28);}
+.fs-form input:focus{border-color:rgba(245,166,35,0.6);}
+.fs-form select option{background:#0A1628;}
+.btn-sun{
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:700;
+  padding:0.65rem 1.25rem;
+  background:var(--sun);color:white;
+  border:none;border-radius:0.375rem;cursor:pointer;
+  transition:all 0.15s;
+}
+.btn-sun:hover{background:var(--sun-lt);}
+.fs-proof{font-size:0.68rem;color:rgba(255,255,255,0.25);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--navy2);
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:2rem 2.5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.foot-logo{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:900;color:white;}
+.foot-logo span{color:var(--sun-lt);}
+.foot-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.foot-links a{font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.15s;}
+.foot-links a:hover{color:rgba(255,255,255,0.8);}
+.foot-copy{font-size:0.65rem;color:rgba(255,255,255,0.2);max-width:380px;line-height:1.5;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:7rem;}
+  .hero-img-wrap{height:380px;}
+  .ph-inner.deal-inner{grid-template-columns:1fr;}
+  .deal-card{max-width:420px;}
+  .windows{grid-template-columns:repeat(2,1fr);}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .trust-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  nav,footer{padding-left:1.25rem;padding-right:1.25rem;}
+  .hero.planner-hook.windows-section.deal-section.how-section.trust-section.fs-section{padding-left:1.25rem;padding-right:1.25rem;}
+  .stat-strip{padding:1.25rem;}
+  .windows{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .trust-grid{grid-template-columns:1fr;}
+  .nav-right .nav-link{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="logo" href="#">🪟 Holiday<span>Windows</span></a>
+  <div class="nav-right">
+    <a class="nav-link" href="#how">How it works</a>
+    <a class="nav-link" href="#deals">Deals</a>
+    <a class="nav-cta" href="#signup">Get free deals →</a>
+  </div>
+</nav>
+
+<!-- HERO, two column: copy left, Australian family image right -->
+<div style="background:var(--bg);">
+<div class="hero" id="signup">
+  <div class="hero-content">
+    <div class="hero-eyebrow">🇦🇺 For Australian school families</div>
+    <h1>School holidays<br>your family will<br><em>actually remember.</em></h1>
+    <p class="hero-body">
+      Every school holiday window comes with free days already inside it , 
+      public holidays, weekends, long weekends. Those are yours at no cost.
+      The planner shows you how to cover the remaining days using annual leave and care,
+      so you can <strong>plan a proper family trip</strong> around what's already free.
+      We find the deals. You make the memories.
+    </p>
+    <div class="form-stack">
+      <div class="form-row">
+        <input type="email" id="heroEmail" placeholder="your@email.com"/>
+        <select id="heroState">
+          <option value="">State</option>
+          <option>NSW</option><option>VIC</option><option>QLD</option>
+          <option>SA</option><option>WA</option>
+        </select>
+        <button class="btn-navy" onclick="heroSignup()">Join free →</button>
+      </div>
+      <div class="form-proof" id="heroProof">
+        <span>Free forever</span><span class="dot"></span>
+        <span>Deals every Tuesday</span><span class="dot"></span>
+        <span>Unsubscribe anytime</span>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;z-index:1;">
+    <div style="border-radius:1.25rem;overflow:hidden;height:560px;box-shadow:0 20px 60px rgba(10,22,40,0.15);">
+      <img
+        src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=85"
+        alt="Australian family beach holiday"
+        style="width:100%;height:100%;object-fit:cover;object-position:center 45%;"
+      />
+      <!-- Warm overlay badge -->
+      <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;
+        background:rgba(10,22,40,0.82);backdrop-filter:blur(12px);
+        border-radius:0.75rem;padding:0.875rem 1.25rem;
+        border:1px solid rgba(255,255,255,0.08);
+        display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div style="display:flex;gap:1.5rem;">
+          <div style="text-align:center;">
+            <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:white;line-height:1;">12<span style="font-size:1rem;color:var(--sun-lt);">wks</span></div>
+            <div style="font-size:0.58rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;line-height:1.3;">school holidays<br>every year</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:white;line-height:1;">4</div>
+            <div style="font-size:0.58rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;line-height:1.3;">holiday windows<br>to plan</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:white;line-height:1;">$0</div>
+            <div style="font-size:0.58rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;line-height:1.3;">to join &amp;<br>use the planner</div>
+          </div>
+        </div>
+        <a href="#windows" style="font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;color:var(--sun-lt);text-decoration:none;white-space:nowrap;">See 2026 windows →</a>
+      </div>
+    </div>
+  </div></div>
+
+<!-- WINDOW VISUALISER -->
+<div style="background:white;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);">
+
+  <!-- Section header -->
+  <div style="max-width:1080px;margin:0 auto;padding:2.5rem 2.5rem 0;">
+    <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean);margin-bottom:0.4rem;">The planning problem</div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.25rem;">
+      <h2 style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--navy);margin-bottom:0;">Every school holiday day needs covering.<br><em style="font-style:italic;font-weight:300;color:var(--sun);">Here's what's already free, and what isn't.</em></h2>
+      <div style="font-size:0.72rem;color:var(--muted);display:flex;align-items:center;gap:1rem;flex-shrink:0;">
+        <span style="display:flex;align-items:center;gap:0.3rem;"><span style="width:10px;height:10px;border-radius:2px;background:rgba(26,158,106,0.3);display:inline-block;"></span>Free (pub hols + weekends)</span>
+        <span style="display:flex;align-items:center;gap:0.3rem;"><span style="width:10px;height:10px;border-radius:2px;background:rgba(245,166,35,0.4);display:inline-block;"></span>Annual leave for a trip</span>
+        <span style="display:flex;align-items:center;gap:0.3rem;"><span style="width:10px;height:10px;border-radius:2px;background:rgba(10,22,40,0.1);display:inline-block;"></span>Holiday care to arrange</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Four window rows -->
+  <div style="max-width:1080px;margin:0 auto;padding:1.25rem 2.5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+
+    <!-- Easter -->
+    <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:0.75rem;padding:1.1rem 1.25rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+        <div>
+          <div style="font-size:0.62rem;font-weight:700;color:var(--sun);text-transform:uppercase;letter-spacing:0.08em;">🐣 Easter · 3 Apr–27 Apr</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.1rem;">25-day holiday opportunity</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:0.65rem;font-weight:700;color:var(--green);">10 days free</div>
+          <div style="font-size:0.6rem;color:var(--muted);">pub hols + weekends</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
+        <div style="flex:10;background:rgba(26,158,106,0.3);" title="10 free days"></div>
+        <div style="flex:5;background:rgba(245,166,35,0.5);" title="5 annual leave"></div>
+        <div style="flex:10;background:rgba(10,22,40,0.08);" title="10 care days"></div>
+      </div>
+      <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
+        <span style="color:var(--green);">10 already free</span>
+        <span style="color:var(--sun);">5 days annual leave → trip</span>
+        <span style="color:var(--muted);">10 days care</span>
+      </div>
+    </div>
+
+    <!-- July -->
+    <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:0.75rem;padding:1.1rem 1.25rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+        <div>
+          <div style="font-size:0.62rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;">⛷️ July · 13–24 Jul</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.1rem;">12-day holiday opportunity</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:0.65rem;font-weight:700;color:var(--green);">2 days free</div>
+          <div style="font-size:0.6rem;color:var(--muted);">weekends</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
+        <div style="flex:2;background:rgba(26,158,106,0.3);"></div>
+        <div style="flex:5;background:rgba(245,166,35,0.5);"></div>
+        <div style="flex:5;background:rgba(10,22,40,0.08);"></div>
+      </div>
+      <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
+        <span style="color:var(--green);">2 already free</span>
+        <span style="color:var(--sun);">5 days annual leave → trip</span>
+        <span style="color:var(--muted);">5 days care</span>
+      </div>
+    </div>
+
+    <!-- September -->
+    <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:0.75rem;padding:1.1rem 1.25rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+        <div>
+          <div style="font-size:0.62rem;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:0.08em;">🌸 September · 26 Sep–9 Oct</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.1rem;">15-day holiday opportunity</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:0.65rem;font-weight:700;color:var(--green);">4 days free</div>
+          <div style="font-size:0.6rem;color:var(--muted);">weekends</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
+        <div style="flex:4;background:rgba(26,158,106,0.3);"></div>
+        <div style="flex:5;background:rgba(245,166,35,0.5);"></div>
+        <div style="flex:6;background:rgba(10,22,40,0.08);"></div>
+      </div>
+      <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
+        <span style="color:var(--green);">4 already free</span>
+        <span style="color:var(--sun);">5 days annual leave → trip</span>
+        <span style="color:var(--muted);">6 days care</span>
+      </div>
+    </div>
+
+    <!-- Summer -->
+    <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:0.75rem;padding:1.1rem 1.25rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+        <div>
+          <div style="font-size:0.62rem;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:0.08em;">☀️ Summer · 18 Dec–27 Jan</div>
+          <div style="font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.1rem;">40+ day holiday opportunity</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:0.65rem;font-weight:700;color:var(--green);">5+ days free</div>
+          <div style="font-size:0.6rem;color:var(--muted);">pub hols + weekends</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
+        <div style="flex:5;background:rgba(26,158,106,0.3);"></div>
+        <div style="flex:3;background:rgba(245,166,35,0.5);"></div>
+        <div style="flex:32;background:rgba(10,22,40,0.08);"></div>
+      </div>
+      <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
+        <span style="color:var(--green);">5+ already free</span>
+        <span style="color:var(--sun);">3 days annual leave → trip</span>
+        <span style="color:var(--muted);">32+ days care to plan</span>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<!-- PLANNER HOOK -->
+<div class="planner-hook">
+  <div class="ph-inner">
+    <div>
+      <div class="sec-tag">Free planning tool</div>
+      <h2>Plan your whole year<br><em>in 10 minutes.</em></h2>
+      <p class="sec-body">The Leave Planner shows every day of every school holiday window. For each day, assign it as annual leave, holiday care, or a public holiday free day. See your full coverage picture, and the cost, before you've booked anything.</p>
+      <div class="ph-feats">
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Both parents' leave tracked separately with progress bars</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>School care days calculated automatically</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>5-day buffer for pupil-free and staff development days</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Summer window runs through to late January 2027</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Saves to your browser, picks up where you left off</div>
+      </div>
+      <a href="holiday-windows-planner.html" class="btn-ocean">Open the free planner →</a>
+    </div>
+    <div>
+      <div class="mini-planner">
+        <div class="mp-head">
+          <div class="mp-title">🪟 Your 2026 Windows</div>
+          <div class="mp-state">NSW</div>
+        </div>
+        <div class="mp-row">
+          <div><div class="mp-name">🐣 Easter Window</div><div class="mp-dates">Good Friday 3 Apr → Anzac Sub 27 Apr</div></div>
+          <div class="mp-r"><div class="mp-days">0–3</div><div class="mp-sub">days annual leave</div><div class="mp-bar"><div class="mp-fill" style="width:12%;background:var(--green)"></div></div></div>
+        </div>
+        <div class="mp-row">
+          <div><div class="mp-name">⛷️ July Window</div><div class="mp-dates">13 – 24 July 2026</div></div>
+          <div class="mp-r"><div class="mp-days">2</div><div class="mp-sub">days annual leave</div><div class="mp-bar"><div class="mp-fill" style="width:35%;background:var(--sun)"></div></div></div>
+        </div>
+        <div class="mp-row">
+          <div><div class="mp-name">🌸 September Window</div><div class="mp-dates">26 Sep – 9 Oct 2026</div></div>
+          <div class="mp-r"><div class="mp-days">3</div><div class="mp-sub">days annual leave</div><div class="mp-bar"><div class="mp-fill" style="width:50%;background:var(--sun)"></div></div></div>
+        </div>
+        <div class="mp-row">
+          <div><div class="mp-name">☀️ Summer Window</div><div class="mp-dates">18 Dec 2026 – 27 Jan 2027</div></div>
+          <div class="mp-r"><div class="mp-days">3</div><div class="mp-sub">days annual leave</div><div class="mp-bar"><div class="mp-fill" style="width:50%;background:var(--coral)"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WINDOWS -->
+<section class="windows-section">
+  <div style="max-width:1080px;margin:0 auto">
+    <div class="sec-tag">2026 school holiday windows</div>
+    <h2>Four chances to get<br><em>away this year.</em></h2>
+    <p class="sec-body">Every school holiday window is a holiday opportunity. Public holidays and weekends inside each window are already free, no leave needed. The planner shows you the full picture so you can plan the best possible trip.</p>
+    <div class="windows">
+
+      <div class="win">
+        <div class="win-img" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80')">
+          <div class="win-badge">Up to 25 days</div>
+        </div>
+        <div class="win-body">
+          <div class="win-accent" style="background:#F5A623"></div>
+          <div class="win-period">3 Apr – 27 Apr 2026</div>
+          <div class="win-name">🐣 Easter Window</div>
+          <div class="win-stats">
+            <div class="ws"><strong>25</strong>days in window</div>
+            <div class="ws" style="color:var(--green)"><strong>10</strong>free (pub hols + wknds)</div>
+            <div class="ws" style="color:var(--sun)"><strong>5</strong>annual leave days</div>
+          </div>
+          <div class="win-dest">QLD Coast · Grampians · Jervis Bay · Bali shoulder season</div>
+        </div>
+      </div>
+
+      <div class="win">
+        <div class="win-img" style="background-image:url('https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600&q=80')">
+          <div class="win-badge">Peak dry season</div>
+        </div>
+        <div class="win-body">
+          <div class="win-accent" style="background:#0D9488"></div>
+          <div class="win-period">13 – 24 Jul 2026</div>
+          <div class="win-name">⛷️ July Window</div>
+          <div class="win-stats">
+            <div class="ws"><strong>12</strong>days in window</div>
+            <div class="ws" style="color:var(--green)"><strong>2</strong>free (weekends)</div>
+            <div class="ws" style="color:var(--sun)"><strong>2</strong>annual leave days</div>
+          </div>
+          <div class="win-dest">Snowy Mountains ski · Bali dry season · Fiji · NZ ski fields</div>
+        </div>
+      </div>
+
+      <div class="win">
+        <div class="win-img" style="background-image:url('https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=600&q=80')">
+          <div class="win-badge">Ningaloo season</div>
+        </div>
+        <div class="win-body">
+          <div class="win-accent" style="background:#8B5CF6"></div>
+          <div class="win-period">26 Sep – 9 Oct 2026</div>
+          <div class="win-name">🌸 September Window</div>
+          <div class="win-stats">
+            <div class="ws"><strong>15</strong>days in window</div>
+            <div class="ws" style="color:var(--green)"><strong>4</strong>free (weekends)</div>
+            <div class="ws" style="color:var(--sun)"><strong>3</strong>annual leave days</div>
+          </div>
+          <div class="win-dest">Ningaloo reef · NZ spring · Flinders Ranges · Europe shoulder</div>
+        </div>
+      </div>
+
+      <div class="win">
+        <div class="win-img" style="background-image:url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80')">
+          <div class="win-badge">The big one</div>
+        </div>
+        <div class="win-body">
+          <div class="win-accent" style="background:#F25C3B"></div>
+          <div class="win-period">18 Dec 2026 – 27 Jan 2027</div>
+          <div class="win-name">☀️ Summer Window</div>
+          <div class="win-stats">
+            <div class="ws"><strong>40+</strong>days in window</div>
+            <div class="ws" style="color:var(--green)"><strong>5+</strong>free (pub hols + wknds)</div>
+            <div class="ws" style="color:var(--sun)"><strong>3</strong>annual leave days</div>
+          </div>
+          <div class="win-dest">Kimberley road trip · Thailand · Whitsundays · Tasmania drive</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DEAL PREVIEW -->
+<section class="deal-section" id="deals">
+  <div class="deal-inner">
+    <div>
+      <div class="sec-tag">What you get every Tuesday</div>
+      <h2>One great deal.<br><em>No noise.</em></h2>
+      <p class="sec-body" style="margin-bottom:1.5rem">We don't fill your inbox. If there's nothing worth booking this week, we say so. When there is, you'll know before it sells out.</p>
+      <div class="deal-feats">
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Deals matched to your state's school holiday dates</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>International and Australian, resorts, camping, road trips</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Weather score and leave days required on every deal</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>We only send deals we'd book ourselves</div>
+      </div>
+      <div class="form-row" style="max-width:360px">
+        <input type="email" id="dealEmail" placeholder="your@email.com" style="background:white;border:1.5px solid var(--border);color:var(--navy)"/>
+        <button class="btn-navy" onclick="dealSignup()">Join free →</button>
+      </div>
+    </div>
+    <div>
+      <div class="deal-card">
+        <div class="dc-head">
+          <div class="dc-from"><strong>Holiday Windows</strong> &nbsp;·&nbsp; July 2026</div>
+          <div class="dc-pill">⛷️ July · NSW</div>
+        </div>
+        <div class="dc-img">
+          <div class="dc-img-overlay">
+            <div class="dc-loc">🇦🇺 Whitsunday Island, QLD</div>
+            <div class="dc-wx">★★★★★ July weather</div>
+          </div>
+        </div>
+        <div class="dc-body">
+          <div class="dc-hed">4 nights Whitsunday Island, family of 4</div>
+          <div class="dc-meta">Return flights SYD–PPP · Whitehaven Beach access · Departs Fri 10 July · Kids stay free</div>
+          <div class="dc-price-row">
+            <div class="dc-price">$2,890</div>
+            <div class="dc-price-note">total for family of 4<br><span style="color:rgba(255,255,255,0.25);font-size:0.62rem">vs $4,100+ school holiday peak</span></div>
+          </div>
+          <div class="dc-win-tag">
+            <span>📅</span>
+            <span><strong>2 leave days</strong> needed · 16 days off · Peak dry season</span>
+          </div>
+          <div class="dc-cta-wrap">
+            <button class="dc-cta">View deal and book →</button>
+            <div class="dc-blur" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Join free to unlock deals →</div>
+          </div>
+        </div>
+      </div>
+      <div class="dc-note">Sample deal, live deals every Tuesday for subscribers</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="how-inner">
+    <div class="sec-tag">How it works</div>
+    <h2>Simple. Honest.<br><em>Actually useful.</em></h2>
+    <div class="steps">
+      <div class="step"><div class="step-n">01</div><div class="step-title">We find the deals</div><div class="step-desc">Every Tuesday we scan flights, resorts, campsites and packages timed to your state's school holidays. Only genuinely good deals make the cut.</div></div>
+      <div class="step"><div class="step-n">02</div><div class="step-title">Cover every day</div><div class="step-desc">The free planner shows every school holiday day. Assign each one as annual leave, holiday care, or a free day. See your total leave cost and care bill before you commit to anything.</div></div>
+      <div class="step"><div class="step-n">03</div><div class="step-title">Alert me when it drops</div><div class="step-desc">Tell us which windows matter. We'll alert you the moment a deal matches, before it sells out. July Bali books out by February.</div></div>
+      <div class="step"><div class="step-n">04</div><div class="step-title">Book and go</div><div class="step-desc">Click through to book directly. No markups, no hidden fees. We earn a small affiliate commission. that's how we stay free for families.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-section">
+  <div class="trust-inner">
+    <div class="sec-tag">Why families trust us</div>
+    <h2>Built around how<br><em>Australian parents actually plan.</em></h2>
+    <div class="trust-grid">
+      <div class="tc"><div class="tc-icon">🗓️</div><div class="tc-title">School holiday dates built in</div><div class="tc-desc">Every deal tagged to your state's actual window, including public holidays that make it free.</div></div>
+      <div class="tc"><div class="tc-icon">📊</div><div class="tc-title">Leave days on every deal</div><div class="tc-desc">See exactly how many leave days each deal requires before you click. No surprises.</div></div>
+      <div class="tc"><div class="tc-icon">🏕️</div><div class="tc-title">Australian options included</div><div class="tc-desc">Ningaloo in September costs a fraction of Bali. Camping and road trips alongside international.</div></div>
+      <div class="tc"><div class="tc-icon">🌡️</div><div class="tc-title">No bad-weather deals</div><div class="tc-desc">We don't send Fiji in cyclone season. Every deal has a weather quality score for that window.</div></div>
+      <div class="tc"><div class="tc-icon">👨‍👩‍👧</div><div class="tc-title">Two-parent leave planning</div><div class="tc-desc">Both parents allocate leave separately. See school care days needed across the whole year.</div></div>
+      <div class="tc"><div class="tc-icon">🔕</div><div class="tc-title">One email, no ads</div><div class="tc-desc">One email per week maximum. Affiliate commissions from providers when you book, disclosed upfront.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER SIGNUP -->
+<div class="fs-section">
+  <div class="sec-tag">Free · No spam · Unsubscribe anytime</div>
+  <h2 style="margin-bottom:0.75rem">Ready to stop winging it?</h2>
+  <p>Join Australian families who plan their school holidays before the deals disappear.</p>
+  <div class="fs-form">
+    <input type="email" id="fsEmail" placeholder="your@email.com"/>
+    <select id="fsState"><option>State</option><option>NSW</option><option>VIC</option><option>QLD</option><option>SA</option><option>WA</option></select>
+    <button class="btn-sun" onclick="fsSignup()">Get free deals →</button>
+  </div>
+  <div class="fs-proof" id="fsProof">Free forever · Deals every Tuesday · Unsubscribe anytime</div>
+</div>
+
+<footer>
+  <div class="foot-logo">🪟 Holiday<span>Windows</span></div>
+  <div class="foot-links">
+    <a href="holiday-windows-planner.html">Leave Planner</a>
+    <a href="#deals">Deals</a>
+    <a href="#how">How it works</a>
+    <a href="#">Unsubscribe</a>
+  </div>
+  <div class="foot-copy">© 2026 Finse Pty Ltd · holidaywindows.com.au · We earn affiliate commissions from providers when you book. We never recommend deals we wouldn't book ourselves.</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+function heroSignup(){
+  const em=document.getElementById('heroEmail').value.trim();
+  if(!em||!em.includes('@')){document.getElementById('heroEmail').style.borderColor='var(--coral)';setTimeout(()=>document.getElementById('heroEmail').style.borderColor='',2000);return;}
+  document.getElementById('heroProof').innerHTML='✓ You\'re in, first deal lands next Tuesday.';
+  document.getElementById('heroProof').style.color='var(--green)';
+  document.getElementById('heroEmail').value='';
+}
+function dealSignup(){
+  const em=document.getElementById('dealEmail').value.trim();
+  if(!em||!em.includes('@')) return;
+  document.getElementById('dealEmail').placeholder='✓ You\'re in!';
+  document.getElementById('dealEmail').value='';
+  document.getElementById('dealEmail').style.borderColor='var(--green)';
+}
+function fsSignup(){
+  const em=document.getElementById('fsEmail').value.trim();
+  if(!em||!em.includes('@')) return;
+  document.getElementById('fsProof').textContent='✓ You\'re in, see you Tuesday.';
+  document.getElementById('fsProof').style.color='var(--sun-lt)';
+  document.getElementById('fsEmail').value='';
+}
+</script>
+</body>
+</html>

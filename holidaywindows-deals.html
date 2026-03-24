@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Holiday Windows, Deals</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,900;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FAFAF8;--bg2:#F3F1ED;--bg3:#ECEAE5;
+  --navy:#0A1628;--navy2:#152238;--navy3:#1E3352;
+  --border:rgba(10,22,40,0.1);--border2:rgba(10,22,40,0.06);
+  --sun:#E8940A;--sun-lt:#F5A623;--sun-bg:#FEF3DC;
+  --coral:#E84B2A;--ocean:#1557B0;--ocean-lt:#2470CC;
+  --teal:#0B7A6E;--green:#1A9E6A;--green-bg:#E6F7F1;
+  --muted:rgba(10,22,40,0.5);--muted2:rgba(10,22,40,0.3);--muted3:rgba(10,22,40,0.15);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--navy);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(250,250,248,0.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border);}
+.logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;color:var(--navy);text-decoration:none;}
+.logo span{color:var(--sun);}
+.nav-right{display:flex;align-items:center;gap:1.25rem;}
+.nav-link{font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color 0.15s;}
+.nav-link:hover{color:var(--navy);}
+.nav-link.active{color:var(--navy);font-weight:600;}
+.nav-cta{font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;padding:0.45rem 1.1rem;background:var(--navy);color:#fff;border:none;border-radius:0.3rem;cursor:pointer;text-decoration:none;transition:all 0.15s;}
+.nav-cta:hover{background:var(--navy2);}
+
+/* ── PAGE HEADER ── */
+.page-hdr{
+  background:var(--navy);
+  padding:3rem 2.5rem 2.5rem;
+}
+.page-hdr-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;}
+.page-hdr-left{}
+.page-eyebrow{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,162,35,0.8);margin-bottom:0.5rem;}
+.page-title{font-family:'Fraunces',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:900;color:white;line-height:1.05;margin-bottom:0.5rem;}
+.page-title em{font-style:italic;font-weight:300;color:var(--sun-lt);}
+.page-sub{font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:480px;}
+/* Window filter tabs */
+.win-tabs{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.win-tab{
+  font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:600;
+  padding:0.4rem 0.875rem;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:2rem;color:rgba(255,255,255,0.55);
+  cursor:pointer;transition:all 0.15s;
+}
+.win-tab:hover{background:rgba(255,255,255,0.12);color:white;}
+.win-tab.on{background:var(--sun);color:var(--navy);border-color:var(--sun);}
+
+/* ── GATE BANNER ── */
+.gate-banner{
+  background:linear-gradient(135deg,var(--navy2) 0%,var(--navy3) 100%);
+  border-bottom:1px solid var(--border);
+  padding:1rem 2.5rem;
+}
+.gate-inner{
+  max-width:1080px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.gate-text{font-size:0.82rem;color:rgba(255,255,255,0.7);}
+.gate-text strong{color:white;}
+.gate-form{display:flex;gap:0.4rem;}
+.gate-form input{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;
+  padding:0.5rem 0.875rem;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:0.3rem;color:white;outline:none;
+  width:220px;transition:border-color 0.15s;
+}
+.gate-form input::placeholder{color:rgba(255,255,255,0.28);}
+.gate-form input:focus{border-color:rgba(245,162,35,0.6);}
+.gate-btn{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  padding:0.5rem 1rem;background:var(--sun);color:white;
+  border:none;border-radius:0.3rem;cursor:pointer;white-space:nowrap;
+  transition:background 0.15s;
+}
+.gate-btn:hover{background:var(--sun-lt);}
+
+/* ── MAIN LAYOUT ── */
+.main{max-width:1080px;margin:0 auto;padding:2.5rem;}
+
+/* ── DEAL CARD, full width editorial style ── */
+.deal-card{
+  background:white;border:1.5px solid var(--border2);
+  border-radius:1rem;overflow:hidden;margin-bottom:1.5rem;
+  display:grid;grid-template-columns:420px 1fr;
+  transition:box-shadow 0.2s;
+  position:relative;
+}
+.deal-card:hover{box-shadow:0 8px 32px rgba(10,22,40,0.1);}
+
+/* Image panel */
+.dc-img-panel{position:relative;overflow:hidden;}
+.dc-img{height:100%;min-height:280px;background-size:cover;background-position:center;}
+.dc-img-badges{position:absolute;top:1rem;left:1rem;display:flex;flex-direction:column;gap:0.4rem;}
+.dc-badge{
+  display:inline-flex;align-items:center;gap:0.35rem;
+  font-size:0.62rem;font-weight:700;
+  padding:0.25rem 0.6rem;border-radius:0.25rem;
+  backdrop-filter:blur(8px);
+}
+.dc-badge.window{background:rgba(10,22,40,0.75);color:var(--sun-lt);border:1px solid rgba(245,162,35,0.3);}
+.dc-badge.weather{background:rgba(26,158,106,0.85);color:white;}
+.dc-badge.hot{background:rgba(232,75,42,0.9);color:white;}
+.dc-dest-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(10,22,40,0.9) 0%,transparent 100%);
+  padding:2rem 1.25rem 1.25rem;
+}
+.dc-dest-name{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;color:white;line-height:1.1;}
+.dc-dest-sub{font-size:0.72rem;color:rgba(255,255,255,0.6);margin-top:0.2rem;}
+
+/* Content panel */
+.dc-content{padding:1.5rem 1.75rem;display:flex;flex-direction:column;justify-content:space-between;}
+.dc-top{}
+.dc-window-tag{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--ocean);background:rgba(21,87,176,0.08);
+  padding:0.25rem 0.65rem;border-radius:2rem;margin-bottom:0.875rem;
+}
+.dc-headline{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:0.5rem;}
+.dc-tagline{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.25rem;}
+
+/* Stats row */
+.dc-stats{
+  display:flex;gap:0;margin-bottom:1.25rem;
+  background:var(--bg);border:1.5px solid var(--border2);border-radius:0.625rem;overflow:hidden;
+}
+.dc-stat{flex:1;padding:0.75rem 1rem;text-align:center;position:relative;}
+.dc-stat+.dc-stat::before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:1px;background:var(--border2);}
+.dc-stat-n{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:900;line-height:1;margin-bottom:0.15rem;}
+.dc-stat-l{font-size:0.6rem;color:var(--muted);line-height:1.3;}
+.stat-price{color:var(--sun);}
+.stat-days{color:var(--navy);}
+.stat-free{color:var(--green);}
+.stat-leave{color:var(--ocean);}
+
+/* Detail rows */
+.dc-details{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.25rem;}
+.dc-detail{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.78rem;color:var(--muted);}
+.dc-detail-icon{width:16px;height:16px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.55rem;flex-shrink:0;margin-top:1px;}
+.dc-detail strong{color:var(--navy);}
+
+/* CTA row */
+.dc-cta-row{display:flex;gap:0.5rem;align-items:center;}
+.btn-book{
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:700;
+  padding:0.7rem 1.5rem;background:var(--ocean);color:white;
+  border:none;border-radius:0.375rem;cursor:pointer;flex:1;
+  transition:background 0.15s;
+}
+.btn-book:hover{background:var(--ocean-lt);}
+.btn-share{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;
+  padding:0.7rem 1rem;
+  background:transparent;color:var(--muted);
+  border:1.5px solid var(--border);border-radius:0.375rem;cursor:pointer;
+  transition:all 0.15s;white-space:nowrap;
+}
+.btn-share:hover{border-color:var(--navy);color:var(--navy);}
+.dc-expires{font-size:0.65rem;color:var(--coral);display:flex;align-items:center;gap:0.3rem;margin-top:0.5rem;}
+
+/* ── BLUR GATE, overlays deal content ── */
+.deal-card.gated .dc-content{
+  position:relative;
+  overflow:hidden;
+}
+.deal-card.gated .dc-content::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(250,250,248,0) 0%,rgba(250,250,248,0.97) 45%);
+  pointer-events:none;
+}
+.gate-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:1.5rem 1.75rem 1.75rem;
+  z-index:5;
+  text-align:center;
+}
+.gate-overlay-title{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;}
+.gate-overlay-sub{font-size:0.78rem;color:var(--muted);margin-bottom:1rem;}
+.gate-overlay-form{display:flex;gap:0.4rem;max-width:340px;margin:0 auto;}
+.gate-overlay-form input{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;
+  flex:1;padding:0.6rem 0.875rem;
+  background:white;border:1.5px solid var(--border);
+  border-radius:0.375rem;color:var(--navy);outline:none;
+  transition:border-color 0.15s;
+}
+.gate-overlay-form input:focus{border-color:var(--ocean);}
+.gate-overlay-form input::placeholder{color:var(--muted2);}
+.gate-overlay-form button{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  padding:0.6rem 1rem;background:var(--navy);color:white;
+  border:none;border-radius:0.375rem;cursor:pointer;white-space:nowrap;
+}
+.gate-overlay-form button:hover{background:var(--navy2);}
+
+/* ── SECTION DIVIDER ── */
+.section-divider{
+  display:flex;align-items:center;gap:1rem;margin:2rem 0 1.5rem;
+}
+.sdiv-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);white-space:nowrap;}
+.sdiv-line{flex:1;height:1px;background:var(--border2);}
+
+/* ── ARCHIVE GRID, smaller cards ── */
+.archive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:2rem;}
+.arc-card{
+  background:white;border:1.5px solid var(--border2);border-radius:0.75rem;overflow:hidden;
+  position:relative;filter:grayscale(0.3);opacity:0.7;
+  transition:all 0.2s;
+}
+.arc-card:hover{filter:none;opacity:0.9;}
+.arc-img{height:140px;background-size:cover;background-position:center;}
+.arc-body{padding:0.875rem 1rem;}
+.arc-window{font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem;}
+.arc-name{font-family:'Fraunces',serif;font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;}
+.arc-price{font-size:0.78rem;color:var(--muted);}
+.arc-price strong{color:var(--sun);font-family:'Fraunces',serif;font-size:1rem;font-weight:900;}
+.arc-expired{position:absolute;top:0.6rem;right:0.6rem;background:rgba(10,22,40,0.7);color:rgba(255,255,255,0.6);font-size:0.55rem;font-weight:700;padding:0.15rem 0.4rem;border-radius:0.2rem;text-transform:uppercase;letter-spacing:0.06em;}
+.arc-blur{
+  position:absolute;inset:0;
+  background:rgba(250,250,248,0.6);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:700;color:var(--muted);
+}
+
+/* ── NEWSLETTER NUDGE ── */
+.nl-nudge{
+  background:var(--navy);border-radius:0.875rem;
+  padding:2rem 2.5rem;margin-bottom:2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1.5rem;
+}
+.nl-nudge-left h3{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;color:white;margin-bottom:0.3rem;}
+.nl-nudge-left p{font-size:0.82rem;color:rgba(255,255,255,0.5);}
+.nl-nudge-form{display:flex;gap:0.4rem;}
+.nl-nudge-form input{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;
+  padding:0.6rem 0.875rem;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  border-radius:0.375rem;color:white;outline:none;width:220px;
+  transition:border-color 0.15s;
+}
+.nl-nudge-form input::placeholder{color:rgba(255,255,255,0.28);}
+.nl-nudge-form input:focus{border-color:rgba(245,162,35,0.5);}
+.nl-nudge-btn{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  padding:0.6rem 1.1rem;background:var(--sun);color:white;
+  border:none;border-radius:0.375rem;cursor:pointer;white-space:nowrap;
+}
+.nl-nudge-btn:hover{background:var(--sun-lt);}
+
+/* ── FOOTER ── */
+footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.foot-logo{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:900;color:white;}
+.foot-logo span{color:var(--sun-lt);}
+.foot-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.foot-links a{font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.15s;}
+.foot-links a:hover{color:rgba(255,255,255,0.8);}
+.foot-copy{font-size:0.65rem;color:rgba(255,255,255,0.2);max-width:380px;line-height:1.5;}
+
+@media(max-width:800px){
+  .deal-card{grid-template-columns:1fr;}
+  .dc-img-panel .dc-img{min-height:220px;}
+  nav.main.page-hdr.gate-banner{padding-left:1.25rem;padding-right:1.25rem;}
+  footer{padding-left:1.25rem;padding-right:1.25rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="holidaywindows-landing-light.html">🪟 Holiday<span>Windows</span></a>
+  <div class="nav-right">
+    <a class="nav-link" href="holidaywindows-landing-light.html">Home</a>
+    <a class="nav-link active" href="#">Deals</a>
+    <a class="nav-link" href="holiday-windows-planner.html">Planner</a>
+    <a class="nav-cta" href="#gate">Get free deals →</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-hdr">
+  <div class="page-hdr-inner">
+    <div class="page-hdr-left">
+      <div class="page-eyebrow">Updated Tuesday 24 March 2026</div>
+      <h1 class="page-title">This week's<br><em>family holiday deals.</em></h1>
+      <p class="page-sub">One email every Tuesday. Only deals worth booking, tagged to your state's school holiday windows, with leave days shown upfront.</p>
+    </div>
+    <div class="win-tabs">
+      <button class="win-tab on" onclick="filterDeals('all',this)">All windows</button>
+      <button class="win-tab" onclick="filterDeals('easter',this)">🐣 Easter</button>
+      <button class="win-tab" onclick="filterDeals('july',this)">⛷️ July</button>
+      <button class="win-tab" onclick="filterDeals('sept',this)">🌸 September</button>
+      <button class="win-tab" onclick="filterDeals('summer',this)">☀️ Summer</button>
+    </div>
+  </div>
+</div>
+
+<!-- GATE BANNER -->
+<div class="gate-banner" id="gate">
+  <div class="gate-inner">
+    <div class="gate-text"><strong>Deals are subscriber-only.</strong> Join free to see full prices, details and booking links, unsubscribe anytime.</div>
+    <div class="gate-form">
+      <input type="email" id="gateEmail" placeholder="your@email.com"/>
+      <select style="font-family:'DM Sans',sans-serif;font-size:0.82rem;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:0.3rem;color:white;outline:none;cursor:pointer;">
+        <option style="background:#152238">State</option>
+        <option style="background:#152238">NSW</option>
+        <option style="background:#152238">VIC</option>
+        <option style="background:#152238">QLD</option>
+        <option style="background:#152238">SA</option>
+        <option style="background:#152238">WA</option>
+      </select>
+      <button class="gate-btn" onclick="gateSignup()">Unlock deals free →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <!-- ── LIVE DEALS ── -->
+
+  <!-- Deal 1: July Bali, gated -->
+  <div class="deal-card gated" data-window="july">
+    <div class="dc-img-panel">
+      <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80');background-position:center 40%;">
+        <div class="dc-img-badges">
+          <div class="dc-badge window">⛷️ July Window · NSW/VIC</div>
+          <div class="dc-badge weather">★★★★★ Peak dry season</div>
+          <div class="dc-badge hot">🔥 Selling fast</div>
+        </div>
+        <div class="dc-dest-overlay">
+          <div class="dc-dest-name">🇮🇩 Bali, Indonesia</div>
+          <div class="dc-dest-sub">Seminyak · 7 nights · Family of 4</div>
+        </div>
+      </div>
+    </div>
+    <div class="dc-content">
+      <div class="dc-top">
+        <div class="dc-window-tag">⛷️ July 2026 · 13–24 Jul</div>
+        <div class="dc-headline">7 nights Bali with flights, family of 4</div>
+        <div class="dc-tagline">Return flights from Sydney, 4-star villa with private pool, daily breakfast included. Peak dry season. the best Bali weather of the year.</div>
+        <div class="dc-stats">
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-price">$3,480</div>
+            <div class="dc-stat-l">total family of 4<br><span style="color:var(--muted2);font-size:0.55rem">vs $5,200+ peak week</span></div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-days">16</div>
+            <div class="dc-stat-l">day window<br>NSW/VIC</div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-free">2</div>
+            <div class="dc-stat-l">free days<br>in window</div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-leave">2</div>
+            <div class="dc-stat-l">days annual<br>leave needed</div>
+          </div>
+        </div>
+        <div class="dc-details">
+          <div class="dc-detail"><div class="dc-detail-icon">✈</div><strong>Flights:</strong>&nbsp;SYD–DPS return, Fri 10 Jul → Fri 17 Jul</div>
+          <div class="dc-detail"><div class="dc-detail-icon">🏨</div><strong>Stay:</strong>&nbsp;4-star villa, private pool, Seminyak</div>
+          <div class="dc-detail"><div class="dc-detail-icon">👨‍👩‍👧</div><strong>Kids:</strong>&nbsp;Children under 12 stay free (2 max)</div>
+          <div class="dc-detail"><div class="dc-detail-icon">📅</div><strong>Leave:</strong>&nbsp;Take Mon 13 + Tue 14 July (2 days), depart Fri, return Fri</div>
+        </div>
+      </div>
+      <div>
+        <div class="dc-cta-row">
+          <button class="btn-book" onclick="document.getElementById('gate').scrollIntoView({behavior:'smooth'})">Join free to book →</button>
+          <button class="btn-share" onclick="sharedeal('Bali July 2026','$3,480 family of 4 · 7 nights · 2 days annual leave')">↗ Share</button>
+        </div>
+        <div class="dc-expires">⏱ Deal expires Friday or while seats last</div>
+      </div>
+      <!-- Gate overlay -->
+      <div class="gate-overlay">
+        <div class="gate-overlay-title">Join free to unlock this deal</div>
+        <div class="gate-overlay-sub">Free forever · Deals every Tuesday · Unsubscribe anytime</div>
+        <div class="gate-overlay-form">
+          <input type="email" placeholder="your@email.com"/>
+          <button onclick="unlockDeal(this)">Unlock →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deal 2: Summer Thailand, gated -->
+  <div class="deal-card gated" data-window="summer">
+    <div class="dc-img-panel">
+      <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=800&q=80');background-position:center 55%;">
+        <div class="dc-img-badges">
+          <div class="dc-badge window">☀️ Summer Window · All states</div>
+          <div class="dc-badge weather">★★★★★ Thailand peak season</div>
+        </div>
+        <div class="dc-dest-overlay">
+          <div class="dc-dest-name">🇹🇭 Koh Samui, Thailand</div>
+          <div class="dc-dest-sub">Gulf Coast · 10 nights · Family of 4</div>
+        </div>
+      </div>
+    </div>
+    <div class="dc-content">
+      <div class="dc-top">
+        <div class="dc-window-tag">☀️ Summer 2026 · 18 Dec–27 Jan</div>
+        <div class="dc-headline">10 nights Koh Samui, family of 4</div>
+        <div class="dc-tagline">Return flights from Melbourne, beachfront resort, kids club included. Koh Samui's Gulf Coast stays dry through December and January, opposite to the Andaman resorts.</div>
+        <div class="dc-stats">
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-price">$5,290</div>
+            <div class="dc-stat-l">total family of 4<br><span style="color:var(--muted2);font-size:0.55rem">incl. flights</span></div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-days">40+</div>
+            <div class="dc-stat-l">day window<br>Dec–Jan</div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-free">5+</div>
+            <div class="dc-stat-l">free days<br>in window</div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-leave">3</div>
+            <div class="dc-stat-l">days annual<br>leave needed</div>
+          </div>
+        </div>
+        <div class="dc-details">
+          <div class="dc-detail"><div class="dc-detail-icon">✈</div><strong>Flights:</strong>&nbsp;MEL–KBV return, Sat 20 Dec → Wed 30 Dec</div>
+          <div class="dc-detail"><div class="dc-detail-icon">🏨</div><strong>Stay:</strong>&nbsp;4-star beachfront resort, kids club included</div>
+          <div class="dc-detail"><div class="dc-detail-icon">👨‍👩‍👧</div><strong>Kids:</strong>&nbsp;Children under 16 stay free</div>
+          <div class="dc-detail"><div class="dc-detail-icon">📅</div><strong>Leave:</strong>&nbsp;Take Mon–Wed 22–24 Dec (3 days), 10 nights over Christmas</div>
+        </div>
+      </div>
+      <div>
+        <div class="dc-cta-row">
+          <button class="btn-book" onclick="document.getElementById('gate').scrollIntoView({behavior:'smooth'})">Join free to book →</button>
+          <button class="btn-share" onclick="sharedeal('Koh Samui Summer 2026','$5,290 family of 4 · 10 nights · 3 days annual leave')">↗ Share</button>
+        </div>
+        <div class="dc-expires">⏱ December flights book out early, act by April</div>
+      </div>
+      <div class="gate-overlay">
+        <div class="gate-overlay-title">Join free to unlock this deal</div>
+        <div class="gate-overlay-sub">Free forever · Deals every Tuesday · Unsubscribe anytime</div>
+        <div class="gate-overlay-form">
+          <input type="email" placeholder="your@email.com"/>
+          <button onclick="unlockDeal(this)">Unlock →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deal 3: September Ningaloo, gated -->
+  <div class="deal-card gated" data-window="sept">
+    <div class="dc-img-panel">
+      <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=800&q=80');background-position:center 50%;">
+        <div class="dc-img-badges">
+          <div class="dc-badge window">🌸 September Window · All states</div>
+          <div class="dc-badge weather">★★★★★ Whale shark season</div>
+        </div>
+        <div class="dc-dest-overlay">
+          <div class="dc-dest-name">🇦🇺 Ningaloo, Western Australia</div>
+          <div class="dc-dest-sub">Coral Bay · 6 nights · Family of 4</div>
+        </div>
+      </div>
+    </div>
+    <div class="dc-content">
+      <div class="dc-top">
+        <div class="dc-window-tag">🌸 September 2026 · 26 Sep–9 Oct</div>
+        <div class="dc-headline">6 nights Ningaloo, family of 4</div>
+        <div class="dc-tagline">Return flights from Sydney, Coral Bay eco-resort. September is peak whale shark season at Ningaloo. the best snorkelling in Australia, and significantly cheaper than Bali for a comparable experience.</div>
+        <div class="dc-stats">
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-price">$4,180</div>
+            <div class="dc-stat-l">total family of 4<br><span style="color:var(--muted2);font-size:0.55rem">incl. flights</span></div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-days">15</div>
+            <div class="dc-stat-l">day window<br>NSW/VIC</div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-free">4</div>
+            <div class="dc-stat-l">free days<br>in window</div>
+          </div>
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-leave">3</div>
+            <div class="dc-stat-l">days annual<br>leave needed</div>
+          </div>
+        </div>
+        <div class="dc-details">
+          <div class="dc-detail"><div class="dc-detail-icon">✈</div><strong>Flights:</strong>&nbsp;SYD–LER return, Sat 26 Sep → Fri 2 Oct</div>
+          <div class="dc-detail"><div class="dc-detail-icon">🏕️</div><strong>Stay:</strong>&nbsp;Eco-resort, Coral Bay · snorkel gear included</div>
+          <div class="dc-detail"><div class="dc-detail-icon">🐋</div><strong>Experience:</strong>&nbsp;Whale shark snorkel tour bookable on-site (Sep–Oct)</div>
+          <div class="dc-detail"><div class="dc-detail-icon">📅</div><strong>Leave:</strong>&nbsp;Take Mon–Wed 28–30 Sep (3 days) for a full week away</div>
+        </div>
+      </div>
+      <div>
+        <div class="dc-cta-row">
+          <button class="btn-book" onclick="document.getElementById('gate').scrollIntoView({behavior:'smooth'})">Join free to book →</button>
+          <button class="btn-share" onclick="sharedeal('Ningaloo September 2026','$4,180 family of 4 · 6 nights · 3 days annual leave')">↗ Share</button>
+        </div>
+        <div class="dc-expires">⏱ Coral Bay accommodation books out in August</div>
+      </div>
+      <div class="gate-overlay">
+        <div class="gate-overlay-title">Join free to unlock this deal</div>
+        <div class="gate-overlay-sub">Free forever · Deals every Tuesday · Unsubscribe anytime</div>
+        <div class="gate-overlay-form">
+          <input type="email" placeholder="your@email.com"/>
+          <button onclick="unlockDeal(this)">Unlock →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter nudge -->
+  <div class="nl-nudge" id="nl-nudge">
+    <div class="nl-nudge-left">
+      <h3>Get next Tuesday's deal first.</h3>
+      <p>New deals every Tuesday morning, tagged to your state, with leave days shown. Free forever.</p>
+    </div>
+    <div class="nl-nudge-form">
+      <input type="email" id="nudgeEmail" placeholder="your@email.com"/>
+      <button class="nl-nudge-btn" onclick="nudgeSignup()">Join free →</button>
+    </div>
+  </div>
+
+  <!-- Archive section -->
+  <div class="section-divider">
+    <div class="sdiv-line"></div>
+    <div class="sdiv-label">Previous deals, subscribe to unlock</div>
+    <div class="sdiv-line"></div>
+  </div>
+
+  <div class="archive-grid">
+    <div class="arc-card">
+      <div class="arc-img" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=70')"></div>
+      <div class="arc-body">
+        <div class="arc-window">🐣 Easter 2026 · NSW/VIC</div>
+        <div class="arc-name">5 nights Grampians glamping</div>
+        <div class="arc-price">From <strong>$1,890</strong> family of 4</div>
+      </div>
+      <div class="arc-expired">Expired</div>
+      <div class="arc-blur">Subscribe to see live deals</div>
+    </div>
+    <div class="arc-card">
+      <div class="arc-img" style="background-image:url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=400&q=70')"></div>
+      <div class="arc-body">
+        <div class="arc-window">⛷️ July 2026 · All states</div>
+        <div class="arc-name">4 nights Whitsunday Island</div>
+        <div class="arc-price">From <strong>$2,890</strong> family of 4</div>
+      </div>
+      <div class="arc-expired">Expired</div>
+      <div class="arc-blur">Subscribe to see live deals</div>
+    </div>
+    <div class="arc-card">
+      <div class="arc-img" style="background-image:url('https://images.unsplash.com/photo-1551524559-8af4e6624178?w=400&q=70')"></div>
+      <div class="arc-body">
+        <div class="arc-window">⛷️ July 2026 · NSW/VIC</div>
+        <div class="arc-name">6 nights NZ South Island ski</div>
+        <div class="arc-price">From <strong>$3,640</strong> family of 4</div>
+      </div>
+      <div class="arc-expired">Expired</div>
+      <div class="arc-blur">Subscribe to see live deals</div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">🪟 Holiday<span>Windows</span></div>
+  <div class="foot-links">
+    <a href="holidaywindows-landing-light.html">Home</a>
+    <a href="holiday-windows-planner.html">Leave Planner</a>
+    <a href="#">How it works</a>
+    <a href="#">Unsubscribe</a>
+  </div>
+  <div class="foot-copy">© 2026 Finse Pty Ltd · holidaywindows.com.au · We earn affiliate commissions from providers when you book. We never recommend deals we wouldn't book ourselves.</div>
+</footer>
+
+<script>
+// Window filter
+function filterDeals(win, btn){
+  document.querySelectorAll('.win-tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.deal-card').forEach(card=>{
+    const show = win==='all' || card.dataset.window===win;
+    card.style.display = show ? 'grid' : 'none';
+  });
+}
+
+// Gate signups
+function gateSignup(){
+  const em=document.getElementById('gateEmail').value.trim();
+  if(!em||!em.includes('@')){
+    document.getElementById('gateEmail').style.borderColor='rgba(232,75,42,0.8)';
+    return;
+  }
+  unlockAllDeals();
+  document.querySelector('.gate-banner').innerHTML=
+    '<div style="max-width:1080px;margin:0 auto;padding:0.6rem 0;font-size:0.82rem;color:rgba(255,255,255,0.7);">✓ <strong style="color:white">You\'re in!</strong> First deal email lands next Tuesday. Deals are now unlocked below.</div>';
+}
+
+function unlockDeal(btn){
+  const em=btn.previousElementSibling.value.trim();
+  if(!em||!em.includes('@')) return;
+  unlockAllDeals();
+  document.querySelector('.gate-banner').innerHTML=
+    '<div style="max-width:1080px;margin:0 auto;padding:0.6rem 0;font-size:0.82rem;color:rgba(255,255,255,0.7);">✓ <strong style="color:white">You\'re in!</strong> Deals are now unlocked.</div>';
+}
+
+function unlockAllDeals(){
+  document.querySelectorAll('.deal-card.gated').forEach(card=>{
+    card.classList.remove('gated');
+    const overlay=card.querySelector('.gate-overlay');
+    if(overlay) overlay.remove();
+  });
+  document.getElementById('nl-nudge')?.remove();
+}
+
+function nudgeSignup(){
+  const em=document.getElementById('nudgeEmail')?.value.trim();
+  if(!em||!em.includes('@')) return;
+  unlockAllDeals();
+}
+
+function sharedeal(name, detail){
+  const txt=`🪟 Holiday Windows deal, ${name}\n${detail}\n\nSee all deals: holidaywindows.com.au/deals`;
+  navigator.clipboard.writeText(txt).then(()=>{
+    alert('Copied to clipboard, paste into your parent group!');
+  }).catch(()=>{});
+}
+</script>
+</body>
+</html>

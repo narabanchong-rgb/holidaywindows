@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FAQ, Holiday Windows</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#FAFAF8;--bg2:#F3F1ED;--navy:#0A1628;--navy2:#152238;--border:rgba(10,22,40,0.1);--border2:rgba(10,22,40,0.06);--sun:#E8940A;--sun-lt:#F5A623;--sun-bg:#FEF3DC;--ocean:#1557B0;--green:#1A9E6A;--muted:rgba(10,22,40,0.5);--muted2:rgba(10,22,40,0.3);}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--navy);}
+nav{position:sticky;top:0;z-index:100;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(250,250,248,0.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border);}
+.logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;color:var(--navy);text-decoration:none;}
+.logo span{color:var(--sun);}
+.nav-cta{font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;padding:0.45rem 1.1rem;background:var(--navy);color:#fff;border:none;border-radius:0.3rem;cursor:pointer;text-decoration:none;}
+.page-hdr{background:var(--navy);padding:3rem 2.5rem 2.5rem;}
+.page-hdr-inner{max-width:760px;margin:0 auto;}
+.eyebrow{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,162,35,0.8);margin-bottom:0.5rem;}
+h1{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:white;margin-bottom:0.5rem;}
+.page-sub{font-size:0.88rem;color:rgba(255,255,255,0.5);}
+.content{max-width:760px;margin:0 auto;padding:3rem 2.5rem;}
+
+/* FAQ sections */
+.faq-section{margin-bottom:2.5rem;}
+.faq-section-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border2);}
+.faq-item{border:1.5px solid var(--border2);border-radius:0.625rem;margin-bottom:0.5rem;overflow:hidden;background:white;}
+.faq-q{
+  padding:1rem 1.25rem;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-size:0.88rem;font-weight:600;color:var(--navy);
+  transition:background 0.15s;user-select:none;
+}
+.faq-q:hover{background:var(--bg);}
+.faq-q.open{background:var(--bg2);}
+.faq-chevron{font-size:0.75rem;color:var(--muted);transition:transform 0.2s;flex-shrink:0;}
+.faq-q.open .faq-chevron{transform:rotate(180deg);}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.25s ease;
+}
+.faq-a.open{max-height:600px;}
+.faq-a-inner{
+  padding:0 1.25rem 1.1rem;
+  font-size:0.85rem;color:var(--muted);line-height:1.75;
+  border-top:1px solid var(--border2);padding-top:0.875rem;
+}
+.faq-a-inner strong{color:var(--navy);}
+.faq-a-inner a{color:var(--ocean);text-decoration:none;}
+.faq-a-inner a:hover{text-decoration:underline;}
+.faq-a-inner ul{margin:0.5rem 0 0.5rem 1.25rem;}
+.faq-a-inner ul li{margin-bottom:0.3rem;}
+.faq-a-inner .highlight{background:var(--sun-bg);border-radius:0.375rem;padding:0.5rem 0.75rem;font-size:0.82rem;color:#7A4F00;margin-top:0.5rem;}
+
+/* Still have questions */
+.contact-nudge{background:var(--bg2);border:1.5px solid var(--border2);border-radius:0.875rem;padding:1.75rem;text-align:center;margin-top:1rem;}
+.contact-nudge h3{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+.contact-nudge p{font-size:0.85rem;color:var(--muted);margin-bottom:1rem;}
+.btn-ocean{font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:700;padding:0.6rem 1.5rem;background:var(--ocean);color:white;border:none;border-radius:0.375rem;cursor:pointer;text-decoration:none;display:inline-block;}
+
+footer{background:var(--navy2);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:3rem;}
+.foot-logo{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:900;color:white;}
+.foot-logo span{color:var(--sun-lt);}
+.foot-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.foot-links a{font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:none;}
+.foot-links a:hover{color:rgba(255,255,255,0.8);}
+.foot-copy{font-size:0.65rem;color:rgba(255,255,255,0.2);max-width:380px;line-height:1.5;}
+@media(max-width:600px){nav.content.page-hdr,footer{padding-left:1.25rem;padding-right:1.25rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="holidaywindows-landing-light.html">🪟 Holiday<span>Windows</span></a>
+  <a class="nav-cta" href="holidaywindows-landing-light.html#signup">Get free deals →</a>
+</nav>
+<div class="page-hdr"><div class="page-hdr-inner">
+  <div class="eyebrow">Help</div>
+  <h1>Frequently asked questions</h1>
+  <p class="page-sub">Everything you need to know about Holiday Windows, the Leave Planner, and how deals work.</p>
+</div></div>
+
+<div class="content">
+
+  <!-- THE BASICS -->
+  <div class="faq-section">
+    <div class="faq-section-title">The basics</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">What is Holiday Windows? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Holiday Windows is two things: a <strong>free weekly deals email</strong> that surfaces the best family travel deals timed to Australian school holiday windows, and a <strong>free Leave Planner tool</strong> that helps parents figure out how to cover every school holiday day across the year using annual leave, public holidays, and holiday care. The two work together, find the deal, then plan the leave.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Is it really free? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes, completely free. The newsletter is free to subscribe to. The Leave Planner is free to use. We generate revenue through small affiliate commissions paid by travel providers when you book through our links, at no extra cost to you. We disclose every affiliate relationship clearly in each email and on our <a href="holidaywindows-terms.html">Terms page</a>.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Which states do you cover? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">The Leave Planner covers <strong>NSW, VIC, QLD, SA, and WA</strong> with state-specific school holiday dates and public holidays. The deals email is tagged to your state when you subscribe so you receive deals relevant to your school holiday windows. NT and TAS school holiday dates are in the pipeline.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How often do you send emails? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">One email per week, every Tuesday morning. If there is no deal worth sending that week, we don't send anything. We will never pad emails with filler content or send more than one per week. If you register for deal alerts on specific windows, you may receive a single alert email when a deal for that window is published.</div></div>
+    </div>
+  </div>
+
+  <!-- THE LEAVE PLANNER -->
+  <div class="faq-section">
+    <div class="faq-section-title">The Leave Planner</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">What does "days to cover" mean? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Every school holiday day your children are not at school needs to be covered, either by a parent at home, holiday care, or a combination. "Days to cover" is the total number of days in a school holiday window. Some of those days are <strong>already free</strong>, weekends and public holidays that fall inside the window mean you're already off work. The remainder need to be split between annual leave and holiday care. The planner shows you exactly how many fall into each category.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">What's the difference between "free days," "annual leave," and "care days"? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <ul>
+          <li><strong>Free days</strong>, weekends and public holidays that fall inside the school holiday window. You're already not working on these days, so they cost nothing in leave or care fees.</li>
+          <li><strong>Annual leave</strong>, days you choose to take off work from your leave balance. These are the days you'd use for a family trip.</li>
+          <li><strong>Care days</strong>, school holiday days where you work and your children are in holiday care programs, with grandparents, or otherwise supervised.</li>
+        </ul>
+        The planner lets you assign each day in each window to one of these three categories so you can see your complete picture before making any bookings.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Are the school holiday dates accurate? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">School holiday dates in the planner are sourced from official state education department calendars for 2026. They are accurate for <strong>government schools</strong> in each state. <strong>Catholic and independent schools</strong> often have different, usually longer, holiday periods. The planner currently uses government school dates as the baseline. We always recommend verifying your specific school's dates and adding any pupil-free or staff development days using the "extra days" feature in the planner.
+        <div class="highlight">Check your school's specific term dates at your state education department website before making bookings.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Does the planner save my settings? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Click the <strong>💾 Save</strong> button in the planner to save your parent names, leave balances, and all day assignments to your browser. The planner will reload your settings next time you visit from the same device and browser. Note: clearing your browser data will clear saved planner settings. We recommend saving your plan periodically.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Why does the Summer window run to late January? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Australian summer school holidays typically run from mid-December through to late January, around 6-7 weeks, making it the longest and most complex window to plan. Most families split this into a December trip and a January period that requires a mix of leave and holiday care. The planner shows the full window through to January 27 so you can plan both parts properly.</div></div>
+    </div>
+  </div>
+
+  <!-- THE DEALS -->
+  <div class="faq-section">
+    <div class="faq-section-title">The deals</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How do you find and select deals? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Every week we manually review deals across flights, accommodation, and packages from a range of Australian and international providers. We only feature a deal if it meets all three of our criteria: it represents <strong>genuine value</strong> compared to typical pricing for the same trip, the <strong>weather quality</strong> for that destination and window is good (we don't send Fiji deals in cyclone season), and the <strong>leave days required</strong> are clearly stated and reasonable. If nothing meets our standard that week, we don't send a deal.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Are the prices guaranteed? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">No. Prices shown are accurate at time of publication but travel prices change frequently based on availability. Always verify the current price when you click through to book. We clearly state in every email when deals are time-limited or based on limited availability. See our <a href="holidaywindows-terms.html">Terms of Use</a> for the full pricing disclaimer.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Do you earn money from the deals you feature? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. we earn a small affiliate commission from providers when you book through our links, at no extra cost to you. This is how Holiday Windows remains free. We are transparent about this in every email and on our <a href="holidaywindows-terms.html">Affiliate Disclosure</a> page. <strong>Affiliate relationships do not influence which deals we feature</strong>, if a deal doesn't meet our standard, we don't feature it regardless of commission rates.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Do you include Australian destinations or just international? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Both. We actively seek out Australian deals including domestic flights, resorts, camping, and road trip packages. Destinations like Ningaloo (September), the Snowy Mountains (July ski), and the Kimberley (Summer) are some of the best family holiday options in the world, and often significantly cheaper than comparable international options. We feature Australian and international deals based purely on which represents better value for that specific window.</div></div>
+    </div>
+  </div>
+
+  <!-- PRIVACY & UNSUBSCRIBE -->
+  <div class="faq-section">
+    <div class="faq-section-title">Privacy &amp; unsubscribing</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">What do you do with my email address? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Your email address is used only to send you the Holiday Windows newsletter and any deal alerts you've requested. We never sell, rent, or share your email with third parties for marketing purposes. Full details are in our <a href="holidaywindows-privacy.html">Privacy Policy</a>.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How do I unsubscribe? <span class="faq-chevron">▼</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Click the <strong>Unsubscribe</strong> link in the footer of any Holiday Windows email. You will be immediately removed from the list. You can also email <a href="/cdn-cgi/l/email-protection#b3dbd6dfdfdcf3dbdcdfdad7d2cac4daddd7dcc4c09dd0dcde9dd2c6"><span class="__cf_email__" data-cfemail="6a020f0606052a020506030e0b131d03040e051d1944090507440b1f">[email&#160;protected]</span></a> to request removal. Note: unsubscribing from the email does not affect your ability to use the free Leave Planner.</div></div>
+    </div>
+  </div>
+
+  <div class="contact-nudge">
+    <h3>Still have a question?</h3>
+    <p>We read every email. Usually reply within 24 hours on business days.</p>
+    <a href="/cdn-cgi/l/email-protection#fe969b929291be969192979a9f878997909a91898dd09d9193d09f8b" class="btn-ocean">Email us →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-logo">🪟 Holiday<span>Windows</span></div>
+  <div class="foot-links">
+    <a href="holidaywindows-landing-light.html">Home</a>
+    <a href="holidaywindows-deals.html">Deals</a>
+    <a href="holiday-windows-planner.html">Planner</a>
+    <a href="holidaywindows-about.html">About</a>
+    <a href="holidaywindows-privacy.html">Privacy</a>
+    <a href="holidaywindows-terms.html">Terms</a>
+  </div>
+  <div class="foot-copy">© 2026 Finse Pty L

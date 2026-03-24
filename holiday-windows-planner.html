@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Holiday Windows, Family Leave Planner 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --dark:#0D1B2A;--darker:#080F18;--card:#112233;--card2:#0F1E2F;
+  --border:rgba(255,255,255,0.07);--ocean:#0066CC;--teal:#0D9488;
+  --sun:#FFB800;--coral:#FF5A36;--sage:#6B7F6E;--green:#22C55E;
+  --white:#FFFFFF;--muted:rgba(255,255,255,0.45);--subtle:rgba(255,255,255,0.15);
+  --c-school:rgba(34,197,94,0.22);--c-pub:rgba(59,130,246,0.28);
+  --c-we:rgba(255,255,255,0.04);--c-wd:rgba(255,255,255,0.02);
+  --c-hack:rgba(255,184,0,0.2);--c-win:rgba(255,184,0,0.07);
+  --c-both:rgba(99,183,138,0.28);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;min-height:100vh;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.875rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;}
+.logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:900;color:var(--white);}
+.logo span{color:var(--sun);}
+.nav-r{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+.sbtn{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;padding:0.35rem 0.7rem;border:1px solid var(--subtle);border-radius:0.25rem;background:transparent;color:var(--muted);cursor:pointer;transition:all 0.15s;}
+.sbtn:hover.sbtn.on{background:var(--ocean);color:white;border-color:var(--ocean);}
+
+/* NEWSLETTER CTA BANNER */
+.nl-banner{background:linear-gradient(135deg,rgba(0,102,204,0.2) 0%,rgba(255,184,0,0.1) 100%);border-bottom:1px solid rgba(255,184,0,0.2);padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;}
+.nl-text{font-size:0.82rem;color:rgba(255,255,255,0.8);}
+.nl-text strong{color:var(--sun);}
+.nl-form{display:flex;gap:0.4rem;}
+.nl-form input{font-family:'DM Sans',sans-serif;font-size:0.8rem;padding:0.4rem 0.875rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,184,0,0.25);border-radius:0.25rem;color:white;outline:none;width:200px;}
+.nl-form input::placeholder{color:rgba(255,255,255,0.3);}
+.nl-form input:focus{border-color:var(--sun);}
+.nl-btn{font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;padding:0.4rem 1rem;background:var(--sun);color:var(--darker);border:none;border-radius:0.25rem;cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.nl-btn:hover{background:#FCD34D;}
+.nl-btn.done{background:var(--green);color:white;}
+
+/* TABS */
+.tabs{padding:0.75rem 2rem 0;display:flex;gap:0.4rem;flex-wrap:wrap;border-bottom:1px solid var(--border);}
+.tab{font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:500;padding:0.5rem 1rem;border:1px solid transparent;border-radius:0.375rem 0.375rem 0 0;background:transparent;color:var(--muted);cursor:pointer;transition:all 0.15s;margin-bottom:-1px;}
+.tab:hover{color:var(--white);}
+.tab.on{background:var(--card);color:var(--white);border-color:var(--border);border-bottom-color:var(--card);}
+
+.main{padding:1.5rem 2rem;display:flex;flex-direction:column;gap:1.75rem;}
+
+/* LEGEND */
+.legend{display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;padding:0.75rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:0.5rem;}
+.leg{display:flex;align-items:center;gap:0.4rem;font-size:0.7rem;color:var(--muted);}
+.ld{width:11px;height:11px;border-radius:2px;flex-shrink:0;}
+.ldiv{width:1px;height:14px;background:var(--border);}
+
+/* OPTIMISER PANEL */
+.opt-panel{background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:1.5rem;}
+.opt-inputs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem;margin-bottom:1.25rem;}
+.opt-field label{font-size:0.68rem;font-weight:600;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;display:block;margin-bottom:0.4rem;}
+.opt-field input[type=number].opt-field input[type=text]{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--white);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:0.375rem;padding:0.5rem 0.75rem;width:100%;outline:none;transition:border-color 0.15s;}
+.opt-field input:focus{border-color:var(--ocean);}
+.opt-actions{display:flex;gap:0.5rem;align-items:center;margin-bottom:1.25rem;flex-wrap:wrap;}
+.opt-save{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;padding:0.4rem 0.875rem;background:rgba(0,102,204,0.15);border:1px solid rgba(0,102,204,0.3);color:#93C5FD;border-radius:0.25rem;cursor:pointer;transition:all 0.15s;}
+.opt-save:hover{background:rgba(0,102,204,0.25);}
+.opt-reset{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;padding:0.4rem 0.875rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:0.25rem;cursor:pointer;transition:all 0.15s;}
+.opt-reset:hover{color:var(--white);border-color:var(--subtle);}
+.opt-saved-note{font-size:0.68rem;color:var(--green);display:none;}
+.opt-total-bar{background:rgba(255,184,0,0.06);border:1px solid rgba(255,184,0,0.15);border-radius:0.5rem;padding:0.875rem 1.1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.25rem;}
+.otb-left{font-size:0.82rem;color:var(--muted);}
+.otb-left strong{color:var(--white);}
+.opt-status{font-size:0.78rem;padding:0.4rem 0.875rem;border-radius:0.25rem;font-weight:600;}
+.opt-status.good{background:rgba(34,197,94,0.12);color:var(--green);}
+.opt-status.warn{background:rgba(255,184,0,0.12);color:var(--sun);}
+.opt-status.bad{background:rgba(255,90,54,0.12);color:var(--coral);}
+/* WIN BREAKDOWN */
+.win-breakdown{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:1.5rem;}
+.wbd-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:0.75rem;overflow:hidden;position:relative;}
+.wbd-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:1;}
+.wbd-card.easter::before{background:linear-gradient(90deg,#F59E0B,#FCD34D);}
+.wbd-card.july::before{background:linear-gradient(90deg,#0D9488,#22C55E);}
+.wbd-card.sept::before{background:linear-gradient(90deg,#8B5CF6,#EC4899);}
+.wbd-card.summer::before{background:linear-gradient(90deg,#FF5A36,#FFB800);}
+.wbd-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.75rem;padding:1rem 1.25rem 0.75rem;border-bottom:1px solid var(--border);}
+.wbd-head-left{flex:1;}
+.wbd-window-lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.2rem;}
+.wbd-name{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--white);}
+.wbd-note{font-size:0.7rem;color:var(--sun);margin-top:0.2rem;line-height:1.45;}
+
+
+
+
+
+.wbd-body{padding:1rem 1.25rem;}
+.mc-legend{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.75rem;}
+.mcl{display:flex;align-items:center;gap:0.3rem;font-size:0.62rem;color:var(--muted);}
+.mcl-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.mini-cal{margin-bottom:0.5rem;}
+.mc-month-hdr{font-size:0.68rem;font-weight:700;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin:0.5rem 0 0.3rem;}
+.mc-days{display:flex;flex-wrap:wrap;gap:3px;}
+/* Day cell base */
+.mc-day{width:36px;height:52px;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;transition:transform 0.1s;user-select:none;flex-shrink:0;}
+.mc-dow{font-size:0.55rem;font-weight:700;letter-spacing:0.03em;opacity:0.65;line-height:1;}
+.mc-dn{font-size:0.72rem;font-weight:800;line-height:1;}
+.mc-dl{font-size:0.42rem;font-weight:600;text-align:center;line-height:1.2;white-space:nowrap;opacity:0.85;}
+/* Free day types */
+.mc-day.d-we{background:rgba(255,255,255,0.04);color:rgba(255,184,0,0.5);border:1px solid rgba(255,184,0,0.12);}
+.mc-day.d-ph-sc{background:rgba(99,102,241,0.25);color:#C4B5FD;}  /* PH within school hols */
+.mc-day.d-ph-click{background:rgba(59,130,246,0.2);color:#93C5FD;cursor:pointer;}  /* PH clickable */
+.mc-day.d-xtra{background:rgba(245,158,11,0.25);color:#FCD34D;cursor:pointer;border:1px solid rgba(245,158,11,0.4);}  /* extra/pupil-free */
+.mc-day.d-ph{background:rgba(59,130,246,0.2);color:#93C5FD;}
+.mc-day.d-sc{background:rgba(34,197,94,0.16);color:#86EFAC;}
+/* Clickable working days, single parent */
+.mc-day.d-un{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.25);cursor:pointer;border:1px dashed rgba(255,255,255,0.1);}
+.mc-day.d-lv{background:rgba(255,184,0,0.2);color:var(--sun);cursor:pointer;border:1px solid rgba(255,184,0,0.4);}
+.mc-day.d-ca{background:rgba(255,90,54,0.18);color:var(--coral);cursor:pointer;border:1px solid rgba(255,90,54,0.3);}
+/* Two parent mode */
+.mc-day.d-p1{background:rgba(255,184,0,0.2);color:var(--sun);cursor:pointer;border:1px solid rgba(255,184,0,0.4);}
+.mc-day.d-p2{background:rgba(0,102,204,0.2);color:#93C5FD;cursor:pointer;border:1px solid rgba(0,102,204,0.35);}
+.mc-day.d-bt{background:linear-gradient(135deg,rgba(255,184,0,0.25) 50%,rgba(0,102,204,0.25) 50%);color:var(--white);cursor:pointer;border:1px solid rgba(255,184,0,0.3);}
+.mc-day.d-ca2{background:rgba(255,90,54,0.18);color:var(--coral);cursor:pointer;border:1px solid rgba(255,90,54,0.3);}
+.mc-day:not(.d-we):not(.d-ph):not(.d-sc):hover{transform:scale(1.08);z-index:5;}
+/* Card footer */
+.wbd-foot{display:flex;gap:1rem;padding:0.75rem 1.25rem;border-top:1px solid var(--border);flex-wrap:wrap;background:rgba(0,0,0,0.15);align-items:center;}
+.wbd-stat{display:flex;flex-direction:column;align-items:center;min-width:52px;}
+.wbd-stat-val{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:900;line-height:1;}
+.wbd-stat-lbl{font-size:0.55rem;font-weight:600;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;margin-top:1px;text-align:center;}
+.s-free .wbd-stat-val{color:var(--green);}
+.s-p1 .wbd-stat-val{color:var(--sun);}
+.s-p2 .wbd-stat-val{color:#93C5FD;}
+.s-care .wbd-stat-val{color:var(--coral);}
+.s-trip .wbd-stat-val{color:var(--white);}
+.wbd-foot-dest{flex:1;text-align:right;font-size:0.72rem;color:var(--muted);line-height:1.5;}
+.wbd-foot-dest strong{color:var(--white);display:block;}
+
+.win-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;}
+.win-card{background:var(--card);border:1px solid var(--border);border-radius:0.75rem;overflow:hidden;}
+.win-card-top{padding:1.1rem 1.25rem 0.75rem;border-bottom:1px solid var(--border);}
+.win-card-window{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sun);margin-bottom:0.3rem;}
+.win-card-dates{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--white);}
+.win-card-days{font-size:0.75rem;color:var(--muted);margin-top:0.15rem;}
+.win-card-body{padding:0.875rem 1.25rem;}
+.win-dest-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
+.win-dest-name{font-size:0.8rem;font-weight:600;color:var(--white);}
+.win-dest-score{font-size:0.7rem;}
+.win-card-actions{display:flex;gap:0.5rem;margin-top:0.875rem;}
+/* Inline alert capture */
+.inline-alert{margin-top:0.5rem;overflow:hidden;max-height:0;transition:max-height 0.25s ease,opacity 0.2s;opacity:0;}
+.inline-alert.open{max-height:60px;opacity:1;}
+.inline-alert-row{display:flex;gap:0.4rem;}
+.inline-alert-row input{font-family:'DM Sans',sans-serif;font-size:0.75rem;padding:0.38rem 0.6rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,184,0,0.25);border-radius:0.25rem;color:white;outline:none;flex:1;min-width:0;}
+.inline-alert-row input:focus{border-color:var(--sun);}
+.inline-alert-row input::placeholder{color:rgba(255,255,255,0.25);}
+.inline-alert-row button{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:700;padding:0.38rem 0.65rem;background:var(--sun);color:var(--darker);border:none;border-radius:0.25rem;cursor:pointer;white-space:nowrap;}
+.inline-alert-row button:hover{background:#FCD34D;}
+/* wbd-foot alert button */
+.wbd-alert-btn{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:600;padding:0.3rem 0.65rem;background:rgba(255,184,0,0.1);border:1px solid rgba(255,184,0,0.25);color:var(--sun);border-radius:0.25rem;cursor:pointer;transition:all 0.15s;white-space:nowrap;}
+.wbd-alert-btn:hover{background:rgba(255,184,0,0.2);}
+.wbd-alert-btn.done{background:rgba(34,197,94,0.15);border-color:rgba(34,197,94,0.3);color:var(--green);cursor:default;}
+.wbd-share-btn{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:600;padding:0.3rem 0.65rem;background:rgba(0,102,204,0.1);border:1px solid rgba(0,102,204,0.25);color:#93C5FD;border-radius:0.25rem;cursor:pointer;transition:all 0.15s;white-space:nowrap;}
+.wbd-share-btn:hover{background:rgba(0,102,204,0.2);}
+.wbd-inline-alert{overflow:hidden;max-height:0;transition:max-height 0.25s ease,opacity 0.2s;opacity:0;margin-top:0;}
+.wbd-inline-alert.open{max-height:50px;opacity:1;margin-top:0.5rem;}
+.wbd-inline-row{display:flex;gap:0.35rem;}
+.wbd-inline-row input{font-family:'DM Sans',sans-serif;font-size:0.72rem;padding:0.35rem 0.55rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,184,0,0.2);border-radius:0.25rem;color:white;outline:none;flex:1;min-width:0;}
+.wbd-inline-row input:focus{border-color:var(--sun);}
+.wbd-inline-row input::placeholder{color:rgba(255,255,255,0.2);}
+.wbd-inline-row button{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:700;padding:0.35rem 0.6rem;background:var(--sun);color:var(--darker);border:none;border-radius:0.25rem;cursor:pointer;}
+.wca-btn{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;padding:0.4rem 0.75rem;border-radius:0.25rem;cursor:pointer;transition:all 0.15s;flex:1;text-align:center;}
+.wca-btn.alert{background:rgba(255,184,0,0.12);border:1px solid rgba(255,184,0,0.3);color:var(--sun);}
+.wca-btn.alert:hover{background:rgba(255,184,0,0.2);}
+.wca-btn.share{background:rgba(0,102,204,0.12);border:1px solid rgba(0,102,204,0.3);color:#93C5FD;}
+.wca-btn.share:hover{background:rgba(0,102,204,0.2);}
+
+/* HEATMAP */
+.heat-scroll{overflow-x:auto;}
+.heat-filter-btn{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:600;padding:0.3rem 0.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:0.25rem;cursor:pointer;transition:all 0.15s;}
+.heat-filter-btn:hover{color:var(--white);border-color:var(--subtle);}
+.heat-filter-btn.on{background:rgba(255,184,0,0.12);border-color:rgba(255,184,0,0.3);color:var(--sun);}
+.ht{min-width:860px;width:100%;border-collapse:separate;border-spacing:2px;}
+.ht th{font-size:0.62rem;font-weight:700;text-align:center;color:var(--muted);padding:0.25rem;}
+.ht th.dc{text-align:left;min-width:140px;}
+.ht td{height:28px;border-radius:3px;text-align:center;font-size:0.58rem;font-weight:700;cursor:pointer;position:relative;transition:transform 0.1s;}
+.ht td:hover{transform:scale(1.12);z-index:5;}
+.ht td.dl{background:transparent;text-align:left;font-size:0.76rem;font-weight:600;color:var(--white);padding-right:0.5rem;white-space:nowrap;cursor:default;}
+.ht td.dl:hover{transform:none;}
+.dreg{font-size:0.6rem;font-weight:300;color:var(--muted);display:block;}
+.w5{background:rgba(34,197,94,0.85);color:rgba(0,0,0,0.75);}
+.w4{background:rgba(132,204,22,0.8);color:rgba(0,0,0,0.75);}
+.w3{background:rgba(234,179,8,0.8);color:rgba(0,0,0,0.75);}
+.w2{background:rgba(249,115,22,0.8);color:rgba(0,0,0,0.75);}
+.w1{background:rgba(239,68,68,0.8);color:white;}
+.w0{background:rgba(239,68,68,0.28);color:rgba(255,255,255,0.45);}
+.wr{outline:2px solid rgba(255,184,0,0.7);outline-offset:-2px;}
+
+/* HACKS */
+.hk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
+.hk-card{background:rgba(255,184,0,0.05);border:1px solid rgba(255,184,0,0.15);border-radius:0.625rem;padding:1.25rem;}
+.hk-badge{display:inline-block;background:rgba(255,184,0,0.1);border:1px solid rgba(255,184,0,0.2);color:var(--sun);font-size:0.62rem;font-weight:700;padding:0.18rem 0.5rem;border-radius:0.2rem;margin-bottom:0.55rem;}
+.hk-off{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:900;color:var(--white);line-height:1;}
+.hk-off span{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:300;color:var(--muted);}
+.hk-name{font-size:0.85rem;font-weight:600;color:var(--sun);margin:0.35rem 0 0.3rem;}
+.hk-desc{font-size:0.76rem;color:var(--muted);line-height:1.6;margin-bottom:0.875rem;}
+.hk-share{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:600;padding:0.35rem 0.75rem;background:rgba(0,102,204,0.12);border:1px solid rgba(0,102,204,0.25);color:#93C5FD;border-radius:0.25rem;cursor:pointer;transition:all 0.15s;width:100%;text-align:center;}
+.hk-share:hover{background:rgba(0,102,204,0.22);}
+
+/* PACKING */
+.pk-controls{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.25rem;}
+.pk-sel{font-family:'DM Sans',sans-serif;font-size:0.82rem;padding:0.45rem 0.875rem;background:var(--card);border:1px solid var(--border);border-radius:0.375rem;color:var(--white);outline:none;cursor:pointer;}
+.pk-sel:focus{border-color:var(--ocean);}
+.pk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
+.pk-cat{background:var(--card);border:1px solid var(--border);border-radius:0.625rem;padding:1.1rem;}
+.pk-cat-title{font-size:0.8rem;font-weight:700;color:var(--sun);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.4rem;}
+.pk-item{display:flex;align-items:center;gap:0.5rem;font-size:0.76rem;color:var(--muted);padding:0.2rem 0;cursor:pointer;}
+.pk-item input[type=checkbox]{accent-color:var(--green);cursor:pointer;flex-shrink:0;}
+.pk-item.checked{color:rgba(255,255,255,0.35);text-decoration:line-through;}
+.pk-progress{margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+.pk-bar{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;}
+.pk-fill{height:100%;border-radius:3px;background:var(--green);transition:width 0.3s;}
+.pk-pct{font-size:0.75rem;color:var(--muted);min-width:2.5rem;}
+
+/* FLIGHTS */
+.fl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;}
+.fl-card{background:var(--card);border:1px solid var(--border);border-radius:0.625rem;padding:1.1rem;}
+.fl-title{font-size:0.82rem;font-weight:600;color:var(--white);margin-bottom:0.65rem;}
+.ftip{display:flex;gap:0.45rem;margin-bottom:0.45rem;}
+.fa{color:var(--coral);flex-shrink:0;font-size:0.72rem;margin-top:0.15rem;}
+.ftip p{font-size:0.74rem;color:var(--muted);line-height:1.55;}
+.ftip p strong{color:var(--white);}
+
+/* SHARE MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem;}
+.modal-bg.show{display:flex;}
+.modal{background:var(--card);border:1px solid rgba(255,184,0,0.3);border-radius:1rem;padding:2rem;max-width:420px;width:100%;position:relative;}
+.modal h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:0.25rem;}
+.modal p{font-size:0.8rem;color:var(--muted);margin-bottom:1.25rem;}
+.share-card-preview{background:var(--dark);border:1px solid rgba(255,184,0,0.25);border-radius:0.625rem;padding:1.25rem;margin-bottom:1.25rem;text-align:center;}
+.sc-logo{font-family:'Fraunces',serif;font-size:0.85rem;font-weight:900;color:var(--white);margin-bottom:0.5rem;}
+.sc-logo span{color:var(--sun);}
+.sc-headline{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--sun);line-height:1.1;margin-bottom:0.25rem;}
+.sc-sub{font-size:0.78rem;color:var(--muted);}
+.sc-dest{font-size:0.85rem;color:var(--white);margin-top:0.5rem;}
+.modal-btns{display:flex;gap:0.5rem;}
+.mbtn{font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;padding:0.6rem 1rem;border-radius:0.375rem;cursor:pointer;flex:1;text-align:center;transition:all 0.15s;}
+.mbtn.copy{background:var(--ocean);color:white;border:none;}
+.mbtn.copy:hover{background:#0080FF;}
+.mbtn.close-btn{background:transparent;color:var(--muted);border:1px solid var(--border);}
+.mbtn.close-btn:hover{color:var(--white);}
+
+/* ALERT MODAL */
+/* alert-modal CSS removed */
+
+/* TOOLTIP */
+.tip{position:fixed;background:rgba(8,15,24,0.97);border:1px solid var(--border);border-radius:0.45rem;padding:0.6rem 0.875rem;font-size:0.73rem;line-height:1.5;pointer-events:none;z-index:1000;max-width:210px;color:var(--white);display:none;}
+
+@media(max-width:640px){nav.main{padding-left:1rem;padding-right:1rem;}.tabs.nl-banner{padding-left:1rem;}.opt-inputs{grid-template-columns:1fr 1fr;}.win-breakdown{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">🪟 Holiday<span>Windows</span></div>
+  <div class="nav-r">
+    <span style="font-size:0.7rem;color:var(--muted)">State:</span>
+    <div style="display:flex;gap:0.3rem">
+      <button class="sbtn on" onclick="setState('NSW',this)">NSW</button>
+      <button class="sbtn" onclick="setState('VIC',this)">VIC</button>
+      <button class="sbtn" onclick="setState('QLD',this)">QLD</button>
+      <button class="sbtn" onclick="setState('SA',this)">SA</button>
+      <button class="sbtn" onclick="setState('WA',this)">WA</button>
+    </div>
+  </div>
+</nav>
+
+<!-- NEWSLETTER CTA BANNER -->
+<div class="nl-banner">
+  <div class="nl-text">✈️ <strong>Get the weekly deal email</strong>, school holiday deals tagged to your state, every Tuesday. Free forever.</div>
+  <div class="nl-form">
+    <input type="email" id="nlEmail" placeholder="Your email address"/>
+    <button class="nl-btn" id="nlBtn" onclick="nlSignup()">Get free deals →</button>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab on" onclick="showTab('plan',this)">📅 Year Planner</button>
+
+  <button class="tab" onclick="showTab('heat',this)">🌡️ Destination Guide</button>
+  <button class="tab" onclick="showTab('hacks',this)">⚡ Leave Hacks</button>
+  <button class="tab" onclick="showTab('pack',this)">🎒 Packing Lists</button>
+  <button class="tab" onclick="showTab('flights',this)">✈️ Flight Tips</button>
+</div>
+
+<div class="main">
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="leg"><div class="ld" style="background:rgba(34,197,94,0.45)"></div>School hols / off</div>
+  <div class="leg"><div class="ld" style="background:rgba(59,130,246,0.45)"></div>Public holiday (term time)</div>
+  <div class="leg"><div class="ld" style="background:rgba(255,184,0,0.25);border:1px solid rgba(255,184,0,0.4)"></div>⚡ Leave hack</div>
+  <div class="ldiv"></div>
+  <div class="leg"><span style="color:rgba(255,184,0,0.55);font-weight:700;font-size:0.75rem">Sa</span>&nbsp;<span style="color:rgba(255,90,54,0.55);font-weight:700;font-size:0.75rem">Su</span>&nbsp;Weekend</div>
+  <div class="leg"><div class="ld" style="background:rgba(255,184,0,0.1);border:1px solid rgba(255,184,0,0.2)"></div>Holiday window</div>
+</div>
+
+<!-- YEAR PLANNER TAB -->
+<div id="tab-plan">
+  <div class="stitle">Your 2026 Leave Optimiser</div>
+  <div class="ssub">School holidays are already free. This tool works out how many leave days to use as bridge days for each window, and how many days your kids will need care while you work.</div>
+
+  <div class="opt-panel">
+    <!-- INPUTS -->
+    <div class="opt-inputs">
+      <div class="opt-field">
+        <label>Parent 1 name</label>
+        <input type="text" id="optP1Name" value="Parent 1" oninput="runOpt()"/>
+      </div>
+      <div class="opt-field">
+        <label>P1 leave to allocate</label>
+        <input type="number" id="optTotal" value="15" min="0" max="60" oninput="runOpt()"/>
+        <div style="font-size:0.6rem;color:var(--muted);margin-top:0.3rem">Days budgeted for 2026 holidays</div>
+      </div>
+      <div class="opt-field">
+        <label>Parent 2 name</label>
+        <input type="text" id="optP2Name" value="Parent 2" oninput="runOpt()"/>
+      </div>
+      <div class="opt-field">
+        <label>P2 leave to allocate</label>
+        <input type="number" id="optTotal2" value="15" min="0" max="60" oninput="runOpt()"/>
+        <div style="font-size:0.6rem;color:var(--muted);margin-top:0.3rem">Days budgeted for 2026 holidays</div>
+      </div>
+    </div>
+
+    <!-- SAVE / RESET -->
+    <div class="opt-actions">
+      <button class="opt-save" onclick="saveOpt()">💾 Save my settings</button>
+      <button class="opt-reset" onclick="resetOpt()">↺ Reset</button>
+      <span class="opt-saved-note" id="savedNote">✓ Saved to this browser</span>
+    </div>
+
+    <!-- TOTAL BAR -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.25rem">
+      <div class="opt-total-bar" style="margin-bottom:0;flex-direction:column;gap:0.4rem;align-items:flex-start">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sun)" id="optP1Label">Parent 1</div>
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap">
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--white);line-height:1" id="optAvailTxt">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Budgeted</div></div>
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--sun);line-height:1" id="optUsedTxt">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Assigned</div></div>
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;line-height:1" id="optLeftTxt">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Remaining</div></div>
+        </div>
+        <div style="width:100%;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div id="p1Bar" style="height:100%;background:var(--sun);border-radius:2px;transition:width 0.3s;width:0%"></div></div>
+      </div>
+      <div class="opt-total-bar" style="margin-bottom:0;flex-direction:column;gap:0.4rem;align-items:flex-start">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#93C5FD" id="optP2Label">Parent 2</div>
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap">
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--white);line-height:1" id="optAvailTxt2">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Budgeted</div></div>
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:#93C5FD;line-height:1" id="optUsedTxt2">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Assigned</div></div>
+          <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;line-height:1" id="optLeftTxt2">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Remaining</div></div>
+        </div>
+        <div style="width:100%;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div id="p2Bar" style="height:100%;background:#3B82F6;border-radius:2px;transition:width 0.3s;width:0%"></div></div>
+      </div>
+    </div>
+    <div class="opt-status" id="optStatus" style="margin-bottom:1.25rem">, </div>
+
+    <!-- LEGEND -->
+    <div class="mc-legend" style="margin-bottom:1rem">
+      <div class="mcl"><div class="mcl-dot" style="background:rgba(34,197,94,0.4)"></div>School hols / free</div>
+      <div class="mcl"><div class="mcl-dot" style="background:rgba(59,130,246,0.4)"></div>Public holiday</div>
+      <div class="mcl"><div class="mcl-dot" style="background:rgba(255,255,255,0.08);border:1px dashed rgba(255,255,255,0.15)"></div>Unassigned work day</div>
+      <div class="mcl"><div class="mcl-dot" style="background:rgba(255,184,0,0.3)"></div><span id="legP1">P1 leave</span></div>
+      <div class="mcl"><div class="mcl-dot" style="background:rgba(0,102,204,0.3)"></div><span id="legP2">P2 leave</span></div>
+      <div class="mcl"><div class="mcl-dot" style="background:rgba(255,90,54,0.25)"></div>School care</div>
+      <div class="mcl"><span style="font-size:0.65rem;color:rgba(255,255,255,0.3)">Click working days to cycle assignment. Two-parent toggle per window.</span></div>
+    </div>
+
+    <!-- PER-WINDOW BREAKDOWN -->
+    <div class="win-breakdown" id="winBreakdown"></div>
+
+    <!-- TOTALS ROW -->
+    <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:0.5rem;padding:0.875rem 1.1rem;display:flex;gap:2rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem">
+      <div style="font-size:0.8rem;color:var(--muted)">
+        All 4 windows: &nbsp;
+        <strong style="color:var(--green)" id="totFree">, </strong> free days &nbsp;·&nbsp;
+        <strong style="color:var(--sun)" id="totLeave">, </strong> <span id="totLeaveLabel">leave days assigned</span> &nbsp;·&nbsp;
+        <strong style="color:var(--coral)" id="totCare">, </strong> care days &nbsp;·&nbsp;
+        <strong style="color:rgba(255,255,255,0.3)" id="totUn">, </strong> unassigned
+      </div>
+    </div>
+
+    <!-- SUMMARY GAP ANALYSIS -->
+    <div id="summaryPanel" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:0.75rem;overflow:hidden">
+      <div style="padding:0.75rem 1.25rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <div style="font-family:'Fraunces',serif;font-size:0.95rem;font-weight:600;color:var(--white)">📊 Your Leave Summary</div>
+        <div style="font-size:0.68rem;color:var(--muted)">Updates as you assign days above</div>
+      </div>
+      <div id="summaryContent" style="padding:1rem 1.25rem">
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.25);font-style:italic">Assign days in the windows above to see your summary.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem">
+    <div class="stitle" style="margin-bottom:0.5rem">Your 2026 Holiday Windows</div>
+    <div class="ssub">Click ⚡ Alert Me on any window to get notified when deals drop. Click ↗ Share to post in your parent group.</div>
+    <div class="win-cards" id="winCards"></div>
+  </div>
+</div>
+
+
+<!-- DESTINATION HEATMAP TAB -->
+<div id="tab-heat" style="display:none">
+  <div class="stitle">Destination Weather Guide</div>
+  <div class="ssub">★★★★★ scores by month across 30+ destinations, international and Australian. 🪟 = school holiday window. Hover any cell for detail. Australian camping scores rate comfort and conditions for outdoor travel, not resort amenities.</div>
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.875rem;align-items:center">
+    <span style="font-size:0.7rem;color:var(--muted)">Show:</span>
+    <button class="heat-filter-btn on" onclick="setHeatFilter('all',this)">All destinations</button>
+    <button class="heat-filter-btn" onclick="setHeatFilter('intl',this)">🌏 International</button>
+    <button class="heat-filter-btn" onclick="setHeatFilter('aus',this)">🏖️ Australian beach</button>
+    <button class="heat-filter-btn" onclick="setHeatFilter('camp',this)">🏕️ Camping &amp; road trips</button>
+    <span style="margin-left:0.5rem;font-size:0.7rem;color:var(--muted)">Sort:</span>
+    <button class="heat-filter-btn" onclick="setHeatSort('default',this)">Default</button>
+    <button class="heat-filter-btn" onclick="setHeatSort('weather',this)">Best weather</button>
+    <button class="heat-filter-btn" onclick="setHeatSort('window',this)">Best for July</button>
+  </div>
+  <div class="heat-scroll"><table class="ht" id="heatTable"></table></div>
+  <div style="margin-top:0.75rem;font-size:0.7rem;color:var(--muted)">★★★★★ ideal · ✗ avoid · Gold border = school holiday window · 🏕️ Camping scores weight temperature comfort and rainfall, not resort facilities</div>
+</div>
+
+<!-- HACKS TAB -->
+<div id="tab-hacks" style="display:none">
+  <div class="stitle">⚡ Leave Hacks 2026</div>
+  <div class="ssub">Maximum days off, minimum leave used. Share any hack directly to your school parent group.</div>
+  <div class="hk-grid" id="hacksWrap"></div>
+</div>
+
+<!-- PACKING TAB -->
+<div id="tab-pack" style="display:none">
+  <div class="stitle">🎒 Packing Lists</div>
+  <div class="ssub">Customised for your destination and window. Check items off as you pack.</div>
+  <div class="pk-controls">
+    <select class="pk-sel" id="pkDest" onchange="renderPacking()">
+      <option value="beach">Beach / Resort (Bali, Fiji, QLD)</option>
+      <option value="city">City (Tokyo, Singapore, Europe)</option>
+      <option value="ski">Ski (Niseko, NZ, French Alps)</option>
+      <option value="camping">Camping / Road Trip (Australia)</option>
+      <option value="adventure">Adventure (NZ, Uluru, Kimberley)</option>
+    </select>
+    <select class="pk-sel" id="pkKids" onchange="renderPacking()">
+      <option value="toddler">Kids under 5</option>
+      <option value="primary" selected>Primary school age (5–12)</option>
+      <option value="teen">Teenagers (13+)</option>
+    </select>
+    <button class="sbtn" style="color:var(--muted)" onclick="resetPacking()">Reset checklist</button>
+  </div>
+  <div class="pk-progress">
+    <div class="pk-bar"><div class="pk-fill" id="pkFill" style="width:0%"></div></div>
+    <div class="pk-pct" id="pkPct">0%</div>
+    <span style="font-size:0.72rem;color:var(--muted)" id="pkCount">0 of 0 packed</span>
+  </div>
+  <div class="pk-grid" id="pkGrid"></div>
+</div>
+
+<!-- FLIGHTS TAB -->
+<div id="tab-flights" style="display:none">
+  <div class="stitle">✈️ Flight Booking Intelligence</div>
+  <div class="ssub">When to book, which days to fly, how to save on every school holiday window.</div>
+  <div class="fl-grid" id="flightWrap"></div>
+</div>
+
+</div><!-- /main -->
+
+<!-- SHARE MODAL -->
+<div class="modal-bg" id="shareModal">
+  <div class="modal">
+    <h3>Share this leave hack 🎉</h3>
+    <p>Copy and paste into your school Facebook group or parent WhatsApp chat.</p>
+    <div class="share-card-preview">
+      <div class="sc-logo">🪟 Holiday<span>Windows</span></div>
+      <div class="sc-headline" id="scHeadline">16 days off</div>
+      <div class="sc-sub" id="scSub">with just 2 days leave</div>
+      <div class="sc-dest" id="scDest">July window · Bali peak dry season ★★★★★</div>
+    </div>
+    <div class="modal-btns">
+      <button class="mbtn copy" onclick="copyShare()">📋 Copy text</button>
+      <button class="mbtn close-btn" onclick="closeModal('shareModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- alert modal removed, inline alerts used instead -->
+
+<div class="tip" id="tip"></div>
+
+<script>
+// ─────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────
+const MF=['January','February','March','April','May','June','July','August','September','October','November','December','January (2027)'];
+const MS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan\'27'];
+const DL=['S','M','T','W','T','F','S'];
+const DIM=[31,28,31,30,31,30,31,31,30,31,30,31,31];  // index 12 = Jan 2027
+
+// PUBLIC HOLIDAYS, only shown when NOT in school holidays
+const PUB={
+  NSW:{'2026-0-26':'Australia Day','2026-3-3':'Good Friday','2026-3-4':'Easter Sat','2026-3-5':'Easter Sun','2026-3-6':'Easter Mon','2026-4-25':'Anzac Day','2026-5-8':'King\'s Bday','2026-7-3':'Bank Hol','2026-9-5':'Labour Day','2026-11-25':'Christmas','2026-11-26':'Boxing Day'},
+  VIC:{'2026-0-26':'Australia Day','2026-2-9':'Labour Day','2026-3-3':'Good Friday','2026-3-4':'Easter Sat','2026-3-5':'Easter Sun','2026-3-6':'Easter Mon','2026-4-25':'Anzac Day','2026-5-8':'King\'s Bday','2026-8-25':'AFL GF','2026-9-26':'Melb Cup','2026-11-25':'Christmas','2026-11-26':'Boxing Day'},
+  QLD:{'2026-0-26':'Australia Day','2026-3-3':'Good Friday','2026-3-4':'Easter Sat','2026-3-5':'Easter Sun','2026-3-6':'Easter Mon','2026-4-25':'Anzac Day','2026-5-8':'King\'s Bday','2026-7-12':'Ekka Day','2026-11-25':'Christmas','2026-11-26':'Boxing Day'},
+  SA:{'2026-0-26':'Australia Day','2026-2-9':'Adelaide Cup','2026-3-3':'Good Friday','2026-3-5':'Easter Sun','2026-3-6':'Easter Mon','2026-4-25':'Anzac Day','2026-5-8':'King\'s Bday','2026-9-7':'Labour Day','2026-11-25':'Christmas','2026-11-26':'Proc. Day'},
+  WA:{'2026-0-26':'Australia Day','2026-3-3':'Good Friday','2026-3-6':'Easter Mon','2026-4-25':'Anzac Day','2026-5-4':'WA Day','2026-8-31':'Queen\'s Bday','2026-11-25':'Christmas','2026-11-26':'Boxing Day'}
+};
+
+// SCHOOL HOLIDAYS, fixed: January all off, summer extends properly
+const SCHOOL={
+  NSW:[{s:[0,1],e:[1,3]},{s:[3,9],e:[3,24]},{s:[6,13],e:[6,24]},{s:[9,26],e:[10,9]},{s:[11,18],e:[12,27]}],
+  VIC:[{s:[0,1],e:[1,3]},{s:[3,2],e:[3,17]},{s:[6,6],e:[6,17]},{s:[9,19],e:[10,2]},{s:[11,18],e:[12,27]}],
+  QLD:[{s:[0,1],e:[0,30]},{s:[3,2],e:[3,17]},{s:[5,27],e:[6,10]},{s:[8,19],e:[10,2]},{s:[11,11],e:[12,27]}],
+  SA:[{s:[0,1],e:[1,1]},{s:[3,9],e:[3,24]},{s:[6,6],e:[6,17]},{s:[9,26],e:[10,9]},{s:[11,11],e:[12,27]}],
+  WA:[{s:[0,1],e:[1,6]},{s:[3,9],e:[3,24]},{s:[6,6],e:[6,17]},{s:[9,26],e:[10,9]},{s:[11,17],e:[12,27]}]
+};
+
+// LEAVE HACKS, dates to take leave
+const HKD=[
+  [2,30,'ALL','⚡ Take leave, extends Easter to 11 days off'],
+  [3,7,'ALL','⚡ Take leave, bridges Easter window'],
+  [3,8,'ALL','⚡ Take leave, bridges Easter window'],
+  [4,27,'ALL','⚡ Take leave, Anzac Day bridge (1 day = 5 days off)'],
+  [4,28,'ALL','⚡ Take leave, Anzac Day bridge'],
+  [5,5,'VIC,QLD','⚡ Take leave, King\'s Birthday long weekend bridge'],
+  [5,6,'VIC','⚡ Take leave, King\'s Birthday VIC bridge'],
+  [6,10,'ALL','⚡ Take leave, enter July school hols early'],
+  [6,11,'ALL','⚡ Take leave, enter July school hols early'],
+  [6,27,'ALL','⚡ Take leave, extend July school hols'],
+  [9,24,'ALL','⚡ Take leave, enter September school hols early'],
+  [9,25,'ALL','⚡ Take leave, enter September school hols early'],
+  [10,12,'ALL','⚡ Take leave, extend September school hols'],
+  [10,13,'ALL','⚡ Take leave, extend September school hols'],
+  [10,27,'VIC','⚡ Take leave, Melbourne Cup week bridge VIC'],
+  [11,21,'ALL','⚡ Take leave, Christmas runway (3 days = 24 days off)'],
+  [11,22,'ALL','⚡ Take leave, Christmas runway'],
+  [11,23,'ALL','⚡ Take leave, Christmas runway'],
+];
+
+const WIN_M=[3,6,8,11,0];
+
+const WINDOWS=[
+  {id:'easter',name:'Easter Window',emoji:'🐣',dates:'9–24 Apr 2026',days:16,leave:3,dest:'Bali, QLD Coast, NZ South',bestDest:'Bali',score:3,
+   hack:'Take 1 Apr – 3 Apr (3 days) and combine with Good Friday, Easter Monday + school hols for 11 days straight off.',
+   alert:'Easter'},
+  {id:'july',name:'July Window',emoji:'⛷️',dates:'13–24 Jul 2026 (NSW/VIC)',days:16,leave:2,dest:'Bali, Fiji, Whitsundays, NZ Ski',bestDest:'Bali',score:5,
+   hack:'Add 2 bridge days either side of school hols for 16 full days. Peak dry season, best weather of the year.',
+   alert:'July'},
+  {id:'sept',name:'September Window',emoji:'🌸',dates:'26 Sep – 9 Oct 2026',days:12,leave:3,dest:'Bali, NZ Spring, Europe shoulder',bestDest:'Bali',score:4,
+   hack:'3 bridge days around school hols creates a 12-day break. Bali still in dry season, NZ spring spectacular.',
+   alert:'September'},
+  {id:'summer',name:'Summer Window',emoji:'☀️',dates:'18 Dec 2026 – 27 Jan 2027',days:40,leave:3,dest:'Kimberley 🏕️ · Thailand · Whitsundays · NZ',bestDest:'Kimberley / Thailand',score:5,
+   hack:'Take 21–23 Dec (3 days leave) and get a 24-day runway without touching January leave at all.',
+   alert:'Summer'},
+];
+
+const DESTS=[
+  // ── INTERNATIONAL ──────────────────────────────────────────
+  {n:'Bali',r:'Indonesia',cat:'intl',w:[1,1,2,3,4,5,5,5,5,3,2,1]},
+  {n:'Fiji',r:'South Pacific',cat:'intl',w:[1,1,2,3,5,5,5,5,5,3,2,1]},
+  {n:'Phuket / Krabi',r:'Thailand, Andaman',cat:'intl',w:[5,5,5,5,2,1,1,1,1,2,3,4]},
+  {n:'Koh Samui',r:'Thailand, Gulf',cat:'intl',w:[3,4,5,5,5,5,5,5,4,2,1,2]},
+  {n:'Tokyo / Kyoto',r:'Japan',cat:'intl',w:[3,3,4,5,4,2,3,3,3,5,4,3]},
+  {n:'Niseko (Ski)',r:'Japan, Hokkaido',cat:'intl',w:[5,4,3,1,0,0,0,0,0,1,2,5]},
+  {n:'French Alps (Ski)',r:'Europe',cat:'intl',w:[4,4,3,2,0,0,0,0,0,1,3,4]},
+  {n:'NZ South Island (Ski)',r:'New Zealand',cat:'intl',w:[2,2,2,2,3,5,5,5,3,2,2,3]},
+  {n:'Maldives',r:'Indian Ocean',cat:'intl',w:[5,5,4,4,3,2,2,3,3,4,4,5]},
+  {n:'NZ North Island',r:'New Zealand',cat:'intl',w:[5,5,4,3,2,1,1,1,3,4,4,5]},
+  {n:'Paris / Europe',r:'Europe',cat:'intl',w:[2,2,3,4,5,5,5,5,4,3,2,2]},
+  {n:'Vietnam (South)',r:'Asia',cat:'intl',w:[4,5,5,5,3,2,2,2,3,3,3,4]},
+  {n:'Hawaii',r:'USA Pacific',cat:'intl',w:[4,4,4,5,5,5,5,5,5,4,4,4]},
+  {n:'Singapore',r:'Asia',cat:'intl',w:[3,3,3,3,3,3,3,3,3,3,3,3]},
+  {n:'South Korea',r:'Asia',cat:'intl',w:[2,2,3,4,3,2,3,3,4,4,3,2]},
+  // ── AUSTRALIAN, RESORT / BEACH ────────────────────────────
+  {n:'Gold Coast',r:'QLD, beach resort',cat:'aus',w:[4,4,4,4,3,3,3,3,4,4,4,4]},
+  {n:'Whitsundays',r:'QLD, sailing, reef',cat:'aus',w:[2,2,3,4,5,5,5,5,5,4,3,2]},
+  {n:'Cairns / Port Douglas',r:'Far North QLD',cat:'aus',w:[1,1,2,3,5,5,5,5,5,4,2,1]},
+  {n:'Sunshine Coast',r:'QLD, beach, hinterland',cat:'aus',w:[4,4,4,4,3,3,3,3,4,4,4,4]},
+  {n:'Jervis Bay / South Coast',r:'NSW, beaches, dolphins',cat:'aus',w:[4,5,4,3,2,1,1,2,3,4,4,5]},
+  {n:'Byron Bay / Northern Rivers',r:'NSW, surf, hinterland',cat:'aus',w:[4,4,4,3,2,2,2,2,3,4,4,4]},
+  // ── AUSTRALIAN, CAMPING / ROAD TRIP ───────────────────────
+  {n:'Ningaloo / Coral Bay',r:'WA, snorkel, camp',cat:'camp',w:[3,3,4,5,5,5,5,5,5,4,3,2]},
+  {n:'Kimberley / Broome',r:'WA, gorges, outback',cat:'camp',w:[0,0,1,2,4,5,5,5,5,4,2,1]},
+  {n:'Grampians',r:'VIC, hikes, wildflowers',cat:'camp',w:[3,3,3,4,4,3,2,3,4,4,4,4]},
+  {n:'Snowy Mountains',r:'NSW, ski, summer hiking',cat:'camp',w:[3,3,2,2,2,4,5,5,4,3,3,3]},
+  {n:'Blue Mountains',r:'NSW, day/overnight trip',cat:'camp',w:[3,3,3,3,3,2,2,3,3,4,4,4]},
+  {n:'Flinders Ranges',r:'SA, outback, gorges',cat:'camp',w:[1,1,2,4,5,5,5,5,5,4,2,1]},
+  {n:'Great Ocean Road',r:'VIC, coastal drive',cat:'camp',w:[4,4,3,3,2,1,1,2,3,3,4,4]},
+  {n:'Uluru / Red Centre',r:'NT, iconic outback',cat:'camp',w:[1,1,2,4,5,5,5,5,5,4,2,1]},
+  {n:'Tasmania (self-drive)',r:'TAS, wilderness, history',cat:'camp',w:[5,4,3,2,2,1,1,2,3,3,4,5]},
+  {n:'Kakadu / Darwin',r:'NT, wetlands, culture',cat:'camp',w:[0,0,1,2,4,5,5,5,5,4,2,1]},
+  {n:'Margaret River',r:'WA, surf, wine, caves',cat:'camp',w:[4,4,4,4,3,2,2,3,4,4,4,4]},
+];
+
+const HACKS=[
+  {b:'Easter · Apr 2026 · All states',off:11,lv:3,n:'Easter School Holiday Extend',d:'Take Wed 1–Fri 3 April (3 days leave). With Good Friday, Easter Mon and school holidays you get 11 days off. Perfect for Bali or QLD coast, shoulder season pricing with great weather.'},
+  {b:'Anzac Day · Apr 2026 · All states',off:5,lv:1,n:'Anzac Day Long Weekend Bridge',d:'Anzac Day falls Saturday 25 April. Take Monday 27 April (1 day leave) for a 5-day weekend. Last chance for shoulder-season Bali before July prices peak.'},
+  {b:"Jun 2026 · VIC/QLD",off:9,lv:4,n:"King's Birthday Japan Trip",d:"King's Birthday long weekend (1 June). Take 4 days around it for a 9-day break. June in Japan is greenery season, rainy but dramatic, 30–40% cheaper than July peak."},
+  {b:'July · All states',off:16,lv:2,n:'July School Holidays Full Extension',d:'School hols cover 2 full weeks in July. Add 2 bridge days either side and get 16 continuous days with just 2 days leave. Peak dry season Bali and Fiji. Book 5+ months ahead.'},
+  {b:'Sep 2026 · NSW/VIC',off:12,lv:3,n:'Spring Break Extended',d:'NSW/VIC September school holidays plus 3 bridge days = 12 days off. NZ spring, Bali still dry, Europe shoulder season, outstanding value.'},
+  {b:'Sep · VIC only',off:9,lv:2,n:'AFL Grand Final Bridge (VIC)',d:'AFL Grand Final Friday public holiday in VIC. 2 leave days around September school holidays = 9-day break. Outstanding timing for Bali or NZ.'},
+  {b:'Oct-Nov · VIC only',off:9,lv:4,n:'Melbourne Cup Japan Trip (VIC)',d:'Melbourne Cup Tuesday public holiday. 4 days leave = 9 days off in early November, peak Japan autumn foliage (koyo). The most spectacular Japan timing. Book 6 months ahead.'},
+  {b:'Dec · All states',off:24,lv:3,n:'Christmas Holiday Runway',d:'Schools break ~18 Dec. Take 21–23 Dec (3 days leave) and you have a 24-day runway without touching January leave. Thailand peak season, Japan winter, NZ summer, all perfectly timed.'},
+];
+
+// PACKING DATA
+const PACKING={
+  beach:{
+    primary:{
+      'Clothing':{items:['Swimsuits x3','Rash vests (kids)','Board shorts x3','Light dresses/shirts x4','1 smart outfit for dinners','Underwear x7','Socks x3','Light cardigan/hoodie','Sandals','Sneakers','Thongs / flip flops']},
+      'Sun & Beach':{items:['Sunscreen SPF50+ (kids formula)','After-sun lotion','Rashie/sun shirt','Wide-brim hats','Sunglasses (kids + adults)','Beach bag','Beach towels','Snorkel & mask (optional)','Waterproof phone case']},
+      'Kids Essentials':{items:['Kids paracetamol & ibuprofen','Insect repellent','Kids first aid kit','Favourite comfort toy/blanket','Night light','Travel games / iPad','Reusable water bottles','Backpack for day trips']},
+      'Documents':{items:['Passports (check 6mo validity)','Travel insurance printed','Booking confirmations','Emergency contact card','Copies stored in email']},
+      'Toiletries':{items:['Toothbrush & paste','Shampoo/conditioner','Body wash','Nappy supplies (if needed)','Prescription medications','Antihistamine','Band-aids & antiseptic']},
+    },
+    toddler:{
+      'Toddler Extra':{items:['Nappies (3 days supply, buy rest there)','Wet wipes x4 packs','Portable high chair strap','Baby food pouches for flights','Toddler snacks','Travel cot sheet','Baby monitor (optional)','Portable potty','Splash nappies for pool']},
+    },
+    teen:{
+      'Teen Extra':{items:['Portable charger','Earphones','Download shows for flights','Snorkel gear','Extra spending money card','Sunscreen (they won\'t use yours)']},
+    }
+  },
+  city:{
+    primary:{
+      'Clothing':{items:['Comfortable walking shoes x2','Smart casual outfit x2','Jeans / trousers x2','T-shirts / tops x5','Light jacket / blazer','Underwear x7','Socks x5','Scarf (temples/churches)','One formal outfit']},
+      'City Essentials':{items:['Day backpack','Portable umbrella','Reusable water bottle','City map / offline Google Maps','IC Suica card (Japan)','Translation app downloaded']},
+      'Kids City':{items:['Kids comfortable walking shoes','Carrier / pram for young kids','Snacks for long days','Portable WiFi or SIM','Kids audiobooks/podcasts','City activity book for kids']},
+      'Documents':{items:['Passports','Travel insurance','Hotel confirmations','Currency / travel card','Emergency contact card']},
+    },
+    ski:{},teen:{},toddler:{}
+  },
+  ski:{
+    primary:{
+      'Ski Clothing':{items:['Ski jacket (waterproof)','Ski pants / salopettes','Thermal base layer x3','Mid-layer fleece x2','Ski socks x4','Waterproof gloves','Ski goggles','Beanie / helmet liner','Neck gaiter / balaclava','Après-ski boots / warm shoes']},
+      'Ski Gear':{items:['Ski hire booked (or own)','Helmet (kids essential)','Ski lessons booked','Ski pass purchased','Boot bag','Hand warmers']},
+      'Cold Weather':{items:['Moisturiser (wind/cold)','Lip balm SPF','Sunscreen (high altitude)','Kids paracetamol','Antihistamine']},
+      'Documents':{items:['Passports','Travel insurance (includes ski cover!)','Lesson bookings','Accommodation','Emergency contacts']},
+    },
+    toddler:{
+      'Toddler Ski':{items:['Snow suit (waterproof)','Snow boots x2','Extra mittens x3','Nappy changes bag','Sled for little ones','Baby thermals']},
+    },
+    teen:{teen:{items:['Own playlist/earphones','GoPro / action cam','Ski lesson (optional)','Spare gloves']}},
+  },
+  camping:{
+    primary:{
+      'Camping Gear':{items:['Tent or campervan booking','Sleeping bags (right temp rating)','Sleeping mats / pads','Camp chairs','Camp table','Portable stove + gas','Lighter & firestarter','Headlamps x all family','Lantern']},
+      'Kitchen':{items:['Cookware set','Plates / cups / cutlery','Can opener','Washing up kit','Rubbish bags','Cooler / esky + ice','Water containers','Reusable bags']},
+      'Kids Camping':{items:['Kids sleeping bag','Bug net for sleeping','Gumboots / old shoes','Waterproof jacket','Kids headlamp','Nature guide / scavenger list','Board games / cards','Frisbee / ball']},
+      'Safety':{items:['First aid kit','Snake bite bandage','Fire blanket','Charged power bank','Offline maps downloaded','Campfire permits checked','Campsite booked, school hols book out months ahead']},
+    },
+    toddler:{'Toddler Camping':{items:['Portable travel cot','Tent groundsheet (for play)','Baby insect repellent','Extra change of clothes x5','Portable potty']}},
+    teen:{'Teen Camping':{items:['Their own tent (they\'ll love it)','Fishing gear','Camera','Card games','Headphones']}},
+  },
+  adventure:{
+    primary:{
+      'Adventure Clothing':{items:['Lightweight hiking boots','Moisture-wicking shirts x4','Convertible pants x2','Fleece mid-layer','Waterproof rain jacket','Wide-brim hat','Buff / neck gaiter','Underwear x7','Thick hiking socks x4']},
+      'Adventure Gear':{items:['Day pack (25L)','Trekking poles (optional)','Water purification tablets','Headlamp + batteries','Emergency whistle','Compass or GPS','Binoculars','Camera / GoPro']},
+      'Safety & Health':{items:['First aid kit (comprehensive)','EPINEPHRINE if allergic to stings','Insect repellent (DEET for Kimberley)','Sunscreen SPF50+','Electrolyte tablets','Prescription medications','Emergency PLB (rental available)']},
+      'Documents':{items:['Park permits booked','Campsite bookings confirmed','Emergency contact with someone at home','Weather forecast checked','Road conditions checked (4WD routes)']},
+    },
+    toddler:{'Note':{items:['Adventure destinations like Uluru/Kimberley are not ideal for under-3s due to heat. Consider Gold Coast or QLD Coast instead.']}},
+    teen:{'Teen Adventure':{items:['Own daypack','Journal / sketchbook','Offline maps','Satellite communicator (Garmin inReach, rent one)']}},
+  }
+};
+
+const FLIGHTS=[
+  {t:'📅 Best Days to Book',tips:['<strong>Tuesday–Wednesday</strong> afternoon is cheapest. Airlines drop fares Monday night, competitors match by Wednesday.','Avoid booking <strong>Friday–Sunday</strong>, demand and prices peak.']},
+  {t:'✈️ Best Days to Fly',tips:['<strong>Tuesday, Wednesday, Saturday</strong> are 15–25% cheaper departure days.','Monday and Friday carry a premium. Saturday departures are often cheaper than Friday.']},
+  {t:'⏰ How Far Ahead',tips:['<strong>Bali/Fiji July:</strong> book January–February, 5–6 months ahead.','<strong>Domestic school holidays:</strong> 8–12 weeks is the sweet spot.','<strong>Japan peak seasons:</strong> book 6–9 months ahead.']},
+  {t:'💥 Error Fares',tips:['Airlines occasionally publish fares 30–60% below market, they last <strong>12–48 hours</strong>.','Set Google Flights price alerts for Sydney–Denpasar, Melbourne–Nadi, Sydney–Tokyo right now.']},
+  {t:'⛷️ Ski Season Timing',tips:['<strong>Japan ski (Niseko/Hakuba):</strong> July school holidays. Book the previous September.','<strong>French Alps/NZ ski:</strong> Easter and July. NZ flights cheaper than Japan.']},
+  {t:'🏆 Frequent Flyer',tips:['Classic reward seats release <strong>353 days ahead</strong>. Set calendar reminders for school holiday dates.','Business class on points for school holidays requires <strong>12 months</strong> advance booking.']},
+  {t:'📊 Depart Early Strategy',tips:['Flying on the <strong>first day of school holidays</strong> is 20–40% more expensive.','<strong>1 day leave</strong> to depart 2 days early often saves more than the day costs.']},
+  {t:'🌐 Key Routes',tips:['<strong>Bali:</strong> Direct SYD/MEL/PER. Brisbane via Darwin.','<strong>Fiji:</strong> Jetstar/Fiji Airways direct SYD/MEL.','<strong>Japan:</strong> Qantas/JAL direct. Budget: Singapore on Scoot/Jetstar Asia.']},
+];
+
+// ─────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────
+let activeState='NSW';
+let shareData={};
+
+function setState(s,btn){
+  activeState=s;
+  document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  // Reset day assignments when state changes (different holiday dates)
+  Object.keys(dayAssign).forEach(k=>delete dayAssign[k]);
+  Object.keys(extraDays).forEach(k=>extraDays[k]=[]);
+  renderCal();
+  runOpt();
+}
+
+// ─────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────
+function dow(m,d){return m===12?new Date(2027,0,d).getDay():new Date(2026,m,d).getDay();}
+function isSchool(m,d,st){return SCHOOL[st].some(r=>{const s=r.s[0]*32+r.s[1],e=r.e[0]*32+r.e[1],c=m*32+d;return c>=s&&c<=e;});}
+function isPub(m,d,st){if(m===12)return false;return !!(PUB[st]&&PUB[st][`2026-${m}-${d}`]);}
+function pubName(m,d,st){if(m===12)return '';return PUB[st]?.[`2026-${m}-${d}`]||'';}
+function isHack(m,d,st){return HKD.some(h=>h[0]===m&&h[1]===d&&(h[2]==='ALL'||h[2].includes(st)));}
+function hackTip(m,d,st){return(HKD.find(h=>h[0]===m&&h[1]===d&&(h[2]==='ALL'||h[2].includes(st)))||[,,''])[3];}
+
+// ─────────────────────────────────────────
+// OPTIMISER, mini calendar + two-parent
+// ─────────────────────────────────────────
+
+const WIN_DATA={
+  NSW:{
+    easter:{m0:2,d0:29,m1:4,d1:2,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
+    july:{m0:6,d0:8,m1:6,d1:29,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
+    sept:{m0:9,d0:21,m1:10,d1:14,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
+    summer:{m0:11,d0:13,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+  },
+  VIC:{
+    easter:{m0:2,d0:29,m1:3,d1:22,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
+    july:{m0:6,d0:1,m1:6,d1:22,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
+    sept:{m0:9,d0:14,m1:10,d1:7,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
+    summer:{m0:11,d0:13,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+  },
+  QLD:{
+    easter:{m0:2,d0:29,m1:3,d1:22,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
+    july:{m0:5,d0:22,m1:6,d1:15,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
+    sept:{m0:8,d0:14,m1:10,d1:7,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
+    summer:{m0:11,d0:6,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+  },
+  SA:{
+    easter:{m0:2,d0:29,m1:3,d1:29,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
+    july:{m0:6,d0:1,m1:6,d1:22,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
+    sept:{m0:9,d0:21,m1:10,d1:14,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
+    summer:{m0:11,d0:6,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+  },
+  WA:{
+    easter:{m0:2,d0:29,m1:3,d1:29,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
+    july:{m0:6,d0:1,m1:6,d1:22,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
+    sept:{m0:9,d0:21,m1:10,d1:14,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
+    summer:{m0:11,d0:12,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+  },
+};;
+
+const WIN_META={
+  easter:{emoji:'🐣',label:'Easter',cls:'easter',
+    bestDest:'QLD Coast · Grampians · Jervis Bay',score:3,
+    tripNote:'April shoulder season, great value locally. Grampians wildflowers peak. QLD coast warm and quieter than summer.',
+    altDest:'International: Bali (transition), Vietnam, NZ South Island',isEaster:true},
+  july:{emoji:'⛷️',label:'July',cls:'july',
+    bestDest:'Snowy Mountains · Bali · Fiji · NZ Ski',score:5,
+    tripNote:'Peak dry season internationally. Snowy Mountains ski season in full swing domestically. Best window of the year for both options.',
+    altDest:'Also great: Whitsundays, Cairns, Ningaloo (all dry season)',isEaster:false},
+  sept:{emoji:'🌸',label:'September',cls:'sept',
+    bestDest:'Ningaloo · NZ Spring · Flinders Ranges',score:4,
+    tripNote:'Ningaloo peak season, whale sharks, manta rays, reef snorkelling. NZ spring spectacular. Outback SA and NT ideal temperatures.',
+    altDest:'International: Bali (late dry), Europe (shoulder), Japan (mild)',isEaster:false},
+  summer:{emoji:'☀️',label:'Summer',cls:'summer',
+    bestDest:'Kimberley · Thailand · Whitsundays · Tasmania',score:5,
+    tripNote:'The big one, 6+ weeks. Kimberley and Darwin at their best. Thailand and Vietnam peak season. Tasmania summer perfect for road trips.',
+    altDest:'Also: Japan winter ski, Hawaii, Great Ocean Road, Jervis Bay',isEaster:false},
+};
+
+const WIN_IDS=['easter','july','sept','summer'];
+
+// Day assignments per window per day, key: "winId-m-d"
+// Values: 'un'=unassigned, 'lv'=leave(single), 'ca'=care(single)
+//         'p1'=P1 leave, 'p2'=P2 leave, 'bt'=both leave, 'ca2'=care(two-parent)
+const dayAssign={};
+// Two-parent mode always on, toggle removed
+// Extra days (pupil-free, closures) per window
+const extraDays={easter:[],july:[],sept:[],summer:[]};
+let extraWinId=null;
+
+function p1Name(){return document.getElementById('optP1Name')?.value||'Parent 1';}
+function p2Name(){return document.getElementById('optP2Name')?.value||'Parent 2';}
+
+function dayKey(winId,m,d){return `${winId}-${m}-${d}`;}
+
+function getAssign(winId,m,d){
+  return dayAssign[dayKey(winId,m,d)]||'un';
+}
+
+function cycleSingle(winId,m,d){
+  const k=dayKey(winId,m,d);
+  const cur=dayAssign[k]||'un';
+  const next={un:'lv',lv:'ca',ca:'un'}[cur]||'un';
+  dayAssign[k]=next;
+  runOpt();
+}
+
+function cycleTwo(winId,m,d){
+  const k=dayKey(winId,m,d);
+  const cur=dayAssign[k]||'un';
+  const next={un:'p1',p1:'p2',p2:'bt',bt:'ca2',ca2:'un'}[cur]||'un';
+  dayAssign[k]=next;
+  runOpt();
+}
+
+// toggleTwoParent removed
+
+function countWindowDays(winId,state){
+  const wd=WIN_DATA[state]?.[winId];
+  if(!wd) return{total:0,weekends:0,pubhols:0,workdays:0,free:0};
+  let total=0,weekends=0,pubhols=0;
+  let cm=wd.m0,cd=wd.d0;
+  while(cm<wd.m1||(cm===wd.m1&&cd<=wd.d1)){
+    total++;
+    const w=dow(cm,cd);
+    if(w===0||w===6) weekends++;
+    else if(isPub(cm,cd,state)) pubhols++;
+    cd++; if(cd>DIM[cm]){cd=1;cm++;} if(cm>12) break;
+  }
+  return{total,weekends,pubhols,workdays:total-weekends-pubhols,free:weekends+pubhols};
+}
+
+function runOpt(){
+  const p1Avail=parseInt(document.getElementById('optTotal').value)||15;
+  const p2Avail=parseInt(document.getElementById('optTotal2').value)||15;
+  const p1n=p1Name(), p2n=p2Name();
+
+  // Update legend labels
+  document.getElementById('legP1').textContent=p1n+' leave';
+  document.getElementById('legP2').textContent=p2n+' leave';
+  document.getElementById('optP1Label').textContent=p1n;
+  document.getElementById('optP2Label').textContent=p2n;
+
+  let totFree=0,totP1=0,totP2=0,totCare=0;
+
+  // Build breakdown cards
+  const stars=['✗','★','★★','★★★','★★★★','★★★★★'];
+  let cardsHtml='';
+
+  WIN_IDS.forEach(winId=>{
+    const m=WIN_META[winId];
+    const wd=WIN_DATA[activeState]?.[winId];
+    if(!wd) return;
+    const twoP=true;  // always show both parents, toggle removed
+    const days=countWindowDays(winId,activeState);
+
+    // Count assignments for this window
+    let wFree=0,wP1=0,wP2=0,wCare=0,wUn=0;
+    let cm=wd.m0,cd=wd.d0;
+    const calMonths={};
+    while(cm<wd.m1||(cm===wd.m1&&cd<=wd.d1)){
+      const w=dow(cm,cd);
+      const isSc=isSchool(cm,cd,activeState);
+      const isPh=isPub(cm,cd,activeState);
+      const isWe=w===0||w===6;
+      const xd=extraDays[winId]||[];
+      const isExtra=xd.some(e=>e.m===cm&&e.d===cd);
+      const isFree=(isWe||isSc)&&!isExtra;  // Extra days override free status
+      const k=dayKey(winId,cm,cd);
+      if(!calMonths[cm]) calMonths[cm]=[];
+      calMonths[cm].push({d:cd,w,isSc,isPh,isWe,isFree,key:k});
+      // All days (including school hols) can be assigned
+      const a=dayAssign[k]||'un';
+      if(a==='p1')wP1++;
+      else if(a==='p2')wP2++;
+      else if(a==='bt'){wP1++;wP2++;}
+      else if(a==='ca')wCare++;
+      else if(isFree) wFree++;  // genuinely free (weekend/ph, unassigned)
+      else wUn++;  // assignable but not yet assigned
+      cd++; if(cd>DIM[cm]){cd=1;cm++;} if(cm>12) break;
+    }
+
+    totFree+=wFree;totP1+=wP1;totP2+=wP2;totCare+=wCare;
+
+    // Build mini calendar HTML
+    let calHtml='';
+    Object.entries(calMonths).forEach(([mIdx,daysList])=>{
+      calHtml+=`<div class="mc-month-hdr">${MF[parseInt(mIdx)]}</div><div class="mc-days">`;
+      daysList.forEach(({d,w,isSc,isPh,isWe,isFree,key})=>{
+        const dl=DL[w];
+        let cls,label,clickFn='';
+        if(isWe){cls='d-we';label=w===6?'Sat':'Sun';}  // weekends always weekend colour
+        else if(isPh&&isSc){cls='d-ph-sc';label=pubName(parseInt(mIdx),d,activeState).split(' ')[0].substring(0,4)||'PH';}
+        else if(isPh){
+          const xd=extraDays[winId]||[];
+          const isExtra=xd.some(e=>e.m===parseInt(mIdx)&&e.d===d);
+          cls=isExtra?'d-xtra':'d-ph-click';
+          label=pubName(parseInt(mIdx),d,activeState).split(' ')[0].substring(0,4)||'PH';
+          clickFn=`onclick="openPopover('${winId}',${mIdx},${d},event)"`;
+        }
+        else if(isSc){
+          const xd=extraDays[winId]||[];
+          const isExtra=xd.some(e=>e.m===parseInt(mIdx)&&e.d===d);
+          const a=dayAssign[key]||'un';
+          if(isExtra){
+            // Extra day within school hols, assignable
+            const twoP=true;  // always two-parent
+            const xClsMap={un:'d-xtra',p1:'d-p1',p2:'d-p2',bt:'d-bt',ca:'d-ca'};
+            const xLblMap={un:'Extra',p1:p1n.split(' ')[0],p2:p2n.split(' ')[0],bt:'Both',ca:'Care'};
+            cls=xClsMap[a]||'d-xtra';
+            label=xLblMap[a]||'Extra';
+            clickFn=`onclick="openPopover('${winId}',${mIdx},${d},event)"`;
+          } else {
+            // Regular school holiday, clickable for care/leave allocation
+            const scClsMap={un:'d-sc',p1:'d-p1',p2:'d-p2',bt:'d-bt',ca:'d-ca'};
+            const scLblMap={un:'Hols',p1:p1n.split(' ')[0],p2:p2n.split(' ')[0],bt:'Both',ca:'Care'};
+            cls=scClsMap[a]||'d-sc';
+            label=scLblMap[a]||'Hols';
+            clickFn=`onclick="openPopover('${winId}',${mIdx},${d},event)"`;
+          }
+        }
+        else {
+          // Assignable working day
+          const a=dayAssign[key]||'un';
+          const clsMap={un:'d-un',p1:'d-p1',p2:'d-p2',bt:'d-bt',ca:'d-ca'};
+          const lblMap={un:', ',p1:p1n.split(' ')[0],p2:p2n.split(' ')[0],bt:'Both',ca:'Care'};
+          cls=clsMap[a]||'d-un';
+          label=lblMap[a]||', ';
+          clickFn=`onclick="openPopover('${winId}',${mIdx},${d},event)"`;
+        }
+        calHtml+=`<div class="mc-day ${cls}" ${clickFn} title="${MF[parseInt(mIdx)]} ${d} (${dl})">
+          <span class="mc-dow">${dl}</span>
+          <span class="mc-dn">${d}</span>
+          <span class="mc-dl">${label}</span>
+        </div>`;
+      });
+      calHtml+=`</div>`;
+    });
+
+    const tripDays=wFree+wP1;
+    const easterNote=m.isEaster?`<div class="wbd-note">⭐ ${wd.note}</div>`:'';
+    const otherNote=!m.isEaster&&wd.note?`<div style="font-size:0.68rem;color:var(--muted);margin-top:0.15rem">${wd.note}</div>`:'';
+
+    cardsHtml+=`<div class="wbd-card ${m.cls}">
+      <div class="wbd-head">
+        <div class="wbd-head-left">
+          <div class="wbd-window-lbl">${m.emoji} ${m.label} Window</div>
+          <div class="wbd-name">${wd.name}</div>
+          ${easterNote}${otherNote}
+        </div>
+        <div style="display:flex;gap:0.35rem;align-items:center;flex-shrink:0">
+          <span style="font-size:0.65rem;font-weight:700;padding:0.15rem 0.45rem;border-radius:0.2rem;background:rgba(255,184,0,0.12);color:var(--sun)">${p1n.split(' ')[0]}</span>
+          <span style="font-size:0.65rem;color:var(--muted)">+</span>
+          <span style="font-size:0.65rem;font-weight:700;padding:0.15rem 0.45rem;border-radius:0.2rem;background:rgba(0,102,204,0.12);color:#93C5FD">${p2n.split(' ')[0]}</span>
+        </div>
+
+      </div>
+      <div class="wbd-body">
+        <div style="background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.15);border-radius:0.375rem;padding:0.5rem 0.75rem;margin-bottom:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.55);line-height:1.5">
+          📌 <strong style="color:#93C5FD">Remember:</strong> Allocate your school's pupil-free days and staff development days, these extend the days your kids are home. The 5 days shown before and after school holidays are for bridging and buffer days.
+        </div>
+        <div class="mini-cal">${calHtml}</div>
+      </div>
+      <div class="wbd-foot">
+        <div class="wbd-stat s-free"><div class="wbd-stat-val">${wFree}</div><div class="wbd-stat-lbl">Free days</div></div>
+        <div class="wbd-stat s-p1"><div class="wbd-stat-val">${wP1}</div><div class="wbd-stat-lbl">${p1n.split(' ')[0]} leave</div></div>
+        ${twoP?`<div class="wbd-stat s-p2"><div class="wbd-stat-val">${wP2}</div><div class="wbd-stat-lbl">${p2n.split(' ')[0]} leave</div></div>`:''}
+        <div class="wbd-stat s-care"><div class="wbd-stat-val">${wCare}</div><div class="wbd-stat-lbl">Care days</div></div>
+        <div class="wbd-stat s-trip"><div class="wbd-stat-val">${wUn}</div><div class="wbd-stat-lbl">Unassigned</div></div>
+        <div class="wbd-foot-dest">
+          <strong>${m.bestDest} ${stars[m.score]}</strong>
+          ${m.tripNote}
+          <div style="font-size:0.65rem;color:rgba(255,255,255,0.3);margin-top:0.15rem">${m.altDest}</div>
+          <div style="display:flex;gap:0.35rem;margin-top:0.5rem;justify-content:flex-end;flex-wrap:wrap">
+            <button class="wbd-alert-btn" id="wbdAlertBtn_${winId}" onclick="toggleWbdAlert('${winId}',this)">⚡ Alert me</button>
+            <button class="wbd-share-btn" onclick="openShare('${days.total}','${wP1+wP2}','${m.label} Window','${m.bestDest} ${stars[m.score]}')">↗ Share</button>
+          </div>
+          <div class="wbd-inline-alert" id="wbdAlert_${winId}">
+            <div class="wbd-inline-row">
+              <input type="email" id="wbdAlertEmail_${winId}" placeholder="your@email.com"/>
+              <button onclick="submitWbdAlert('${winId}','${m.label}')">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  document.getElementById('winBreakdown').innerHTML=cardsHtml;
+
+  // Update totals
+  const totLeave=totP1+totP2;
+  document.getElementById('optAvailTxt').textContent=p1Avail;
+  document.getElementById('optUsedTxt').textContent=totP1;
+  document.getElementById('optLeftTxt').textContent=Math.max(0,p1Avail-totP1);
+  document.getElementById('optAvailTxt2').textContent=p2Avail;
+  document.getElementById('optUsedTxt2').textContent=totP2;
+  document.getElementById('optLeftTxt2').textContent=Math.max(0,p2Avail-totP2);
+  // Colour code + progress bars
+  const p1Left=p1Avail-totP1, p2Left=p2Avail-totP2;
+  const p1Pct=p1Avail>0?Math.min(100,Math.round(totP1/p1Avail*100)):0;
+  const p2Pct=p2Avail>0?Math.min(100,Math.round(totP2/p2Avail*100)):0;
+  const p1BarEl=document.getElementById('p1Bar');
+  const p2BarEl=document.getElementById('p2Bar');
+  if(p1BarEl){p1BarEl.style.width=p1Pct+'%';p1BarEl.style.background=p1Pct>=100?'var(--coral)':p1Pct>=80?'var(--sun)':'var(--green)';}
+  if(p2BarEl){p2BarEl.style.width=p2Pct+'%';p2BarEl.style.background=p2Pct>=100?'var(--coral)':p2Pct>=80?'#93C5FD':'var(--ocean)';}
+  document.getElementById('optLeftTxt').style.color=p1Left<0?'var(--coral)':p1Left===0?'var(--sun)':'var(--green)';
+  document.getElementById('optLeftTxt2').style.color=p2Left<0?'var(--coral)':p2Left===0?'var(--sun)':'var(--green)';
+  document.getElementById('totFree').textContent=totFree;
+  const totUn=WIN_IDS.reduce((acc,wid)=>{
+    const wd2=WIN_DATA[activeState]?.[wid];
+    if(!wd2) return acc;
+    let c=0,cm2=wd2.m0,cd2=wd2.d0;
+    while(cm2<wd2.m1||(cm2===wd2.m1&&cd2<=wd2.d1)){
+      const w2=dow(cm2,cd2),isSc2=isSchool(cm2,cd2,activeState);
+      const isWe2=w2===0||w2===6;
+      const xd2=extraDays[wid]||[];
+      const isX2=xd2.some(e=>e.m===cm2&&e.d===cd2);
+      const isFr2=(isWe2||isSc2)&&!isX2;
+      const a2=dayAssign[dayKey(wid,cm2,cd2)]||'un';
+      if(!isFr2&&a2==='un') c++;
+      cd2++; if(cd2>DIM[cm2]){cd2=1;cm2++;} if(cm2>12) break;
+    }
+    return acc+c;
+  },0);
+  document.getElementById('totLeave').textContent=totLeave;
+  document.getElementById('totLeaveLabel').textContent=totP2>0?`leave days (${p1n.split(' ')[0]}: ${totP1}, ${p2n.split(' ')[0]}: ${totP2})`:'leave days';
+  document.getElementById('totCare').textContent=totCare;
+  const totUnEl=document.getElementById('totUn');
+  if(totUnEl) totUnEl.textContent=totUn;
+
+  // Summary panel
+  const sp=document.getElementById('summaryContent');
+  if(sp){
+    const p1Rem=p1Avail-totP1, p2Rem=p2Avail-totP2;
+    const anyAssigned=totP1>0||totP2>0||totCare>0;
+    if(!anyAssigned){
+      sp.innerHTML='<div style="font-size:0.78rem;color:rgba(255,255,255,0.25);font-style:italic">Assign days in the windows above to see your summary.</div>';
+    } else {
+      const rows=[
+        {lbl:p1n+' leave budgeted',val:p1Avail,col:'var(--white)'},
+        {lbl:p1n+' leave assigned',val:totP1,col:'var(--sun)'},
+        {lbl:p1n+' leave remaining',val:p1Rem,col:p1Rem<0?'var(--coral)':p1Rem===0?'var(--sun)':'var(--green)'},
+        null,
+        {lbl:p2n+' leave budgeted',val:p2Avail,col:'var(--white)'},
+        {lbl:p2n+' leave assigned',val:totP2,col:'#93C5FD'},
+        {lbl:p2n+' leave remaining',val:p2Rem,col:p2Rem<0?'var(--coral)':p2Rem===0?'var(--sun)':'var(--green)'},
+        null,
+        {lbl:'School care days needed',val:totCare,col:'var(--coral)'},
+        {lbl:'Days still unassigned',val:totUn,col:'rgba(255,255,255,0.35)'},
+        {lbl:'Free days (weekends + pub hols)',val:totFree,col:'var(--green)'},
+      ];
+      sp.innerHTML=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem">
+        ${rows.map(r=>r===null?'<div style="border-top:1px solid var(--border);grid-column:span 2;margin:0.25rem 0"></div>':
+          `<div style="font-size:0.78rem;color:var(--muted)">${r.lbl}</div>
+           <div style="font-size:0.78rem;font-weight:700;color:${r.col};text-align:right">${r.val} days</div>`
+        ).join('')}
+      </div>
+      ${totUn>0?`<div style="margin-top:0.875rem;background:rgba(255,184,0,0.08);border:1px solid rgba(255,184,0,0.2);border-radius:0.375rem;padding:0.5rem 0.75rem;font-size:0.72rem;color:rgba(255,255,255,0.6)">⚠ <strong style="color:var(--sun)">${totUn} days still unassigned</strong>, go back and allocate each to leave or care so you have a complete picture.</div>`:''}
+      ${totCare>0?`<div style="margin-top:0.5rem;font-size:0.7rem;color:rgba(255,255,255,0.35)">💡 Care days can be covered by school holiday programs, grandparents, or a mix. Use this number to plan your childcare budget.</div>`:''}
+      `;
+    }
+  }
+
+  // Status
+  const statusEl=document.getElementById('optStatus');
+  const p1Over=totP1>p1Avail,p2Over=totP2>p2Avail;
+  if(!p1Over&&!p2Over){
+    statusEl.textContent=`✓ ${p1n.split(' ')[0]}: ${totP1} of ${p1Avail} days allocated · ${p2n.split(' ')[0]}: ${totP2} of ${p2Avail} days allocated`;
+    statusEl.className='opt-status good';
+  } else {
+    const msgs=[];
+    if(p1Over) msgs.push(`${p1n.split(' ')[0]} over by ${totP1-p1Avail}`);
+    if(p2Over) msgs.push(`${p2n.split(' ')[0]} over by ${totP2-p2Avail}`);
+    statusEl.textContent='⚠ Over budget, '+msgs.join(' · ')+'. Reduce assignments or increase budget above.';
+    statusEl.className='opt-status warn';
+  }
+}
+
+function saveOpt(){
+  try{
+    const data={
+      p1Name:document.getElementById('optP1Name').value,
+      p2Name:document.getElementById('optP2Name').value,
+      total:document.getElementById('optTotal').value,
+      total2:document.getElementById('optTotal2').value,
+      state:activeState,
+      dayAssign:{...dayAssign},
+      extraDays:{easter:[...extraDays.easter],july:[...extraDays.july],sept:[...extraDays.sept],summer:[...extraDays.summer]}
+    };
+    localStorage.setItem('hw_opt2',JSON.stringify(data));
+  }catch(e){}
+  const n=document.getElementById('savedNote');
+  n.style.display='inline';
+  setTimeout(()=>n.style.display='none',3000);
+}
+
+function loadOpt(){
+  try{
+    const d=JSON.parse(localStorage.getItem('hw_opt2')||'null');
+    if(!d) return;
+    if(d.p1Name) document.getElementById('optP1Name').value=d.p1Name;
+    if(d.p2Name) document.getElementById('optP2Name').value=d.p2Name;
+    if(d.total) document.getElementById('optTotal').value=d.total;
+    if(d.total2) document.getElementById('optTotal2').value=d.total2;
+    if(d.state){
+      activeState=d.state;
+      document.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on',b.textContent===d.state));
+    }
+    if(d.dayAssign) Object.assign(dayAssign,d.dayAssign);
+    if(d.extraDays) Object.assign(extraDays,d.extraDays);
+  }catch(e){}
+}
+
+function resetOpt(){
+  try{localStorage.removeItem('hw_opt2');}catch(e){}
+  document.getElementById('optP1Name').value='Parent 1';
+  document.getElementById('optP2Name').value='Parent 2';
+  document.getElementById('optTotal').value=15;
+  document.getElementById('optTotal2').value=15;
+  Object.keys(dayAssign).forEach(k=>delete dayAssign[k]);
+  runOpt();
+}
+
+// ─────────────────────────────────────────
+// WINDOW CARDS
+// ─────────────────────────────────────────
+const starMap=['✗','★','★★','★★★','★★★★','★★★★★'];
+function renderWindowCards(){
+  document.getElementById('winCards').innerHTML=WINDOWS.map(w=>`
+    <div class="win-card">
+      <div class="win-card-top">
+        <div class="win-card-window">${w.emoji} ${w.name}</div>
+        <div class="win-card-dates">${w.dates}</div>
+        <div class="win-card-days">${w.days} school holiday days · bridge with ${w.leave} leave days</div>
+      </div>
+      <div class="win-card-body">
+        <div class="win-dest-row">
+          <div class="win-dest-name">Best pick: ${w.bestDest}</div>
+          <div class="win-dest-score" style="color:rgba(34,197,94,0.9)">${starMap[w.score]}</div>
+        </div>
+        <div style="font-size:0.72rem;color:var(--muted);line-height:1.55;margin-bottom:0.25rem">${w.hack}</div>
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem">${w.dest}</div>
+        <div class="win-card-actions">
+          <button class="wca-btn alert" id="alertBtn_${w.id}" onclick="toggleWinAlert('${w.id}',this)">⚡ Alert me for deals</button>
+          <button class="wca-btn share" onclick="openShare('${w.off||w.days}','${w.leave}','${w.name}','${w.bestDest} ${starMap[w.score]}')">↗ Share</button>
+        </div>
+        <div class="inline-alert" id="winAlert_${w.id}">
+          <div class="inline-alert-row">
+            <input type="email" id="winAlertEmail_${w.id}" placeholder="your@email.com"/>
+            <button onclick="submitWinAlert('${w.id}','${w.name}')">→ Alert me</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─────────────────────────────────────────
+// CALENDAR
+// ─────────────────────────────────────────
+function renderCal(){
+  let html='';
+  for(let m=0;m<12;m++){
+    const days=DIM[m];
+    const isWin=WIN_M.includes(m);
+    const winLbl={3:'🐣 Easter',6:'⛷️ July',8:'🌸 September',11:'☀️ Summer',0:'☀️ Summer'}[m]||'';
+    html+=`<div class="cal-month-block">`;
+    html+=`<div class="cmh"><div class="cmn">${MF[m]}${isWin?`<span style="font-size:0.6rem;color:rgba(255,184,0,0.65);font-family:'DM Sans',sans-serif;font-weight:500">${winLbl}</span>`:''}</div><div class="cdhs">`;
+    for(let d=1;d<=days;d++){const w=dow(m,d);html+=`<div class="cdh ${w===6?'sa':w===0?'su':'wk'}">${DL[w]}</div>`;}
+    html+=`</div></div><div class="crows">`;
+
+    // Date row
+    html+=`<div class="crl hl">Date</div><div class="cdr">`;
+    for(let d=1;d<=days;d++){
+      const w=dow(m,d);const we=w===0||w===6;
+      const sc=isSchool(m,d,activeState);const ph=isPub(m,d,activeState)&&!sc;const hk=isHack(m,d,activeState);
+      let cls=we?'we':'wd';
+      if(hk)cls='hk';else if(sc)cls='sc';else if(ph)cls='ph';
+      const tip=hk?hackTip(m,d,activeState):ph?pubName(m,d,activeState):sc?`${activeState} school holidays`:'';
+      html+=`<div class="day dt ${cls}" onmouseenter="showTip(event,\`${tip.replace(/`/g,"'")}\`)" onmouseleave="hideTip()">${d}</div>`;
+    }
+    html+=`</div>`;
+
+    // School row
+    html+=`<div class="crl">School / Off</div><div class="cdr">`;
+    for(let d=1;d<=days;d++){
+      const w=dow(m,d);const we=w===0||w===6;const sc=isSchool(m,d,activeState);
+      // Show public holidays that fall in school hols as school colour (kids off either way)
+      const ph=isPub(m,d,activeState);
+      const cls=sc||ph?'sc':we?'we':'wd';
+      const tip=sc?`${activeState} school holidays`:ph?pubName(m,d,activeState):'';
+      html+=`<div class="day ${cls}" onmouseenter="showTip(event,'${tip}')" onmouseleave="hideTip()"></div>`;
+    }
+    html+=`</div>`;
+
+    // Public hols in TERM TIME only
+    html+=`<div class="crl">Term-time PH</div><div class="cdr">`;
+    for(let d=1;d<=days;d++){
+      const w=dow(m,d);const we=w===0||w===6;const sc=isSchool(m,d,activeState);const ph=isPub(m,d,activeState);
+      const show=ph&&!sc;
+      const pn=pubName(m,d,activeState);
+      html+=`<div class="day ${show?'ph':we?'we':'wd'}" onmouseenter="showTip(event,'${show?pn:''}')" onmouseleave="hideTip()">${show?`<span class="phn">${pn.substring(0,6)}</span>`:''}</div>`;
+    }
+    html+=`</div>`;
+
+    // Leave hacks
+    html+=`<div class="crl" style="color:var(--sun)">⚡ Leave</div><div class="cdr">`;
+    for(let d=1;d<=days;d++){
+      const w=dow(m,d);const we=w===0||w===6;const hk=isHack(m,d,activeState);const ht=hackTip(m,d,activeState);
+      html+=`<div class="day ${hk?'hk':we?'we':'wd'}" onmouseenter="showTip(event,\`${ht.replace(/`/g,"'")}\`)" onmouseleave="hideTip()"></div>`;
+    }
+    html+=`</div>`;
+
+    if(isWin){
+      html+=`<div class="crl" style="color:rgba(255,184,0,0.4);font-size:0.58rem">Window</div><div class="cdr">`;
+      for(let d=1;d<=days;d++){html+=`<div class="day wb"></div>`;}
+      html+=`</div>`;
+    }
+    html+=`</div></div>`;
+  }
+  document.getElementById('calWrap').innerHTML=html;
+}
+
+// ─────────────────────────────────────────
+// HEATMAP
+// ─────────────────────────────────────────
+let heatFilter='all';  // 'all','intl','aus','camp'
+let heatSort='default';  // 'default','weather','window'
+
+function renderHeat(){
+  const st=['✗','★','★★','★★★','★★★★','★★★★★'];
+  const WIN_M_12=WIN_M; // holiday window months (0-indexed)
+
+  // Filter
+  let dests=DESTS.filter(d=>heatFilter==='all'||d.cat===heatFilter||
+    (heatFilter==='aus'&&(d.cat==='aus'||d.cat==='camp')));
+
+  // Sort
+  if(heatSort==='weather'){
+    // Sort by average score across school holiday windows
+    dests=[...dests].sort((a,b)=>{
+      const avg=d=>WIN_M_12.reduce((s,m)=>s+(d.w[m]||0),0)/WIN_M_12.length;
+      return avg(b)-avg(a);
+    });
+  } else if(heatSort==='window'){
+    // Sort by best score in next upcoming window (July = m6)
+    dests=[...dests].sort((a,b)=>(b.w[6]||0)-(a.w[6]||0));
+  }
+
+  // Build table, show only first 12 months
+  let h=`<thead><tr><th class="dc">Destination</th>`;
+  MS.slice(0,12).forEach((m,i)=>{const w=WIN_M_12.includes(i);h+=`<th style="${w?'color:var(--sun)':'color:var(--muted)'}">${m}${w?' 🪟':''}</th>`;});
+  h+=`</tr></thead><tbody>`;
+
+  // Section headers
+  const cats={intl:'🌏 International',aus:'🏖️ Australian, Beach / Resort',camp:'🏕️ Australian, Camping & Road Trips'};
+  let lastCat='';
+  dests.forEach(d=>{
+    if(heatFilter==='all'&&d.cat!==lastCat){
+      lastCat=d.cat;
+      h+=`<tr><td colspan="13" style="padding:0.6rem 0.5rem 0.3rem;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--border)">${cats[d.cat]||''}</td></tr>`;
+    }
+    h+=`<tr><td class="dl">${d.n}<span class="dreg">${d.r}</span></td>`;
+    d.w.slice(0,12).forEach((sc,mi)=>{
+      const w=WIN_M_12.includes(mi);
+      const tip=`${d.n}, ${MF[mi]}\nWeather: ${st[sc]}\n${w?'🪟 School holiday window':''}\n${d.cat==='camp'?'🏕️ Camping/road trip rating':'🏨 Resort/hotel rating'}`;
+      h+=`<td class="w${sc}${w?' wr':''}" onmouseenter="showTip(event,\`${tip}\`)" onmouseleave="hideTip()">${st[sc]}</td>`;
+    });
+    h+=`</tr>`;
+  });
+  h+=`</tbody>`;
+  document.getElementById('heatTable').innerHTML=h;
+}
+
+// ─────────────────────────────────────────
+// HACKS
+// ─────────────────────────────────────────
+function renderHacks(){
+  document.getElementById('hacksWrap').innerHTML=HACKS.map(h=>`
+    <div class="hk-card">
+      <div class="hk-badge">${h.b}</div>
+      <div class="hk-off">${h.off} <span>days off · only ${h.lv} days leave</span></div>
+      <div class="hk-name">${h.n}</div>
+      <p class="hk-desc">${h.d}</p>
+      <button class="hk-share" onclick="openShare('${h.off}','${h.lv}','${h.n}','')">↗ Share this hack</button>
+    </div>`).join('');
+}
+
+// ─────────────────────────────────────────
+// PACKING
+// ─────────────────────────────────────────
+let checkedItems=new Set();
+
+function renderPacking(){
+  const dest=document.getElementById('pkDest').value;
+  const kids=document.getElementById('pkKids').value;
+  const data=PACKING[dest]||{};
+  const cats={...data.primary...(data[kids]||{})};
+  const allItems=Object.values(cats).flatMap(c=>c.items);
+  const total=allItems.length;
+  const done=[...checkedItems].filter(i=>allItems.includes(i)).length;
+  document.getElementById('pkFill').style.width=total?Math.round(done/total*100)+'%':'0%';
+  document.getElementById('pkPct').textContent=total?Math.round(done/total*100)+'%':'0%';
+  document.getElementById('pkCount').textContent=`${done} of ${total} packed`;
+
+  document.getElementById('pkGrid').innerHTML=Object.entries(cats).map(([cat,{items}])=>`
+    <div class="pk-cat">
+      <div class="pk-cat-title">📦 ${cat}</div>
+      ${items.map(item=>`
+        <label class="pk-item${checkedItems.has(item)?' checked':''}">
+          <input type="checkbox" ${checkedItems.has(item)?'checked':''} onchange="togglePk('${item.replace(/'/g,'\\\'')}')" />
+          ${item}
+        </label>`).join('')}
+    </div>`).join('');
+}
+
+function togglePk(item){
+  checkedItems.has(item)?checkedItems.delete(item):checkedItems.add(item);
+  renderPacking();
+}
+
+function resetPacking(){checkedItems.clear();renderPacking();}
+
+// ─────────────────────────────────────────
+// FLIGHTS
+// ─────────────────────────────────────────
+function renderFlights(){
+  document.getElementById('flightWrap').innerHTML=FLIGHTS.map(f=>`
+    <div class="fl-card">
+      <div class="fl-title">${f.t}</div>
+      ${f.tips.map(t=>`<div class="ftip"><div class="fa">→</div><p>${t}</p></div>`).join('')}
+    </div>`).join('');
+}
+
+// ─────────────────────────────────────────
+// MODALS
+// ─────────────────────────────────────────
+function openShare(off,lv,name,dest){
+  document.getElementById('scHeadline').textContent=off+' days off';
+  document.getElementById('scSub').textContent='with just '+lv+' days leave';
+  document.getElementById('scDest').textContent=name+(dest?' · '+dest:'');
+  shareData={off,lv,name,dest};
+  document.getElementById('shareModal').classList.add('show');
+}
+
+function copyShare(){
+  const{off,lv,name,dest}=shareData;
+  const txt=`🪟 Holiday Windows leave hack!\n\n${off} days off with just ${lv} days leave\n${name}${dest?'\n'+dest:''}\n\nPlan your family holidays: holidaywindows.com.au`;
+  navigator.clipboard.writeText(txt).then(()=>{
+    const btn=document.querySelector('.mbtn.copy');
+    btn.textContent='✓ Copied!';
+    setTimeout(()=>btn.textContent='📋 Copy text',2000);
+  });
+}
+
+// ─────────────────────────────────────────
+// INLINE ALERT, win cards
+// ─────────────────────────────────────────
+function toggleWinAlert(winId, btn){
+  const box=document.getElementById('winAlert_'+winId);
+  const isOpen=box.classList.contains('open');
+  // Close all others first
+  document.querySelectorAll('.inline-alert.open').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.wca-btn.alert').forEach(b=>{
+    if(!b.classList.contains('done')) b.textContent='⚡ Alert me for deals';
+  });
+  if(!isOpen){
+    box.classList.add('open');
+    btn.textContent='✕ Cancel';
+    setTimeout(()=>document.getElementById('winAlertEmail_'+winId)?.focus(),250);
+  }
+}
+
+function submitWinAlert(winId, winName){
+  const em=document.getElementById('winAlertEmail_'+winId)?.value.trim();
+  if(!em||!em.includes('@')) return;
+  // In production: POST to Beehiiv with tag winId
+  const box=document.getElementById('winAlert_'+winId);
+  const btn=document.getElementById('alertBtn_'+winId);
+  box.classList.remove('open');
+  btn.textContent='✓ Alerts set';
+  btn.classList.add('done');
+  btn.onclick=null;
+}
+
+// ─────────────────────────────────────────
+// INLINE ALERT, wbd breakdown cards
+// ─────────────────────────────────────────
+function toggleWbdAlert(winId, btn){
+  const box=document.getElementById('wbdAlert_'+winId);
+  const isOpen=box.classList.contains('open');
+  // Close all others
+  document.querySelectorAll('.wbd-inline-alert.open').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.wbd-alert-btn:not(.done)').forEach(b=>b.textContent='⚡ Alert me');
+  if(!isOpen){
+    box.classList.add('open');
+    btn.textContent='✕ Cancel';
+    setTimeout(()=>document.getElementById('wbdAlertEmail_'+winId)?.focus(),250);
+  }
+}
+
+function submitWbdAlert(winId, winName){
+  const em=document.getElementById('wbdAlertEmail_'+winId)?.value.trim();
+  if(!em||!em.includes('@')) return;
+  // In production: POST to Beehiiv with tag winId
+  const box=document.getElementById('wbdAlert_'+winId);
+  const btn=document.getElementById('wbdAlertBtn_'+winId);
+  box.classList.remove('open');
+  btn.textContent='✓ Alerts set';
+  btn.classList.add('done');
+  btn.onclick=null;
+  // Also mark the win-card alert as done if present
+  const winBtn=document.getElementById('alertBtn_'+winId);
+  if(winBtn){winBtn.textContent='✓ Alerts set';winBtn.classList.add('done');winBtn.onclick=null;}
+}
+
+function closeModal(id){document.getElementById(id).classList.remove('show');}
+
+// Close modals on background click
+document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show');}));
+
+// ─────────────────────────────────────────
+// NEWSLETTER BANNER
+// ─────────────────────────────────────────
+function nlSignup(){
+  const em=document.getElementById('nlEmail').value.trim();
+  const btn=document.getElementById('nlBtn');
+  if(!em||!em.includes('@')){btn.style.background='var(--coral)';btn.textContent='Enter a valid email';setTimeout(()=>{btn.style.background='var(--sun)';btn.style.color='var(--darker)';btn.textContent='Get free deals →';},2000);return;}
+  btn.classList.add('done');btn.textContent='✓ You\'re in!';
+  document.getElementById('nlEmail').value='';
+}
+
+// ─────────────────────────────────────────
+// TOOLTIP
+// ─────────────────────────────────────────
+function showTip(e,txt){if(!txt)return;const t=document.getElementById('tip');t.innerHTML=txt.replace(/\n/g,'<br>');t.style.display='block';posTip(e);}
+document.addEventListener('mousemove',posTip);
+function posTip(e){const t=document.getElementById('tip');if(t.style.display==='none')return;t.style.left=Math.min(e.clientX+14,window.innerWidth-225)+'px';t.style.top=Math.min(e.clientY+14,window.innerHeight-100)+'px';}
+function hideTip(){document.getElementById('tip').style.display='none';}
+
+// ─────────────────────────────────────────
+// TABS
+// ─────────────────────────────────────────
+function showTab(id,btn){
+  ['plan','heat','hacks','pack','flights'].forEach(t=>document.getElementById('tab-'+t).style.display=t===id?'block':'none');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
+// ─────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────
+loadOpt();
+renderWindowCards();
+function setHeatFilter(f,btn){
+  heatFilter=f;
+  document.querySelectorAll('.heat-filter-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderHeat();
+}
+function setHeatSort(s,btn){
+  heatSort=s;
+  document.querySelectorAll('.heat-filter-btn').forEach(b=>{
+    if(['Default','Best weather','Best for July'].some(t=>b.textContent.includes(t)))
+      b.classList.remove('on');
+  });
+  btn.classList.add('on');
+  renderHeat();
+}
+renderHeat();
+renderHacks();
+renderPacking();
+renderFlights();
+runOpt();
+
+// ─────────────────────────────────────────
+// POPOVER ASSIGNMENT
+// ─────────────────────────────────────────
+let popWin=null,popM=null,popD=null;
+
+function openPopover(winId,m,d,evt){
+  evt.stopPropagation();
+  popWin=winId; popM=m; popD=d;
+  const pop=document.getElementById('dayPopover');
+  const twoP=winTwoParent[winId];
+  const p1n=p1Name(),p2n=p2Name();
+  const cur=dayAssign[dayKey(winId,m,d)]||'un';
+
+  document.getElementById('popTitle').textContent=
+    MF[m]+' '+d+', assign to:';
+
+  const btns=document.getElementById('popBtns');
+  // Always show all options, P1, P2, Both, Care
+  // val names harmonised: p1/p2/bt/ca for both modes
+  const options=[
+    {val:'p1',label:'👤 '+p1n+' takes leave',col:'rgba(255,184,0,0.25)',border:'rgba(255,184,0,0.5)',tc:'var(--sun)'},
+    {val:'p2',label:'👤 '+p2n+' takes leave',col:'rgba(0,102,204,0.25)',border:'rgba(0,102,204,0.5)',tc:'#93C5FD'},
+    {val:'bt',label:'👥 Both take leave',col:'rgba(99,102,241,0.2)',border:'rgba(99,102,241,0.4)',tc:'#C4B5FD'},
+    {val:'ca',label:'🏫 School care',col:'rgba(255,90,54,0.2)',border:'rgba(255,90,54,0.4)',tc:'var(--coral)'},
+  ];
+
+  btns.innerHTML=options.map(o=>`
+    <button onclick="assignDay('${o.val}')"
+      style="font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;
+             padding:0.45rem 0.75rem;background:${o.col};
+             border:1px solid ${cur===o.val?o.border:'transparent'};
+             color:${o.tc};border-radius:0.375rem;cursor:pointer;
+             text-align:left;transition:all 0.15s;
+             ${cur===o.val?'outline:2px solid '+o.border+';outline-offset:1px;':''}"
+      onmouseover="this.style.borderColor='${o.border}'"
+      onmouseout="this.style.borderColor='${cur===o.val?o.border:'transparent'}'">
+      ${o.label}
+    </button>`).join('');
+
+  // Position popover near click
+  const x=Math.min(evt.clientX,window.innerWidth-200);
+  const y=Math.min(evt.clientY+10,window.innerHeight-220);
+  pop.style.left=x+'px';
+  pop.style.top=y+'px';
+  pop.style.display='block';
+}
+
+function assignDay(val){
+  if(!popWin) return;
+  const k=dayKey(popWin,popM,popD);
+  if(val==='clear') delete dayAssign[k];
+  else dayAssign[k]=val;
+  document.getElementById('dayPopover').style.display='none';
+  popWin=null;
+  runOpt();
+}
+
+// Close popover on outside click
+document.addEventListener('click',e=>{
+  const pop=document.getElementById('dayPopover');
+  if(pop&&pop.style.display==='block'&&!pop.contains(e.target)){
+    pop.style.display='none';
+    popWin=null;
+  }
+});
+
+// ─────────────────────────────────────────
+// EXTRA DAYS (pupil-free / closures)
+// ─────────────────────────────────────────
+// extraDays[winId] = [{m, d, label}], declared at top of state section
+
+function openExtraModal(winId){
+  extraWinId=winId;
+  const wd=WIN_DATA[activeState]?.[winId];
+  document.getElementById('extraWinName').textContent=
+    WIN_META[winId].emoji+' '+WIN_META[winId].label+' Window';
+
+  // Populate month select, 1 month before and after window for adjacent pupil-free days
+  const mSel=document.getElementById('extraMonth');
+  mSel.innerHTML='';
+  if(wd){
+    const mStart=Math.max(0,wd.m0-1);
+    const mEnd=Math.min(11,wd.m1+1);
+    for(let m=mStart;m<=mEnd;m++){
+      const opt=document.createElement('option');
+      opt.value=m;
+      const inWin=m>=wd.m0&&m<=wd.m1;
+      opt.textContent=MF[m]+(inWin?' (in hols)':m<wd.m0?' (before hols)':' (after hols)');
+      if(m===wd.m0) opt.selected=true;
+      mSel.appendChild(opt);
+    }
+  }
+
+  // Populate day select 1-31
+  const dSel=document.getElementById('extraDay');
+  dSel.innerHTML='';
+  for(let d=1;d<=31;d++){
+    const opt=document.createElement('option');
+    opt.value=d; opt.textContent=d;
+    dSel.appendChild(opt);
+  }
+
+  renderExtraList();
+  document.getElementById('extraModal').classList.add('show');
+}
+
+function addExtraDay(){
+  if(!extraWinId) return;
+  const m=parseInt(document.getElementById('extraMonth').value);
+  const d=parseInt(document.getElementById('extraDay').value);
+  if(isNaN(m)||isNaN(d)) return;
+  // Check not already added
+  const list=extraDays[extraWinId];
+  if(!list.some(e=>e.m===m&&e.d===d)){
+    list.push({m,d});
+    list.sort((a,b)=>a.m!==b.m?a.m-b.m:a.d-b.d);
+  }
+  renderExtraList();
+  runOpt();
+}
+
+function removeExtraDay(winId,m,d){
+  extraDays[winId]=extraDays[winId].filter(e=>!(e.m===m&&e.d===d));
+  // Also remove any assignment for this day
+  delete dayAssign[dayKey(winId,m,d)];
+  renderExtraList();
+  runOpt();
+}
+
+function extraDayPosition(e){
+  // Returns 'before', 'during', or 'after' relative to school holiday window
+  const wd=WIN_DATA[activeState]?.[extraWinId];
+  if(!wd) return 'during';
+  const dc=e.m*32+e.d, ds=wd.m0*32+wd.d0, de=wd.m1*32+wd.d1;
+  if(dc<ds) return 'before';
+  if(dc>de) return 'after';
+  return 'during';
+}
+
+function renderExtraList(){
+  const list=extraDays[extraWinId]||[];
+  const el=document.getElementById('extraList');
+  const tl=document.getElementById('extraTimeline');
+
+  if(!list.length){
+    el.innerHTML='<div style="font-size:0.72rem;color:rgba(255,255,255,0.25);font-style:italic;padding:0.5rem 0">No extra days added yet. Use the selectors below.</div>';
+    if(tl) tl.innerHTML='<div style="flex:1;background:rgba(34,197,94,0.2);border-radius:3px"></div><div style="margin:0 4px;font-size:0.6rem;color:var(--muted);white-space:nowrap;align-self:center">school holidays</div>';
+    return;
+  }
+
+  const before=list.filter(e=>extraDayPosition(e)==='before');
+  const during=list.filter(e=>extraDayPosition(e)==='during');
+  const after=list.filter(e=>extraDayPosition(e)==='after');
+
+  // Render timeline bar
+  if(tl){
+    const bw=before.length, dw=1, aw=after.length;
+    tl.innerHTML=`
+      ${bw?`<div style="flex:${bw};background:rgba(245,158,11,0.5);border-radius:3px 0 0 3px" title="${bw} day(s) before hols"></div>`:''}
+      <div style="flex:3;background:rgba(34,197,94,0.35)" title="School holiday window"></div>
+      ${aw?`<div style="flex:${aw};background:rgba(139,92,246,0.5);border-radius:0 3px 3px 0" title="${aw} day(s) after hols"></div>`:''}
+    `;
+  }
+
+  const posStyle={
+    before:{bg:'rgba(245,158,11,0.12)',border:'rgba(245,158,11,0.3)',badge:'rgba(245,158,11,0.2)',bc:'#FCD34D',lbl:'Before hols'},
+    during:{bg:'rgba(34,197,94,0.1)',border:'rgba(34,197,94,0.25)',badge:'rgba(34,197,94,0.15)',bc:'#86EFAC',lbl:'In hols'},
+    after:{bg:'rgba(139,92,246,0.12)',border:'rgba(139,92,246,0.3)',badge:'rgba(139,92,246,0.2)',bc:'#C4B5FD',lbl:'After hols'},
+  };
+
+  el.innerHTML=list.map(e=>{
+    const pos=extraDayPosition(e);
+    const ps=posStyle[pos];
+    const schoolDay=isSchool(e.m,e.d,activeState);
+    const context=schoolDay?'Within school hols':'Extra closure';
+    return`<div style="display:flex;justify-content:space-between;align-items:center;background:${ps.bg};border:1px solid ${ps.border};border-radius:0.375rem;padding:0.35rem 0.625rem;gap:0.5rem">
+      <div>
+        <span style="font-size:0.78rem;color:var(--white);font-weight:600">${MF[e.m]} ${e.d}</span>
+        <span style="font-size:0.65rem;color:rgba(255,255,255,0.4);margin-left:0.35rem">${DL[dow(e.m,e.d)]}</span>
+        <span style="font-size:0.6rem;font-weight:700;padding:0.1rem 0.4rem;border-radius:2px;background:${ps.badge};color:${ps.bc};margin-left:0.35rem">${ps.lbl}</span>
+        <span style="font-size:0.6rem;color:rgba(255,255,255,0.3);margin-left:0.25rem">${context}</span>
+      </div>
+      <button onclick="removeExtraDay('${extraWinId}',${e.m},${e.d})"
+        style="background:transparent;border:none;color:rgba(255,255,255,0.3);cursor:pointer;font-size:0.85rem;padding:0.1rem 0.3rem;flex-shrink:0"
+        onmouseover="this.style.color='var(--coral)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">✕</button>
+    </div>`;
+  }).join('');
+}
+
+// ─────────────────────────────────────────
+// Also need to make extra days clickable
+// in the popover, reuse openPopover
+// Extra days show as d-xtra, clicking opens popover
+// (handled in cell build, d-ph-click and d-xtra use openPopover)
+// ─────────────────────────────────────────
+
+</script>
+
+<!-- DAY ASSIGNMENT POPOVER -->
+<div id="dayPopover" style="
+  position:fixed;z-index:600;
+  background:#0D1B2A;
+  border:1px solid rgba(255,184,0,0.3);
+  border-radius:0.625rem;
+  padding:0.75rem;
+  display:none;
+  min-width:180px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+">
+  <div id="popTitle" style="font-size:0.68rem;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.6rem;"></div>
+  <div style="display:flex;flex-direction:column;gap:0.35rem;" id="popBtns"></div>
+  <div style="margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid rgba(255,255,255,0.07);">
+    <button onclick="assignDay('clear')" style="font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;padding:0.35rem 0.75rem;background:transparent;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.4);border-radius:0.25rem;cursor:pointer;width:100%;transition:all 0.15s" onmouseover="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.4)'">✕ Clear</button>
+  </div>
+</div>
+
+<!-- EXTRA DAYS MODAL -->
+<div class="modal-bg" id="extraModal">
+  <div style="background:var(--card);border:1px solid rgba(245,158,11,0.3);border-radius:1rem;padding:1.75rem;max-width:400px;width:100%">
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;color:var(--white);margin-bottom:0.25rem">📅 Add Extra Days</h3>
+    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.5rem">Add pupil-free days, school closures, or extra days for the <span id="extraWinName" style="color:var(--sun)"></span> window.</p>
+    <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.15);border-radius:0.375rem;padding:0.5rem 0.75rem;margin-bottom:0.875rem;font-size:0.72rem;color:rgba(255,255,255,0.6);line-height:1.55">
+      💡 <strong style="color:#FCD34D">Remember to add pupil-free and staff development days</strong>, these are set by each school and extend the days your kids are home. You'll find them in your school's term calendar.
+    </div>
+    <div id="extraTimeline" style="display:flex;gap:2px;margin-bottom:0.875rem;border-radius:0.375rem;overflow:hidden;height:8px;"></div>
+    <div id="extraList" style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;max-height:180px;overflow-y:auto"></div>
+    <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap">
+      <select id="extraMonth" style="font-family:'DM Sans',sans-serif;font-size:0.82rem;padding:0.45rem 0.75rem;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:0.375rem;color:var(--white);outline:none;flex:1">
+      </select>
+      <select id="extraDay" style="font-family:'DM Sans',sans-serif;font-size:0.82rem;padding:0.45rem 0.75rem;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:0.375rem;color:var(--white);outline:none;width:80px">
+      </select>
+      <button onclick="addExtraDay()" style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;padding:0.45rem 1rem;background:var(--sun);color:var(--darker);border:none;border-radius:0.375rem;cursor:pointer">+ Add</button>
+    </div>
+    <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-bottom:1rem">Extra days show in amber on the calendar. Click to assign care or leave.</p>
+    <button onclick="closeModal('extraModal')" style="font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;padding:0.55rem 1.25rem;background:var(--ocean);color:white;border:none;border-radius:0.375rem;cursor:pointer;width:100%">Done</button>
+  </div>
+</div>
+
+</body>
+</html>

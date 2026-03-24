@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About, Holiday Windows</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#FAFAF8;--bg2:#F3F1ED;--navy:#0A1628;--navy2:#152238;--border:rgba(10,22,40,0.1);--border2:rgba(10,22,40,0.06);--sun:#E8940A;--sun-lt:#F5A623;--ocean:#1557B0;--teal:#0B7A6E;--green:#1A9E6A;--muted:rgba(10,22,40,0.5);--muted2:rgba(10,22,40,0.3);}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--navy);}
+nav{position:sticky;top:0;z-index:100;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(250,250,248,0.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border);}
+.logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;color:var(--navy);text-decoration:none;}
+.logo span{color:var(--sun);}
+.nav-right{display:flex;align-items:center;gap:1.25rem;}
+.nav-link{font-size:0.8rem;color:var(--muted);text-decoration:none;}
+.nav-link:hover{color:var(--navy);}
+.nav-cta{font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;padding:0.45rem 1.1rem;background:var(--navy);color:#fff;border:none;border-radius:0.3rem;cursor:pointer;text-decoration:none;}
+
+/* Hero */
+.about-hero{background:var(--navy);padding:4rem 2.5rem 3rem;}
+.about-hero-inner{max-width:760px;margin:0 auto;}
+.eyebrow{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,162,35,0.8);margin-bottom:0.75rem;}
+h1{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:white;line-height:1.05;margin-bottom:1rem;}
+h1 em{font-style:italic;font-weight:300;color:var(--sun-lt);}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:540px;}
+
+/* Story */
+.story{max-width:760px;margin:0 auto;padding:3rem 2.5rem;}
+.story p{font-size:0.95rem;color:var(--muted);line-height:1.8;margin-bottom:1.25rem;}
+.story p strong{color:var(--navy);}
+.story p em{font-style:italic;color:var(--navy);}
+
+/* Pull quote */
+.pull-quote{
+  border-left:3px solid var(--sun);
+  padding:0.875rem 1.5rem;
+  margin:2rem 0;
+  font-family:'Fraunces',serif;
+  font-size:1.25rem;font-weight:300;font-style:italic;
+  color:var(--navy);line-height:1.5;
+}
+
+/* Values */
+.values{background:var(--bg2);padding:3rem 2.5rem;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);}
+.values-inner{max-width:760px;margin:0 auto;}
+.values h2{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem;}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
+.val-card{background:white;border:1.5px solid var(--border2);border-radius:0.625rem;padding:1.25rem;}
+.val-icon{font-size:1.4rem;margin-bottom:0.5rem;}
+.val-title{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem;}
+.val-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+
+/* Background */
+.background{max-width:760px;margin:0 auto;padding:3rem 2.5rem;}
+.background h2{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:1rem;}
+.creds{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;}
+.cred{display:flex;gap:0.625rem;align-items:flex-start;font-size:0.85rem;color:var(--muted);}
+.cred-dot{width:6px;height:6px;border-radius:50%;background:var(--sun);flex-shrink:0;margin-top:0.4rem;}
+.cred strong{color:var(--navy);}
+
+/* CTA */
+.about-cta{background:var(--navy);padding:3rem 2.5rem;text-align:center;}
+.about-cta h2{font-family:'Fraunces',serif;font-size:1.75rem;font-weight:900;color:white;margin-bottom:0.75rem;}
+.about-cta h2 em{font-style:italic;font-weight:300;color:var(--sun-lt);}
+.about-cta p{font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:1.75rem;}
+.form-row{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;max-width:420px;margin:0 auto;}
+.form-row input{font-family:'DM Sans',sans-serif;font-size:0.88rem;flex:1;min-width:180px;padding:0.65rem 0.875rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:0.375rem;color:white;outline:none;}
+.form-row input::placeholder{color:rgba(255,255,255,0.28);}
+.btn-sun{font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:700;padding:0.65rem 1.25rem;background:var(--sun);color:white;border:none;border-radius:0.375rem;cursor:pointer;}
+.btn-sun:hover{background:var(--sun-lt);}
+
+footer{background:var(--navy2);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.foot-logo{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:900;color:white;}
+.foot-logo span{color:var(--sun-lt);}
+.foot-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.foot-links a{font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:none;}
+.foot-links a:hover{color:rgba(255,255,255,0.8);}
+.foot-copy{font-size:0.65rem;color:rgba(255,255,255,0.2);max-width:380px;line-height:1.5;}
+@media(max-width:600px){nav.story.values.values-inner.background.about-cta,footer{padding-left:1.25rem;padding-right:1.25rem;}.about-hero{padding-left:1.25rem;padding-right:1.25rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="holidaywindows-landing-light.html">🪟 Holiday<span>Windows</span></a>
+  <div class="nav-right">
+    <a class="nav-link" href="holidaywindows-faq.html">FAQ</a>
+    <a class="nav-cta" href="holidaywindows-landing-light.html#signup">Get free deals →</a>
+  </div>
+</nav>
+
+<div class="about-hero">
+  <div class="about-hero-inner">
+    <div class="eyebrow">Our story</div>
+    <h1>Built by a parent<br>who got <em>tired of winging it.</em></h1>
+    <p class="hero-sub">Holiday Windows started as a spreadsheet. A slightly obsessive spreadsheet, built at 11pm after realising the July school holidays were six weeks away and nothing was booked.</p>
+  </div>
+</div>
+
+<div class="story">
+  <p>Every year, the same problem. School holidays arrive, four times a year, every year, completely predictable, and somehow they still feel like a surprise. Not the holidays themselves, but everything that needs to happen before them. The leave applications, the holiday care bookings, the flight searches, the realisation that Bali in July costs twice as much if you start looking in June.</p>
+
+  <div class="pull-quote">"I knew exactly how many days of annual leave I had. I had no idea how many days of school holidays I needed to cover."</div>
+
+  <p>That's the gap Holiday Windows was built to close. Not a travel agency. Not a generic deals newsletter. A tool that starts from the actual problem, <strong>every school holiday day needs covering, and you have a finite number of leave days to work with</strong>, and helps families figure out the optimal mix of annual leave, public holidays, and holiday care across all four windows of the year.</p>
+
+  <p>The deals came later. Once you know which windows you're targeting and how many leave days each costs, finding genuinely good deals becomes the last piece. We send one email every Tuesday, no noise, no filler. If there's nothing worth booking that week, we say so.</p>
+
+  <p>Holiday Windows is <strong>free to use and free to subscribe to</strong>. We earn small affiliate commissions from providers when you book through our links. That's the whole business model, and we're upfront about it in every email.</p>
+</div>
+
+<div class="values">
+  <div class="values-inner">
+    <h2>What we believe in</h2>
+    <div class="values-grid">
+      <div class="val-card">
+        <div class="val-icon">🔍</div>
+        <div class="val-title">Honest over hyped</div>
+        <div class="val-desc">We don't send deals we wouldn't book ourselves. If the weather is bad, we say so. If a deal has conditions worth knowing about, we put them upfront.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">🇦🇺</div>
+        <div class="val-title">Australian first</div>
+        <div class="val-desc">Ningaloo in September is extraordinary. The Grampians in April is spectacular. International deals are great, but so is Australia, and we feature both equally.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">📊</div>
+        <div class="val-title">Data over gut feel</div>
+        <div class="val-desc">The Leave Planner uses actual school holiday dates, real public holiday data, and honest calculations. No rounding up, no optimistic assumptions.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">🔕</div>
+        <div class="val-title">One email, that's it</div>
+        <div class="val-desc">One deal email per week, maximum. We will never sell your email address. We will never send you partner promotions. One email. That's the deal.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="background">
+  <h2>Background</h2>
+  <p>Holiday Windows is built and run by a Sydney-based parent with a background in finance and operations. The combination of CA-trained analytical thinking and firsthand experience of the school holiday planning problem is what turned a spreadsheet into a product.</p>
+  <div class="creds">
+    <div class="cred"><div class="cred-dot"></div><span>Chartered Accountant (CA ANZ) · finance background across professional services, corporate, and higher education</span></div>
+    <div class="cred"><div class="cred-dot"></div><span>Sydney-based parent navigating NSW school holidays with school-age children</span></div>
+    <div class="cred"><div class="cred-dot"></div><span>Operated by Finse Pty Ltd ABN [ABN] · registered in New South Wales</span></div>
+  </div>
+  <p>Questions, feedback, or deal tips? Email us at <a href="/cdn-cgi/l/email-protection#dcb4b9b0b0b39cb4b3b0b5b8bda5abb5b2b8b3abaff2bfb3b1f2bda9" style="color:var(--ocean);"><span class="__cf_email__" data-cfemail="b7dfd2dbdbd8f7dfd8dbded3d6cec0ded9d3d8c0c499d4d8da99d6c2">[email&#160;protected]</span></a>, we read every message.</p>
+</div>
+
+<div class="about-cta">
+  <h2>Ready to stop<br><em>winging it?</em></h2>
+  <p>Join Australian families who plan their school holidays before the deals disappear.</p>
+  <div class="form-row">
+    <input type="email" id="aboutEmail" placeholder="your@email.com"/>
+    <button class="btn-sun" onclick="signupAbout()">Get free deals →</button>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-logo">🪟 Holiday<span>Windows</span></div>
+  <div class="foot-links">
+    <a href="holidaywindows-landing-light.html">Home</a>
+    <a href="holidaywindows-deals.html">Deals</a>
+    <a href="holiday-windows-planner.html">Planner</a>
+    <a href="holidaywindows-faq.html">FAQ</a>
+    <a href="holidaywindows-privacy.html">Privacy</a>
+    <a href="holidaywindows-terms.html">Terms</a>
+  </div>
+  <div class="foot-copy">© 2026 Finse Pty Ltd · holidaywindows.com.au · We earn affiliate commissions from providers when you book. We never recommend deals we wouldn't book ourselves.</div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function signupAbout(){
+  const em
