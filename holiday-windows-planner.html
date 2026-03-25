@@ -185,14 +185,14 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .ht td.dl{background:transparent;text-align:left;font-size:0.74rem;font-weight:600;color:var(--navy);padding-right:0.5rem;white-space:nowrap;cursor:default;width:150px;}
 .ht td.dl:hover{opacity:1;}
 .dreg{font-size:0.58rem;font-weight:300;color:var(--muted);display:block;}
-/* Softer palette — informative not alarming */
-.w5{background:rgba(16,142,96,0.18);color:rgba(10,22,40,0.8);border:1px solid rgba(16,142,96,0.3);}
-.w4{background:rgba(16,142,96,0.09);color:rgba(10,22,40,0.7);border:1px solid rgba(16,142,96,0.18);}
-.w3{background:rgba(180,140,60,0.12);color:rgba(10,22,40,0.7);border:1px solid rgba(180,140,60,0.2);}
-.w2{background:rgba(10,22,40,0.05);color:rgba(10,22,40,0.45);border:1px solid rgba(10,22,40,0.08);}
-.w1{background:rgba(10,22,40,0.05);color:rgba(10,22,40,0.3);border:1px solid rgba(10,22,40,0.06);}
-.w0{background:transparent;color:rgba(10,22,40,0.2);font-size:0.5rem;}
-.wr{outline:2px solid rgba(232,148,10,0.6);outline-offset:-2px;}
+/* Calm dark-theme palette — visible but not alarming */
+.w5{background:rgba(34,197,94,0.22);color:rgba(255,255,255,0.9);border:1px solid rgba(34,197,94,0.3);}
+.w4{background:rgba(34,197,94,0.12);color:rgba(255,255,255,0.75);border:1px solid rgba(34,197,94,0.18);}
+.w3{background:rgba(255,184,0,0.14);color:rgba(255,255,255,0.7);border:1px solid rgba(255,184,0,0.2);}
+.w2{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.07);}
+.w1{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.05);}
+.w0{background:transparent;color:rgba(255,255,255,0.15);font-size:0.5rem;}
+.wr{outline:2px solid rgba(255,184,0,0.5);outline-offset:-2px;}
 
 /* HACKS */
 .hk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
@@ -420,19 +420,20 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .stat-total{color:var(--navy);}
 
 /* Mini calendar strip */
-.pd-cal{padding:0.5rem 0.75rem;background:var(--bg);border-top:1px solid var(--border2);}
-.pd-cal-label{font-size:0.58rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;}
-.pd-cal-days{display:flex;flex-wrap:wrap;gap:2px;}
+.pd-cal{padding:0.5rem 0.75rem 0.625rem;background:#F3F1ED;border-top:1px solid rgba(10,22,40,0.08);}
+.pd-cal-label{font-size:0.55rem;font-weight:700;color:rgba(10,22,40,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;}
+.pd-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;}
+.pd-dow{font-size:0.42rem;font-weight:700;color:rgba(10,22,40,0.35);text-align:center;padding-bottom:1px;}
 .pd-day{
-  width:18px;height:18px;border-radius:3px;
-  font-size:0.45rem;font-weight:700;
+  width:100%;aspect-ratio:1;border-radius:2px;
+  font-size:0.42rem;font-weight:700;
   display:flex;align-items:center;justify-content:center;
-  color:var(--navy);
+  color:#0A1628;
 }
-.pd-day.free{background:rgba(26,158,106,0.2);color:var(--green);}
-.pd-day.leave{background:rgba(232,148,10,0.2);color:var(--sun);}
-.pd-day.care{background:rgba(232,75,42,0.15);color:var(--coral);}
-.pd-day.unassigned{background:var(--bg2);color:var(--muted2);}
+.pd-day.free{background:rgba(26,158,106,0.18);color:rgba(10,22,40,0.7);}
+.pd-day.leave{background:rgba(232,148,10,0.22);color:rgba(10,22,40,0.7);}
+.pd-day.care{background:rgba(232,75,42,0.15);color:rgba(10,22,40,0.6);}
+.pd-day.unassigned{background:rgba(10,22,40,0.04);color:rgba(10,22,40,0.3);}
 .pd-day.outside{background:transparent;color:transparent;}
 
 /* Legend */
@@ -769,7 +770,7 @@ const HKD=[
   [11,23,'ALL','⚡ Take leave, Christmas runway'],
 ];
 
-const WIN_M=[3,6,8,11,0];
+const WIN_M=[3,6,8,9,11,0];  // Apr, Jul, Sep, Oct, Dec, Jan
 
 const WINDOWS=[
   {id:'easter',name:'Easter Window',emoji:'🐣',dates:'9–24 Apr 2026',days:16,leave:3,dest:'Bali, QLD Coast, NZ South',bestDest:'Bali',score:3,
@@ -825,62 +826,78 @@ const DESTS=[
 ];
 
 const HACKS=[
-  {b:'Easter · All states',off:11,lv:3,n:'Easter mega-window',
-   dates:'Wed 1 Apr to Sun 12 Apr 2026',leave:'Take Wed 1, Thu 2, Fri 3 April',
-   calc:'Good Friday (3 Apr) + Easter weekend + Easter Mon (6 Apr) + school hols = 11 days off, 3 leave days used.',
-   d:'Easter falls early in 2026 giving an 11-day break from just 3 leave days. Add leave days before Good Friday and depart on Wednesday with the whole window ahead.',
+  {b:'Easter · All states',off:10,lv:4,
+   n:'Easter 10 days, 4 leave days',
+   dates:'Fri 3 Apr to Sun 12 Apr 2026',
+   leave:'Take Tue 7, Wed 8, Thu 9, Fri 10 April',
+   calc:'Good Friday (3 Apr) FREE + Sat 4 FREE + Sun 5 FREE + Easter Mon (6 Apr) FREE = 4 public/weekend days. Then 4 leave days (Tue-Fri 7-10 Apr) + Sat 11 FREE + Sun 12 FREE = 10 days off, only 4 leave days used.',
+   d:'Easter 2026 gives you 4 completely free days at the start (Good Friday + Easter weekend + Easter Monday). Take 4 leave days the following week and pick up 2 more free weekend days at the end. 10 consecutive days from 4 leave days.',
    dest:'Bali · QLD Coast · Grampians · Jervis Bay',
-   weather:'Bali shoulder season — warm, quieter and cheaper than July. QLD coast sunny.',
-   img:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=70',tag:'Easter',color:'#E8940A'},
-  {b:'Anzac Day · All states',off:5,lv:1,n:'Anzac Day 5-day weekend',
-   dates:'Sat 25 Apr to Wed 29 Apr 2026',leave:'Take Mon 27 April only',
-   calc:'Anzac Day falls Sat 25 Apr. Mon 27 Apr = 1 leave day (substitute). Tue-Wed still in Easter school hols for most states = 5 days from 1 leave day.',
-   d:'One leave day gives you five consecutive days. Still within the Easter window for NSW/VIC/QLD families.',
+   weather:'Bali shoulder season — warm, quieter and cheaper. QLD coast sunny.',
+   tag:'Easter',color:'#E8940A'},
+  {b:'Anzac Day · All states',off:5,lv:1,
+   n:'Anzac Day 5-day weekend',
+   dates:'Sat 25 Apr to Wed 29 Apr 2026',
+   leave:'Take Mon 27 April only',
+   calc:'Anzac Day falls Sat 25 Apr. Sun 26 FREE. Mon 27 Apr = substitute public holiday (1 leave day). School hols still running in most states Tue 28-Wed 29 = 5 days from 1 leave day.',
+   d:'Anzac Day on a Saturday means Monday is a free substitute public holiday. One leave day gives you five consecutive days. Still within the Easter school holiday window for most states.',
    dest:'Bali · Melbourne · Byron Bay · Road trip',
-   weather:'Last chance for shoulder-season Bali before July. Autumn in Melbourne and Sydney is perfect.',
-   img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=70',tag:'Anzac Day',color:'#0B7A6E'},
-  {b:"King's Birthday · VIC/QLD",off:9,lv:4,n:"King's Birthday Japan trip",
-   dates:'Sat 30 May to Sun 7 Jun 2026',leave:'Take Mon 2, Tue 3, Wed 4, Thu 5 June',
-   calc:"King's Birthday = Mon 1 Jun public holiday (VIC/QLD). Weekend (30-31 May) free + public holiday + 4 leave days + following weekend (6-7 Jun) = 9 days off.",
-   d:"VIC and QLD get a public holiday on 1 June. 4 leave days gives 9 days away. June in Japan is greenery season — 30-40% cheaper than July peak.",
+   weather:'Last chance for shoulder-season Bali before July. Perfect autumn weather in Melbourne and Sydney.',
+   tag:'Anzac Day',color:'#0B7A6E'},
+  {b:"King's Birthday · VIC/QLD",off:9,lv:4,
+   n:"King's Birthday 9 days, 4 leave days",
+   dates:'Sat 30 May to Sun 7 Jun 2026',
+   leave:'Take Tue 2, Wed 3, Thu 4, Fri 5 June',
+   calc:'Sat 30 May FREE + Sun 31 May FREE + Mon 1 Jun = King's Birthday public holiday FREE + 4 leave days (Tue-Fri 2-5 Jun) + Sat 6 FREE + Sun 7 FREE = 9 days, 4 leave days.',
+   d:"VIC and QLD get a public holiday on 1 June. Combined with the surrounding weekends and 4 leave days you get 9 consecutive days. June in Japan is greenery season — 30-40% cheaper than July.",
    dest:'Tokyo · Kyoto · Osaka',
-   weather:'Japan June: warm, lush and dramatic. Not peak tourist season. No school holiday crowds.',
-   img:'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&q=70',tag:"King's Birthday",color:'#DC2626'},
-  {b:'July · All states',off:16,lv:2,n:'July school holiday full run',
-   dates:'Fri 10 Jul to Sun 26 Jul 2026',leave:'Take Mon 13, Tue 14 July',
-   calc:'NSW/VIC July hols: 13-24 Jul. Depart Fri 10 Jul (weekend free) + 2 leave days Mon-Tue + 2 full weeks school hols + return Sat-Sun 25-26 Jul = 16 days, 2 leave days.',
-   d:'The July window gives you 12 school holiday days. Add leave days at each end — depart Friday before school breaks, return Sunday after — and you have 16 continuous days from just 2 leave days.',
+   weather:'Japan June: warm, lush and dramatic. Not peak season. No school holiday crowds.',
+   tag:"King's Birthday",color:'#DC2626'},
+  {b:'July · All states',off:16,lv:2,
+   n:'July school holidays 16 days, 2 leave days',
+   dates:'Fri 10 Jul to Sun 26 Jul 2026',
+   leave:'Take Mon 13, Tue 14 July',
+   calc:'Fri 10 Jul FREE (depart) + Sat 11 FREE + Sun 12 FREE + 2 leave days (Mon 13-Tue 14) + school hols Wed 15-Fri 24 Jul (10 days) + Sat 25 FREE + Sun 26 FREE = 16 days, 2 leave days.',
+   d:'NSW/VIC school holidays run 13-24 July. Depart the Friday before school breaks. Add just 2 leave days at the start and the 2-week school window plus surrounding weekends gives you 16 continuous days.',
    dest:'Bali · Fiji · Snowy Mountains · NZ ski',
    weather:'Peak dry season in Bali and Fiji. Best skiing in Australia and NZ. Book 5+ months ahead.',
-   img:'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=400&q=70',tag:'July Window',color:'#0B7A6E'},
-  {b:'September · NSW/VIC',off:12,lv:3,n:'September spring break',
-   dates:'Sat 26 Sep to Wed 7 Oct 2026',leave:'Take Mon 28, Tue 29, Wed 30 September',
-   calc:'NSW/VIC September hols: 26 Sep-9 Oct. Weekend (26-27 Sep) free + 3 leave days Mon-Wed + school hols continue = 12 days off.',
-   d:'The long weekend gives 2 free days. Add 3 leave days Monday to Wednesday and you have 12 days off at one of the best travel times of year.',
+   tag:'July Window',color:'#0B7A6E'},
+  {b:'September · NSW/VIC',off:12,lv:3,
+   n:'September 12 days, 3 leave days',
+   dates:'Sat 26 Sep to Wed 7 Oct 2026',
+   leave:'Take Mon 28, Tue 29, Wed 30 September',
+   calc:'Sat 26 Sep FREE + Sun 27 Sep FREE + 3 leave days (Mon-Wed 28-30 Sep) + school hols Thu 1-Fri 9 Oct (7 days) + Sat 4 FREE + Sun 5 FREE = 12 days, 3 leave days.',
+   d:'NSW/VIC September school holidays start 26 Sep. The weekend gives 2 free days at the start. Add 3 leave days and the full school window runs through to 9 October.',
    dest:'Ningaloo · NZ spring · Japan autumn · Europe shoulder',
-   weather:'Ningaloo whale shark season peaks in September. NZ spring blossoms. Europe shoulder — quieter and cheaper.',
-   img:'https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=400&q=70',tag:'September',color:'#7C3AED'},
-  {b:'AFL Grand Final · VIC only',off:9,lv:2,n:'AFL Grand Final long break (VIC)',
-   dates:'Fri 25 Sep to Sun 4 Oct 2026',leave:'Take Mon 28, Tue 29 September',
-   calc:'AFL Grand Final Friday = VIC public holiday (25 Sep). Weekend (26-27 Sep) free + 2 leave days Mon-Tue + school hols continue to 9 Oct = 9 consecutive days.',
-   d:'Victoria gets a public holiday on AFL Grand Final Friday. Combined with September school holidays, just 2 leave days gives Victorian families a 9-day break.',
+   weather:'Ningaloo whale shark season peaks in September. NZ spring blossoms. Europe shoulder.',
+   tag:'September',color:'#7C3AED'},
+  {b:'AFL Grand Final · VIC only',off:9,lv:2,
+   n:'AFL Grand Final 9 days, 2 leave days (VIC)',
+   dates:'Fri 25 Sep to Sun 4 Oct 2026',
+   leave:'Take Mon 28, Tue 29 September',
+   calc:'Fri 25 Sep = AFL Grand Final public holiday FREE + Sat 26 FREE + Sun 27 FREE + 2 leave days (Mon-Tue 28-29 Sep) + school hols Wed 30 Sep-Fri 2 Oct + Sat 3 FREE + Sun 4 FREE = 9 days, 2 leave days.',
+   d:'Victoria gets a public holiday on AFL Grand Final Friday. 3 free days at the start + 2 leave days + school holiday continuation = 9 consecutive days from just 2 leave days.',
    dest:'Bali · NZ · Melbourne stays',
    weather:'Bali transitioning to dry season. NZ spring. Perfect Melbourne weather for local stays.',
-   img:'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&q=70',tag:'AFL Grand Final',color:'#1557B0'},
-  {b:'Melbourne Cup · VIC only',off:9,lv:4,n:'Melbourne Cup Japan foliage (VIC)',
-   dates:'Sat 31 Oct to Sun 8 Nov 2026',leave:'Take Mon 2, Wed 4, Thu 5 Nov (Tue 3 = pub hol)',
-   calc:'Melbourne Cup = Tue 3 Nov VIC public holiday. Weekend (31 Oct-1 Nov) free + 3 leave days (Mon, Wed, Thu) + Tue public holiday + following weekend (7-8 Nov) = 9 days off.',
-   d:'The Melbourne Cup public holiday falls mid-week, perfect to build a 9-day break around. Early November is peak autumn foliage (koyo) season in Japan.',
+   tag:'AFL Grand Final',color:'#1557B0'},
+  {b:'Melbourne Cup · VIC only',off:9,lv:3,
+   n:'Melbourne Cup 9 days, 3 leave days (VIC)',
+   dates:'Sat 31 Oct to Sun 8 Nov 2026',
+   leave:'Take Mon 2, Wed 4, Thu 5 November',
+   calc:'Sat 31 Oct FREE + Sun 1 Nov FREE + Mon 2 Nov 1 leave day + Tue 3 Nov = Melbourne Cup public holiday FREE + Wed 4-Thu 5 Nov 2 leave days + Fri 6 Nov + Sat 7 FREE + Sun 8 FREE = 9 days, 3 leave days.',
+   d:'Melbourne Cup Tuesday is a free public holiday. Build either side with 3 leave days and pick up both surrounding weekends for a 9-day break. Perfect timing for Japan autumn foliage.',
    dest:'Tokyo · Kyoto · Nikko · Osaka',
-   weather:'Japan November: crisp, stunning red and gold foliage. Peak koyo season — book early.',
-   img:'https://images.unsplash.com/photo-1569880153113-76e33fc52d5f?w=400&q=70',tag:'Melbourne Cup',color:'#DC2626'},
-  {b:'Summer · All states',off:24,lv:3,n:'Christmas runway — 24 days',
-   dates:'Wed 18 Dec 2026 to Fri 9 Jan 2027',leave:'Take Mon 21, Tue 22, Wed 23 December',
-   calc:'Schools break ~18 Dec. Christmas Day (25 Dec) + Boxing Day (26 Dec) + New Year Day (1 Jan) = 3 public holidays. 3 leave days + all weekends + public holidays = 24-day runway.',
-   d:'Take 3 leave days the week before Christmas and you have a 24-day runway to early January without touching January leave entitlement.',
+   weather:'Japan November: crisp, red and gold foliage. Peak koyo season — book early.',
+   tag:'Melbourne Cup',color:'#DC2626'},
+  {b:'Summer · All states',off:24,lv:3,
+   n:'Christmas runway 24 days, 3 leave days',
+   dates:'Wed 18 Dec 2026 to Fri 9 Jan 2027',
+   leave:'Take Mon 21, Tue 22, Wed 23 December',
+   calc:'Schools break ~18 Dec. Sat 19 FREE + Sun 20 FREE + 3 leave days (Mon-Wed 21-23 Dec) + Thu 24 FREE (Christmas Eve) + Fri 25 = Christmas Day FREE + Sat 26 = Boxing Day FREE + Sun 27 FREE + 2 weeks of school hols + New Year's Day (1 Jan) FREE = 24-day runway, 3 leave days.',
+   d:'Schools break around 18 December. Take 3 leave days the following week and you have a 24-day runway to early January. Christmas Day, Boxing Day and New Year's Day are all free. Combine with the full summer school holiday window.',
    dest:'Thailand · Bali · Japan winter · NZ summer · Whitsundays',
    weather:'Thailand peak season. Bali sunny. Japan winter festivals. NZ and Whitsundays perfect.',
-   img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=70',tag:'Summer',color:'#E84B2A'},
+   tag:'Summer',color:'#E84B2A'},
 ];
 
 // PACKING DATA
@@ -1547,14 +1564,15 @@ function renderHeat(){
     d.w.slice(0,12).forEach((sc,mi)=>{
       const w=WIN_M_12.includes(mi);
       // Weather reason by score
-      const WHY_INTL=[
-        ['Avoid — extreme heat, rain or typhoon season','Poor — heat, humidity or wet season likely','Mixed — warm but some rain likely','Good — pleasant weather, occasional showers','Very good — warm and mostly dry','Ideal — best weather of the year'],
-      ][0];
-      const WHY_AUS_BEACH=['Avoid — too cold for swimming','Cool for the beach, better inland','Mild — pleasant but not beach weather','Warm — good beach conditions','Hot and sunny — great beach weather','Perfect — warm sunny days, calm seas'][sc];
-      const WHY_CAMP=['Avoid — extreme cold, wet or fire risk','Cold — good for hardy campers only','Cool but manageable camping','Good camping weather','Great conditions for camping and road trips','Perfect — dry, mild, ideal for outdoor stays'][sc];
-      const whyText = d.cat==='camp' ? WHY_CAMP : d.cat==='aus' ? WHY_AUS_BEACH : WHY_INTL[sc]||'';
-      const tip=`${d.n} — ${MF[mi]}\n${st[sc]} ${whyText}${w?'\n🪟 School holiday window':''}`;
-      h+=`<td class="w${sc}${w?' wr':''}" onmouseenter="showTip(event,\`${tip}\`)" onmouseleave="hideTip()">${st[sc]}</td>`;
+      const WHY=['Avoid','Poor','Mixed','Good','Very good','Ideal'][sc]||'';
+      const WHY2=d.cat==='camp'
+        ?['avoid extreme cold/wet','good for hardy campers','cool camping','good camping','great conditions','perfect outdoor'][sc]||''
+        :d.cat==='aus'
+        ?['too cold to swim','cool, better inland','mild, not beach weather','warm beach conditions','hot and sunny','perfect seas'][sc]||''
+        :['avoid - storm season','poor - wet season','mixed - some rain','good weather','very good - mostly dry','ideal - best of year'][sc]||'';
+      const tipWin=w?' | school holiday window':'';
+      const tip=d.n+' '+MF[mi]+' | '+WHY+' '+WHY2+tipWin;
+      h+=`<td class="w${sc}${w?' wr':''}" onmouseenter="showTip(event,tip)" onmouseleave="hideTip()">${st[sc]}</td>`;
     });
     h+=`</tr>`;
   });
@@ -2047,10 +2065,25 @@ function openPrintView(){
   // Build mini calendar strips
   function calStrip(wid){
     const s=winStats[wid];
-    if(!s) return '';
-    return s.days.map(d=>
-      `<div class="pd-day ${d.type}">${d.d}</div>`
-    ).join('');
+    if(!s||!s.days.length) return '';
+    const wd=WIN_DATA[state]?.[wid];
+    if(!wd) return '';
+    // Get day of week for first day (0=Sun)
+    const firstDow = dow(wd.m0, wd.d0);
+    const days = s.days;
+    // Build 7-col grid with DOW headers + padding
+    let html='<div class="pd-cal-grid">';
+    // DOW headers
+    ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d=>
+      html+=`<div class="pd-dow">${d}</div>`);
+    // Padding before first day
+    for(let i=0;i<firstDow;i++)
+      html+=`<div class="pd-day outside"></div>`;
+    // Day cells
+    days.forEach(d=>
+      html+=`<div class="pd-day ${d.type}">${d.d}</div>`);
+    html+='</div>';
+    return html;
   }
 
   // Build badge
@@ -2171,6 +2204,10 @@ function closePrintView(){
 // Close on backdrop click
 document.getElementById('printModal')?.addEventListener('click', function(e){
   if(e.target === this) closePrintView();
+});
+// Close on ESC key
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closePrintView();
 });
 
 function acceptCookies(){
