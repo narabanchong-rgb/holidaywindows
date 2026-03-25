@@ -56,8 +56,8 @@ nav.scrolled{
 }
 .logo span{color:var(--sun);}
 .nav-right{display:flex;align-items:center;gap:1.25rem;}
-.nav-link{font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color 0.15s;}
-.nav-link:hover{color:var(--navy);}
+.nav-link{font-size:0.8rem;color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.15s;}
+.nav-link:hover{color:white;}
 .nav-cta{
   font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;
   padding:0.45rem 1.1rem;
@@ -442,7 +442,7 @@ footer{
   </div>
 </nav>
 
-<!-- HERO, two column: copy left, Australian family image right -->
+<!-- HERO - full width background image -->
 <div class="hero" id="signup">
   <div class="hero-content">
     <div class="hero-eyebrow">🇦🇺 For Australian school families</div>
@@ -471,39 +471,7 @@ footer{
       </div>
     </div>
   </div>
-  <div style="position:relative;z-index:1;">
-    <div style="border-radius:1.25rem;overflow:hidden;height:560px;box-shadow:0 20px 60px rgba(10,22,40,0.15);">
-      <img
-        src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=85"
-        alt="Australian family beach holiday"
-        style="width:100%;height:100%;object-fit:cover;object-position:center 45%;"
-      />
-      <!-- Warm overlay badge -->
-      <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;
-        background:rgba(10,22,40,0.82);backdrop-filter:blur(12px);
-        border-radius:0.75rem;padding:0.875rem 1.25rem;
-        border:1px solid rgba(255,255,255,0.08);
-        display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
-        <div style="display:flex;gap:1.5rem;">
-          <div style="text-align:center;">
-            <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:white;line-height:1;">12<span style="font-size:1rem;color:var(--sun-lt);">wks</span></div>
-            <div style="font-size:0.58rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;line-height:1.3;">school holidays<br>every year</div>
-          </div>
-          <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
-          <div style="text-align:center;">
-            <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:white;line-height:1;">4</div>
-            <div style="font-size:0.58rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;line-height:1.3;">holiday windows<br>to plan</div>
-          </div>
-          <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
-          <div style="text-align:center;">
-            <div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:white;line-height:1;">$0</div>
-            <div style="font-size:0.58rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;line-height:1.3;">to join &amp;<br>use the planner</div>
-          </div>
-        </div>
-        <a href="#windows" style="font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;color:var(--sun-lt);text-decoration:none;white-space:nowrap;">See 2026 windows →</a>
-      </div>
-    </div>
-  </div></div>
+
 
 <!-- WINDOW VISUALISER -->
 <div style="background:white;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);">

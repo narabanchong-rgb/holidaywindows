@@ -114,7 +114,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .mc-day.d-un{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.25);cursor:pointer;border:1px dashed rgba(255,255,255,0.1);}
 .mc-day.d-lv{background:rgba(255,184,0,0.2);color:var(--sun);cursor:pointer;border:1px solid rgba(255,184,0,0.4);}
 .mc-day.d-ca{background:rgba(255,90,54,0.18);color:var(--coral);cursor:pointer;border:1px solid rgba(255,90,54,0.3);}
-/* Two parent mode */
+/* Carer mode */
 .mc-day.d-p1{background:rgba(255,184,0,0.2);color:var(--sun);cursor:pointer;border:1px solid rgba(255,184,0,0.4);}
 .mc-day.d-p2{background:rgba(0,102,204,0.2);color:#93C5FD;cursor:pointer;border:1px solid rgba(0,102,204,0.35);}
 .mc-day.d-bt{background:linear-gradient(135deg,rgba(255,184,0,0.25) 50%,rgba(0,102,204,0.25) 50%);color:var(--white);cursor:pointer;border:1px solid rgba(255,184,0,0.3);}
@@ -312,8 +312,9 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
   display:none;position:fixed;inset:0;z-index:1000;
   background:rgba(10,22,40,0.7);backdrop-filter:blur(4px);
   align-items:center;justify-content:center;padding:1rem;
+  pointer-events:none;
 }
-.print-modal.open{display:flex;}
+.print-modal.open{display:flex;pointer-events:all;}
 .print-modal-inner{
   background:white;border-radius:1rem;
   width:100%;max-width:860px;max-height:90vh;
@@ -449,13 +450,21 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 
 /* Print media */
 @media print{
-  .print-modal-header,.print-modal-actions{display:none!important;}
-  .print-modal{position:static!important;display:block!important;background:none!important;padding:0!important;}
-  .print-modal-inner{max-height:none!important;box-shadow:none!important;border-radius:0!important;}
-  .print-doc{padding:1cm;}
-  body > *:not(.print-modal){display:none!important;}
-  .pd-win-img{height:120px;}
-  .pd-inspo-img{height:75px;}
+  nav,.tabs,.main,.nl-banner,.cookie-banner{display:none!important;}
+  .print-modal{
+    position:static!important;display:block!important;
+    background:none!important;padding:0!important;
+    pointer-events:none;
+  }
+  .print-modal-inner{
+    max-height:none!important;box-shadow:none!important;
+    border-radius:0!important;overflow:visible!important;
+  }
+  .print-modal-header{display:none!important;}
+  .print-doc{padding:0.75cm 1cm;}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  .pd-win-img{height:110px;}
+  .pd-inspo-img{height:70px;}
 }
 
 </style>
@@ -517,20 +526,20 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
     <!-- INPUTS -->
     <div class="opt-inputs">
       <div class="opt-field">
-        <label>Parent 1 name</label>
-        <input type="text" id="optP1Name" value="Parent 1" oninput="runOpt()"/>
+        <label>Carer 1 name</label>
+        <input type="text" id="optP1Name" value="Carer 1" oninput="runOpt()"/>
       </div>
       <div class="opt-field">
-        <label>P1 leave to allocate</label>
+        <label>Carer 1 leave days</label>
         <input type="number" id="optTotal" value="15" min="0" max="60" oninput="runOpt()"/>
         <div style="font-size:0.6rem;color:var(--muted);margin-top:0.3rem">Days budgeted for 2026 holidays</div>
       </div>
       <div class="opt-field">
-        <label>Parent 2 name</label>
-        <input type="text" id="optP2Name" value="Parent 2" oninput="runOpt()"/>
+        <label>Carer 2 name</label>
+        <input type="text" id="optP2Name" value="Carer 2" oninput="runOpt()"/>
       </div>
       <div class="opt-field">
-        <label>P2 leave to allocate</label>
+        <label>Carer 2 leave days</label>
         <input type="number" id="optTotal2" value="15" min="0" max="60" oninput="runOpt()"/>
         <div style="font-size:0.6rem;color:var(--muted);margin-top:0.3rem">Days budgeted for 2026 holidays</div>
       </div>
@@ -547,7 +556,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
     <!-- TOTAL BAR -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.25rem">
       <div class="opt-total-bar" style="margin-bottom:0;flex-direction:column;gap:0.4rem;align-items:flex-start">
-        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sun)" id="optP1Label">Parent 1</div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sun)" id="optP1Label">Carer 1</div>
         <div style="display:flex;gap:1.25rem;flex-wrap:wrap">
           <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--white);line-height:1" id="optAvailTxt">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Budgeted</div></div>
           <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--sun);line-height:1" id="optUsedTxt">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Assigned</div></div>
@@ -556,7 +565,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
         <div style="width:100%;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div id="p1Bar" style="height:100%;background:var(--sun);border-radius:2px;transition:width 0.3s;width:0%"></div></div>
       </div>
       <div class="opt-total-bar" style="margin-bottom:0;flex-direction:column;gap:0.4rem;align-items:flex-start">
-        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#93C5FD" id="optP2Label">Parent 2</div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#93C5FD" id="optP2Label">Carer 2</div>
         <div style="display:flex;gap:1.25rem;flex-wrap:wrap">
           <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--white);line-height:1" id="optAvailTxt2">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Budgeted</div></div>
           <div><div style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:#93C5FD;line-height:1" id="optUsedTxt2">, </div><div style="font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em">Assigned</div></div>
@@ -673,24 +682,6 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 </div>
 
 </div><!-- /main -->
-
-<!-- SHARE MODAL -->
-<div class="modal-bg" id="shareModal">
-  <div class="modal">
-    <h3>Share this leave hack 🎉</h3>
-    <p>Copy and paste into your school Facebook group or parent WhatsApp chat.</p>
-    <div class="share-card-preview">
-      <div class="sc-logo">🪟 Holiday<span>Windows</span></div>
-      <div class="sc-headline" id="scHeadline">16 days off</div>
-      <div class="sc-sub" id="scSub">with just 2 days leave</div>
-      <div class="sc-dest" id="scDest">July window · Bali peak dry season ★★★★★</div>
-    </div>
-    <div class="modal-btns">
-      <button class="mbtn copy" onclick="copyShare()">📋 Copy text</button>
-      <button class="mbtn close-btn" onclick="closeModal('shareModal')">Close</button>
-    </div>
-  </div>
-</div>
 
 <!-- alert modal removed, inline alerts used instead -->
 
@@ -1039,7 +1030,7 @@ function runOpt(){
     const m=WIN_META[winId];
     const wd=WIN_DATA[activeState]?.[winId];
     if(!wd) return;
-    const twoP=true;  // always show both parents, toggle removed
+    const twoP=true;  // always show your carers, toggle removed
     const days=countWindowDays(winId,activeState);
 
     // Count assignments for this window
@@ -1611,12 +1602,21 @@ document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',e=>
 // ─────────────────────────────────────────
 // NEWSLETTER BANNER
 // ─────────────────────────────────────────
-function nlSignup(){
+async function nlSignup(){
   const em=document.getElementById('nlEmail').value.trim();
   const btn=document.getElementById('nlBtn');
-  if(!em||!em.includes('@')){btn.style.background='var(--coral)';btn.textContent='Enter a valid email';setTimeout(()=>{btn.style.background='var(--sun)';btn.style.color='var(--darker)';btn.textContent='Get free deals →';},2000);return;}
-  btn.classList.add('done');btn.textContent='✓ You\'re in!';
+  if(!em||!em.includes('@')){btn.style.background='var(--coral)';btn.textContent='Enter a valid email';setTimeout(()=>{btn.style.background='var(--sun)';btn.textContent='Get free deals →';},2000);return;}
+  btn.textContent='Signing up...';
+  try{
+    await fetch('https://api.beehiiv.com/v2/publications/pub_fc0eface-2431-431b-91ca-320ef7ba032c/subscriptions',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:em,reactivate_existing:false,send_welcome_email:true,
+        utm_source:'planner',utm_medium:'organic'})
+    });
+  }catch(e){}
+  btn.textContent="✓ You're in!";
   document.getElementById('nlEmail').value='';
+  document.getElementById('nlEmail').placeholder='See you Tuesday ✓';
 }
 
 // ─────────────────────────────────────────
