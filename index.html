@@ -484,7 +484,7 @@ footer{
   <a class="logo" href="#">🪟 Holiday<span>Windows</span></a>
   <div class="nav-right">
     <a class="nav-link" href="#how">How it works</a>
-    <a class="nav-link" href="#deals">Deals</a>
+    <a class="nav-link" href="/holidaywindows-deals.html">Deals</a>
     <a class="nav-cta" href="#signup">Get free deals →</a>
   </div>
 </nav>
@@ -774,7 +774,7 @@ footer{
       </div>
       <div class="form-row" style="max-width:360px">
         <input type="email" id="dealEmail" placeholder="your@email.com" style="background:white;border:1.5px solid var(--border);color:var(--navy)"/>
-        <button class="btn-navy" onclick="dealSignup()">Join free →</button>
+        <button class="btn-navy" onclick="dealSignup()">See this week's deal →</button>
       </div>
     </div>
     <div>
@@ -858,7 +858,7 @@ footer{
   <div class="foot-logo">🪟 Holiday<span>Windows</span></div>
   <div class="foot-links">
     <a href="/holiday-windows-planner.html">Leave Planner</a>
-    <a href="#deals">Deals</a>
+    <a href="/holidaywindows-deals.html">Deals</a>
     <a href="#how">How it works</a>
     <a href="https://naras-newsletter-dc97bb.beehiiv.com/?utm_source=site&utm_medium=footer" target="_blank">Unsubscribe</a>
   </div>
@@ -871,25 +871,42 @@ window.addEventListener('scroll',()=>{
 });
 function heroSignup(){
   const em=document.getElementById('heroEmail').value.trim();
-  if(!em||!em.includes('@')){document.getElementById('heroEmail').style.borderColor='var(--coral)';setTimeout(()=>document.getElementById('heroEmail').style.borderColor='',2000);return;}
-  document.getElementById('heroProof').innerHTML='✓ You\'re in, first deal lands next Tuesday.';
-  document.getElementById('heroProof').style.color='var(--green)';
-  document.getElementById('heroEmail').value='';
+  const st=document.getElementById('heroState')?.value||'';
+  if(!em||!em.includes('@')){
+    document.getElementById('heroEmail').style.borderColor='var(--coral)';
+    setTimeout(()=>document.getElementById('heroEmail').style.borderColor='',2000);
+    return;
+  }
+  const proof=document.getElementById('heroProof');
+  proof.innerHTML='Signing you up...';
+  beehiivSignup(em,st).then(()=>{
+    proof.innerHTML='You\'re in — opening deals now...';
+    proof.style.color='var(--green)';
+    document.getElementById('heroEmail').value='';
+    setTimeout(()=>window.location.href='/holidaywindows-deals.html',1200);
+  });
 }
 async function dealSignup(){
   const em=document.getElementById('dealEmail').value.trim();
   if(!em||!em.includes('@')) return;
+  const btn=document.querySelector('.deal-section .btn-navy');
+  if(btn){btn.textContent='Opening deals...';btn.disabled=true;}
   await beehiivSignup(em, '');
-  document.getElementById('dealEmail').placeholder='✓ You\'re in!';
-  document.getElementById('dealEmail').value='';
-  document.getElementById('dealEmail').style.borderColor='var(--green)';
+  // Redirect to deals page
+  window.location.href='/holidaywindows-deals.html';
 }
 function fsSignup(){
   const em=document.getElementById('fsEmail').value.trim();
+  const st=document.getElementById('fsState')?.value||'';
   if(!em||!em.includes('@')) return;
-  document.getElementById('fsProof').textContent='✓ You\'re in, see you Tuesday.';
-  document.getElementById('fsProof').style.color='var(--sun-lt)';
-  document.getElementById('fsEmail').value='';
+  const proof=document.getElementById('fsProof');
+  proof.textContent='Signing up...';
+  beehiivSignup(em,st).then(()=>{
+    proof.textContent='You\'re in — opening deals now...';
+    proof.style.color='var(--green)';
+    document.getElementById('fsEmail').value='';
+    setTimeout(()=>window.location.href='/holidaywindows-deals.html',1200);
+  });
 }
 
 function acceptCookies(){
