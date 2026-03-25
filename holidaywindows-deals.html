@@ -458,6 +458,23 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
   .dc-comp-sub{margin-left:0;}
   .dc-hotel-note{margin-left:0;}
 }
+
+/* ── AVAILABILITY STATUS ── */
+.avail-bar{
+  display:flex;align-items:center;gap:0.5rem;
+  padding:0.45rem 0.875rem;
+  border-bottom:1px solid rgba(10,22,40,0.07);
+  font-size:0.7rem;font-weight:600;
+}
+.avail-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.avail-red .avail-dot{background:#DC2626;}
+.avail-amber .avail-dot{background:#E8940A;}
+.avail-green .avail-dot{background:#1A9E6A;}
+.avail-red .avail-text{color:#DC2626;}
+.avail-amber .avail-text{color:#7A4F00;}
+.avail-green .avail-text{color:#1A9E6A;}
+.avail-sub{font-size:0.62rem;font-weight:400;color:rgba(10,22,40,0.4);margin-left:auto;}
+
 </style>
 </head>
 <body>
@@ -517,6 +534,11 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
 
   <!-- Deal 1: July Bali, gated -->
   <div class="deal-card gated" data-window="july" id="deal-bali-july">
+    <div class="avail-bar avail-amber">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Filling fast — Bali July villas sell out by April</span>
+      <span class="avail-sub">Check availability now</span>
+    </div>
     <div class="dc-img-panel">
       <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80');background-position:center 40%;">
         <div class="dc-img-badges">
@@ -698,6 +720,11 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
 
   <!-- Deal 2: Summer Thailand, gated -->
   <div class="deal-card gated" data-window="summer">
+    <div class="avail-bar avail-green">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Good availability — Summer window is December</span>
+      <span class="avail-sub">Book by September</span>
+    </div>
     <div class="dc-img-panel">
       <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=800&q=80');background-position:center 55%;">
         <div class="dc-img-badges">
@@ -819,6 +846,11 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
 
   <!-- Deal 3: September Ningaloo, gated -->
   <div class="deal-card gated" data-window="sept" id="deal-ningaloo-sept">
+    <div class="avail-bar avail-red">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Selling out — Coral Bay September already limited</span>
+      <span class="avail-sub">Check tonight</span>
+    </div>
     <div class="dc-img-panel">
       <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=800&q=80');background-position:center 60%;">
         <div class="dc-img-badges">
@@ -944,6 +976,11 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
 
   <!-- Deal 4: Easter NSW Camping, gated -->
   <div class="deal-card gated" data-window="easter" id="deal-nsw-camping">
+    <div class="avail-bar avail-amber">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Book now — Depot Beach Easter sites sell out months ahead</span>
+      <span class="avail-sub">Check NSW National Parks tonight</span>
+    </div>
     <div class="dc-img-panel">
       <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80');background-position:center 40%;">
         <div class="dc-img-badges">
@@ -1103,6 +1140,173 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
         <div style="margin-top:0.5rem;font-size:0.68rem;color:var(--muted);text-align:center;">
           NSW National Parks books direct — no commissions taken. Camplify commission via Partnerize. Viator 8% commission. <a href="/holidaywindows-about.html" style="color:var(--ocean);">How we choose deals →</a>
         </div>
+      </div>
+
+      <div class="gate-overlay">
+        <div class="gate-overlay-title">Join free to unlock this deal</div>
+        <div class="gate-overlay-sub">Free forever · Deals every Tuesday · Unsubscribe anytime</div>
+        <div class="gate-overlay-form">
+          <input type="email" placeholder="your@email.com"/>
+          <button onclick="unlockDeal(this)">Unlock →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Deal 5: Whitsundays September, gated -->
+  <div class="deal-card gated" data-window="sept" id="deal-whitsundays-sept">
+    <div class="avail-bar avail-amber">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Good availability — 143 properties, book by July</span>
+      <span class="avail-sub">Verified 26 Mar 2026</span>
+    </div>
+    <div class="dc-img-panel">
+      <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1548032885-b5e38734688a?w=800&q=80');background-position:center 55%;">
+        <div class="dc-img-badges">
+          <div class="dc-badge window">🌸 September Window · NSW/VIC</div>
+          <div class="dc-badge weather">★★★★★ Dry season · warm water</div>
+          <div class="dc-badge hot">🇦🇺 No passport needed</div>
+        </div>
+        <div class="dc-dest-overlay">
+          <div class="dc-dest-name">🇦🇺 Whitsundays, QLD</div>
+          <div class="dc-dest-sub">Airlie Beach · 6 nights · Family of 4</div>
+        </div>
+      </div>
+    </div>
+    <div class="dc-content">
+      <div class="dc-top">
+        <div class="dc-window-tag">🌸 September 2026 · 26 Sep–9 Oct</div>
+        <div class="dc-headline">6 nights Whitsundays — dry season, family of 4</div>
+        <div class="dc-tagline">September is peak dry season in the Whitsundays. Warm water, light winds, brilliant visibility for snorkelling. Two-bedroom ocean view apartments from $400 per night — and unlike Ningaloo, 143 properties means you have real choice. Two-hour flight from Sydney or Melbourne. No passport, no long-haul stress.</div>
+
+        <div class="dc-stats">
+          <div class="dc-stat">
+            <div class="dc-stat-n stat-price">$2,397</div>
+            <div class="dc-stat-l">6 nights accommodation<br><span style="color:var(--muted2);font-size:0.55rem">family of 4 · Toscana Resort</span></div>
+          </div>
+          <div class="dc-stat"><div class="dc-stat-n stat-days">15</div><div class="dc-stat-l">day window<br>NSW / VIC</div></div>
+          <div class="dc-stat"><div class="dc-stat-n stat-free">4</div><div class="dc-stat-l">free days<br>in window</div></div>
+          <div class="dc-stat"><div class="dc-stat-n stat-leave">3</div><div class="dc-stat-l">leave days<br>needed</div></div>
+        </div>
+
+        <!-- Why this window -->
+        <div style="background:rgba(124,58,237,0.05);border-left:3px solid #7C3AED;border-radius:0 0.375rem 0.375rem 0;padding:0.625rem 0.875rem;margin-bottom:0.875rem;">
+          <div style="font-size:0.62rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#7C3AED;margin-bottom:0.25rem;">Why September in the Whitsundays</div>
+          <div style="font-size:0.76rem;color:var(--navy);line-height:1.6;">The Whitsundays dry season runs April to October — September is the sweet spot. Average 25°C, water temp 23°C, almost no rain. The Great Barrier Reef and Whitehaven Beach are at their clearest. School holidays land right in the middle of it. 143 properties available for these dates — no scramble required.</div>
+        </div>
+
+        <div class="dc-components">
+
+          <!-- ACCOMMODATION OPTIONS -->
+          <div class="dc-comp comp-hotel">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">🏨</div>
+              <div class="dc-comp-title">Accommodation — 6 nights, verified live on Booking.com</div>
+            </div>
+            <div class="dc-comp-sub">All prices for 2 adults + 2 children, 26 Sep–2 Oct 2026. Verified 26 March 2026.</div>
+            <div class="dc-hotel-options" style="flex-direction:column;gap:0.4rem;">
+              <a class="dc-hotel-btn" href="https://www.booking.com/hotel/au/toscana-village-resort.html?checkin=2026-09-26&checkout=2026-10-02&group_adults=2&group_children=2" target="_blank" style="justify-content:space-between;">
+                <span style="font-weight:700;">Toscana Village Resort ★ Best value</span>
+                <span style="display:flex;align-items:baseline;gap:0.35rem;"><span class="price">$2,397</span><span style="font-size:0.62rem;color:var(--muted)">6 nights · 2-bed ocean view</span></span>
+              </a>
+              <a class="dc-hotel-btn" href="https://www.booking.com/hotel/au/shingley-beach-resort.html?checkin=2026-09-26&checkout=2026-10-02&group_adults=2&group_children=2" target="_blank" style="justify-content:space-between;">
+                <span style="font-weight:700;">Shingley Beach Resort ★ Beachfront</span>
+                <span style="display:flex;align-items:baseline;gap:0.35rem;"><span class="price">$2,446</span><span style="font-size:0.62rem;color:var(--muted)">6 nights · 2-bed apartment</span></span>
+              </a>
+              <a class="dc-hotel-btn" href="https://www.booking.com/hotel/au/big4-adventure-whitsunday-resort.html?checkin=2026-09-26&checkout=2026-10-02&group_adults=2&group_children=2" target="_blank" style="justify-content:space-between;">
+                <span style="font-weight:700;">BIG4 Adventure Resort ★ 9.2 Wonderful</span>
+                <span style="display:flex;align-items:baseline;gap:0.35rem;"><span class="price">$2,674</span><span style="font-size:0.62rem;color:var(--muted)">6 nights · studio</span></span>
+              </a>
+            </div>
+            <div class="dc-hotel-note">Toscana and Shingley are the pick for families — both have 2-bedroom apartments and are closer to Airlie Beach centre. BIG4 has the highest guest rating (9.2) but the Deluxe Studio is tight for four people.</div>
+          </div>
+
+          <!-- FLIGHTS -->
+          <div class="dc-comp comp-flights">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">✈</div>
+              <div class="dc-comp-title">Flights — return to Proserpine (PPP) or Hamilton Island (HTI)</div>
+            </div>
+            <div class="dc-comp-sub">Depart Sat 26 Sep · return Fri 2 Oct · Qantas and Virgin service both airports</div>
+            <div class="dc-flight-cities">
+              <a class="dc-city-btn selected" href="https://www.google.com/travel/flights?q=flights+from+Sydney+to+Proserpine+Whitsundays+26+September+2026&curr=AUD" target="_blank">
+                <span>SYD</span><span class="dc-city-price">~$480</span><span class="dc-city-label">pp · Qantas/Virgin</span>
+              </a>
+              <a class="dc-city-btn" href="https://www.google.com/travel/flights?q=flights+from+Melbourne+to+Proserpine+Whitsundays+26+September+2026&curr=AUD" target="_blank">
+                <span>MEL</span><span class="dc-city-price">~$520</span><span class="dc-city-label">pp · Qantas/Virgin</span>
+              </a>
+              <a class="dc-city-btn" href="https://www.google.com/travel/flights?q=flights+from+Brisbane+to+Proserpine+Whitsundays+26+September+2026&curr=AUD" target="_blank">
+                <span>BNE</span><span class="dc-city-price">~$320</span><span class="dc-city-label">pp · Qantas/Virgin</span>
+              </a>
+            </div>
+            <div style="font-size:0.68rem;color:var(--muted);margin-top:0.35rem;">⚠️ Flight prices are indicative — verify on Google Flights. Add $1,920 (SYD, 4 people) to accommodation for approx total. <strong>Full family estimate from Sydney: ~$4,300.</strong></div>
+          </div>
+
+          <!-- EXPERIENCE -->
+          <div class="dc-comp comp-experience">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">⛵</div>
+              <div class="dc-comp-title">Experience — don't leave without this</div>
+            </div>
+            <div class="dc-comp-sub">Whitehaven Beach is rated one of the best beaches in the world. A day sail or cruise is the headline experience.</div>
+            <div class="dc-exp-options">
+              <a class="dc-exp-btn" href="https://www.viator.com/Airlie-Beach/d740" target="_blank">
+                <span>Whitehaven Beach full day sail</span><span class="price">$185</span><span style="font-size:0.65rem;color:var(--muted)">pp · Viator</span>
+              </a>
+              <a class="dc-exp-btn" href="https://www.viator.com/Airlie-Beach/d740" target="_blank">
+                <span>Great Barrier Reef snorkel cruise</span><span class="price">$145</span><span style="font-size:0.65rem;color:var(--muted)">pp · Viator</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CALCULATOR -->
+        <div class="dc-calculator">
+          <div class="dc-calc-header">
+            <div class="dc-calc-title">📊 Cost calculator</div>
+            <div class="dc-calc-controls">
+              <select class="dc-calc-select" id="whit-city" onchange="calcWhitsundays()">
+                <option value="480">From Sydney (~$480pp)</option>
+                <option value="520">From Melbourne (~$520pp)</option>
+                <option value="320">From Brisbane (~$320pp)</option>
+              </select>
+              <select class="dc-calc-select" id="whit-hotel" onchange="calcWhitsundays()" style="margin-left:0.5rem;">
+                <option value="2397">Toscana $2,397</option>
+                <option value="2446">Shingley $2,446</option>
+                <option value="2674">BIG4 $2,674</option>
+              </select>
+            </div>
+          </div>
+          <div class="dc-calc-rows">
+            <div class="dc-calc-row"><span>✈ Flights (2 adults)</span><span id="whit-c-flights">$960</span></div>
+            <div class="dc-calc-row"><span>🏨 Accommodation · 6 nights</span><span id="whit-c-hotel">$2,397</span></div>
+            <div class="dc-calc-row optional"><span>⛵ Whitehaven Beach day sail (optional)</span><span style="color:var(--teal)" id="whit-c-exp">+$740</span></div>
+          </div>
+          <div class="dc-calc-total">
+            <div>
+              <div class="dc-calc-total-label">Flights + accommodation (4 people)</div>
+              <div class="dc-calc-disclaimer">excl. experiences, food, transfers</div>
+            </div>
+            <div class="dc-calc-total-price" id="whit-c-total">$3,357</div>
+          </div>
+        </div>
+
+        <div class="dc-leave-note">
+          📅 <strong>Leave planning:</strong> Take <strong>Mon 28, Tue 29, Wed 30 September</strong> (3 days annual leave). Depart Saturday 26 Sep, return Friday 2 Oct. <strong>9 days away from 3 leave days.</strong>
+          <a href="/holiday-windows-planner.html" style="color:var(--ocean);font-weight:700;margin-left:0.4rem;">Plan your September →</a>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="dc-cta-3">
+          <a class="btn-comp btn-comp-hotel" href="https://www.booking.com/hotel/au/toscana-village-resort.html?checkin=2026-09-26&checkout=2026-10-02&group_adults=2&group_children=2" target="_blank">🏨 Book Toscana</a>
+          <a class="btn-comp btn-comp-flights" href="https://www.google.com/travel/flights?q=flights+Sydney+to+Proserpine+September+2026&curr=AUD" target="_blank">✈ Compare flights</a>
+          <a class="btn-comp btn-comp-exp" href="https://www.viator.com/Airlie-Beach/d740" target="_blank">⛵ Whitehaven Beach</a>
+        </div>
+        <div style="margin-top:0.5rem;font-size:0.68rem;color:var(--muted);text-align:center;">Accommodation prices verified 26 March 2026 via Booking.com. Flight prices indicative — verify before booking.</div>
       </div>
 
       <div class="gate-overlay">
@@ -1309,6 +1513,20 @@ function calcCamping(){
   }
 }
 calcBali(); calcNing(); calcCamping();
+
+function calcWhitsundays(){
+  const cityPP = parseInt(document.getElementById('whit-city')?.value || 480);
+  const hotelTotal = parseInt(document.getElementById('whit-hotel')?.value || 2397);
+  const flights = cityPP * 2;
+  const total = flights + hotelTotal;
+  const expTotal = 185 * 4;
+  const el = id => document.getElementById(id);
+  if(el('whit-c-flights')) el('whit-c-flights').textContent = '$' + flights.toLocaleString();
+  if(el('whit-c-hotel')) el('whit-c-hotel').textContent = '$' + hotelTotal.toLocaleString();
+  if(el('whit-c-exp')) el('whit-c-exp').textContent = '+$' + expTotal.toLocaleString();
+  if(el('whit-c-total')) el('whit-c-total').textContent = '$' + total.toLocaleString();
+}
+calcWhitsundays();
 </script>
 
 <!-- COOKIE BANNER -->
