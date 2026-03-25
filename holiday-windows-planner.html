@@ -177,26 +177,27 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .heat-filter-btn{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:600;padding:0.3rem 0.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:0.25rem;cursor:pointer;transition:all 0.15s;}
 .heat-filter-btn:hover{color:var(--white);border-color:var(--subtle);}
 .heat-filter-btn.on{background:rgba(255,184,0,0.12);border-color:rgba(255,184,0,0.3);color:var(--sun);}
-.ht{min-width:860px;width:100%;border-collapse:separate;border-spacing:2px;}
-.ht th{font-size:0.62rem;font-weight:700;text-align:center;color:var(--muted);padding:0.25rem;}
-.ht th.dc{text-align:left;min-width:140px;}
-.ht td{height:28px;border-radius:3px;text-align:center;font-size:0.58rem;font-weight:700;cursor:pointer;position:relative;transition:transform 0.1s;}
-.ht td:hover{transform:scale(1.12);z-index:5;}
-.ht td.dl{background:transparent;text-align:left;font-size:0.76rem;font-weight:600;color:var(--white);padding-right:0.5rem;white-space:nowrap;cursor:default;}
-.ht td.dl:hover{transform:none;}
-.dreg{font-size:0.6rem;font-weight:300;color:var(--muted);display:block;}
-.w5{background:rgba(34,197,94,0.85);color:rgba(0,0,0,0.75);}
-.w4{background:rgba(132,204,22,0.8);color:rgba(0,0,0,0.75);}
-.w3{background:rgba(234,179,8,0.8);color:rgba(0,0,0,0.75);}
-.w2{background:rgba(249,115,22,0.8);color:rgba(0,0,0,0.75);}
-.w1{background:rgba(239,68,68,0.8);color:white;}
-.w0{background:rgba(239,68,68,0.28);color:rgba(255,255,255,0.45);}
-.wr{outline:2px solid rgba(255,184,0,0.7);outline-offset:-2px;}
+.ht{min-width:760px;width:100%;border-collapse:separate;border-spacing:2px;table-layout:fixed;}
+.ht th{font-size:0.6rem;font-weight:700;text-align:center;color:var(--muted);padding:0.2rem;width:44px;}
+.ht th.dc{text-align:left;width:150px;}
+.ht td{height:30px;border-radius:3px;text-align:center;font-size:0.6rem;font-weight:600;cursor:pointer;position:relative;transition:opacity 0.1s;width:44px;}
+.ht td:hover{opacity:0.8;z-index:5;}
+.ht td.dl{background:transparent;text-align:left;font-size:0.74rem;font-weight:600;color:var(--navy);padding-right:0.5rem;white-space:nowrap;cursor:default;width:150px;}
+.ht td.dl:hover{opacity:1;}
+.dreg{font-size:0.58rem;font-weight:300;color:var(--muted);display:block;}
+/* Softer palette — informative not alarming */
+.w5{background:rgba(16,142,96,0.18);color:rgba(10,22,40,0.8);border:1px solid rgba(16,142,96,0.3);}
+.w4{background:rgba(16,142,96,0.09);color:rgba(10,22,40,0.7);border:1px solid rgba(16,142,96,0.18);}
+.w3{background:rgba(180,140,60,0.12);color:rgba(10,22,40,0.7);border:1px solid rgba(180,140,60,0.2);}
+.w2{background:rgba(10,22,40,0.05);color:rgba(10,22,40,0.45);border:1px solid rgba(10,22,40,0.08);}
+.w1{background:rgba(10,22,40,0.05);color:rgba(10,22,40,0.3);border:1px solid rgba(10,22,40,0.06);}
+.w0{background:transparent;color:rgba(10,22,40,0.2);font-size:0.5rem;}
+.wr{outline:2px solid rgba(232,148,10,0.6);outline-offset:-2px;}
 
 /* HACKS */
 .hk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
 .hk-img{height:155px;background-size:cover;background-position:center;position:relative;border-radius:0.625rem 0.625rem 0 0;overflow:hidden;}
-.hk-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.88) 0%,rgba(10,22,40,0.15) 100%);}
+
 .hk-img-tag{position:absolute;top:0.625rem;left:0.625rem;font-size:0.6rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:0.2rem;color:white;}
 .hk-img-headline{position:absolute;bottom:0.75rem;left:0.875rem;right:0.875rem;display:flex;justify-content:space-between;align-items:flex-end;}
 .hk-days-big{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;color:white;line-height:1;}
@@ -214,12 +215,14 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .hk-weather{font-size:0.66rem;color:rgba(10,22,40,0.35);margin-top:0.25rem;font-style:italic;}
 .stitle{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
 .ssub{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.25rem;}
-.hk-card{background:rgba(255,184,0,0.05);border:1px solid rgba(255,184,0,0.15);border-radius:0.625rem;padding:1.25rem;}
-.hk-badge{display:inline-block;background:rgba(255,184,0,0.1);border:1px solid rgba(255,184,0,0.2);color:var(--sun);font-size:0.62rem;font-weight:700;padding:0.18rem 0.5rem;border-radius:0.2rem;margin-bottom:0.55rem;}
-.hk-off{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:900;color:var(--white);line-height:1;}
-.hk-off span{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:300;color:var(--muted);}
-.hk-name{font-size:0.85rem;font-weight:600;color:var(--sun);margin:0.35rem 0 0.3rem;}
-.hk-desc{font-size:0.76rem;color:var(--muted);line-height:1.6;margin-bottom:0.875rem;}
+.hk-card{background:white;border:1.5px solid rgba(10,22,40,0.08);border-radius:0.75rem;overflow:hidden;}
+.hk-badge{display:inline-block;font-size:0.6rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:rgba(10,22,40,0.5);margin-bottom:0.25rem;}
+.hk-name{font-family:'Fraunces',serif;font-size:0.95rem;font-weight:700;color:#0A1628;margin-bottom:0.25rem;line-height:1.2;}
+.hk-days-big{font-family:'Fraunces',serif;font-size:1.75rem;font-weight:900;line-height:1;margin-bottom:0;}
+.hk-leave-tag{display:inline-block;font-size:0.62rem;font-weight:700;padding:0.15rem 0.4rem;border-radius:0.2rem;}
+.hk-off{font-family:'Fraunces',serif;font-size:1.75rem;font-weight:900;color:#0A1628;line-height:1;}
+.hk-off span{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:400;color:rgba(10,22,40,0.5);}
+.hk-desc{font-size:0.76rem;color:rgba(10,22,40,0.65);line-height:1.6;margin:0.5rem 0;}
 .hk-share{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:600;padding:0.35rem 0.75rem;background:rgba(0,102,204,0.12);border:1px solid rgba(0,102,204,0.25);color:#93C5FD;border-radius:0.25rem;cursor:pointer;transition:all 0.15s;width:100%;text-align:center;}
 .hk-share:hover{background:rgba(0,102,204,0.22);}
 
@@ -359,8 +362,10 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 
 /* THE PRINTABLE DOCUMENT */
 .print-doc{
-  padding:2rem;
+  padding:1.5rem;
   font-family:'DM Sans',sans-serif;
+  color:#0A1628;
+  background:white;
 }
 
 /* Family header */
@@ -376,7 +381,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .pd-logo-url{font-size:0.62rem;color:var(--muted);margin-top:0.1rem;}
 
 /* Window cards - 2x2 grid */
-.pd-windows{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;}
+.pd-windows{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;page-break-inside:avoid;}
 .pd-win{border-radius:0.625rem;overflow:hidden;border:2px solid var(--border2);}
 .pd-win-img{
   height:140px;background-size:cover;background-position:center;
@@ -407,7 +412,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 }
 .pd-stat{flex:1;text-align:center;position:relative;}
 .pd-stat+.pd-stat::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:1px;background:var(--border2);}
-.pd-stat-n{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:900;line-height:1;}
+.pd-stat-n{font-family:'Fraunces',serif;font-size:1rem;font-weight:900;line-height:1;}
 .pd-stat-l{font-size:0.55rem;color:var(--muted);line-height:1.3;margin-top:0.1rem;}
 .stat-free{color:var(--green);}
 .stat-leave{color:var(--sun);}
@@ -1061,6 +1066,7 @@ const WIN_IDS=['easter','july','sept','summer'];
 // Values: 'un'=unassigned, 'lv'=leave(single), 'ca'=care(single)
 //         'p1'=P1 leave, 'p2'=P2 leave, 'bt'=both leave, 'ca2'=care(two-parent)
 const dayAssign={};
+const winTwoParent={easter:true,july:true,sept:true,summer:true};
 // Two-parent mode always on, toggle removed
 // Extra days (pupil-free, closures) per window
 const extraDays={easter:[],july:[],sept:[],summer:[]};
@@ -1540,7 +1546,14 @@ function renderHeat(){
     h+=`<tr><td class="dl">${d.n}<span class="dreg">${d.r}</span></td>`;
     d.w.slice(0,12).forEach((sc,mi)=>{
       const w=WIN_M_12.includes(mi);
-      const tip=`${d.n}, ${MF[mi]}\nWeather: ${st[sc]}\n${w?'🪟 School holiday window':''}\n${d.cat==='camp'?'🏕️ Camping/road trip rating':'🏨 Resort/hotel rating'}`;
+      // Weather reason by score
+      const WHY_INTL=[
+        ['Avoid — extreme heat, rain or typhoon season','Poor — heat, humidity or wet season likely','Mixed — warm but some rain likely','Good — pleasant weather, occasional showers','Very good — warm and mostly dry','Ideal — best weather of the year'],
+      ][0];
+      const WHY_AUS_BEACH=['Avoid — too cold for swimming','Cool for the beach, better inland','Mild — pleasant but not beach weather','Warm — good beach conditions','Hot and sunny — great beach weather','Perfect — warm sunny days, calm seas'][sc];
+      const WHY_CAMP=['Avoid — extreme cold, wet or fire risk','Cold — good for hardy campers only','Cool but manageable camping','Good camping weather','Great conditions for camping and road trips','Perfect — dry, mild, ideal for outdoor stays'][sc];
+      const whyText = d.cat==='camp' ? WHY_CAMP : d.cat==='aus' ? WHY_AUS_BEACH : WHY_INTL[sc]||'';
+      const tip=`${d.n} — ${MF[mi]}\n${st[sc]} ${whyText}${w?'\n🪟 School holiday window':''}`;
       h+=`<td class="w${sc}${w?' wr':''}" onmouseenter="showTip(event,\`${tip}\`)" onmouseleave="hideTip()">${st[sc]}</td>`;
     });
     h+=`</tr>`;
@@ -1555,17 +1568,15 @@ function renderHeat(){
 function renderHacks(){
   document.getElementById('hacksWrap').innerHTML=HACKS.map(h=>`
     <div class="hk-card">
-      <div class="hk-img" style="background-image:url('${h.img}')">
-        <div class="hk-img-overlay"></div>
-        <div class="hk-img-tag" style="background:${h.color}">${h.tag}</div>
-        <div class="hk-img-headline">
-          <div class="hk-days-big">${h.off}<span>days off</span></div>
-          <div class="hk-leave-tag">${h.lv} leave days</div>
+      <div class="hk-header" style="background:${h.color}15;border-bottom:3px solid ${h.color};padding:0.875rem 1rem 0.75rem;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.25rem;">
+          <div class="hk-badge">${h.b}</div>
+          <div class="hk-leave-tag" style="background:${h.color}20;border:1px solid ${h.color}40;color:${h.color}">${h.lv} leave days</div>
         </div>
+        <div class="hk-name">${h.n}</div>
+        <div class="hk-days-big" style="color:${h.color}">${h.off}<span style="color:rgba(10,22,40,0.5)"> days off</span></div>
       </div>
       <div class="hk-body">
-        <div class="hk-badge">${h.b}</div>
-        <div class="hk-name">${h.n}</div>
         <div class="hk-dates-row"><span class="hk-dates-label">Dates</span><span class="hk-dates-val">${h.dates}</span></div>
         <div class="hk-dates-row"><span class="hk-dates-label">Take off</span><span class="hk-dates-val">${h.leave}</span></div>
         <div class="hk-calc">
