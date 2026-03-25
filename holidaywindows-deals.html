@@ -277,17 +277,198 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
   nav.main.page-hdr.gate-banner{padding-left:1.25rem;padding-right:1.25rem;}
   footer{padding-left:1.25rem;padding-right:1.25rem;}
 }
+
+/* ── COOKIE BANNER ── */
+.cookie-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:500;
+  background:var(--navy);
+  padding:1rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;
+  box-shadow:0 -4px 24px rgba(10,22,40,0.2);
+  transform:translateY(100%);
+  transition:transform 0.3s ease;
+}
+.cookie-banner.show{transform:translateY(0);}
+.cookie-text{font-size:0.78rem;color:rgba(255,255,255,0.7);line-height:1.5;flex:1;min-width:200px;}
+.cookie-text a{color:var(--sun-lt);text-decoration:none;}
+.cookie-btn{font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;
+  padding:0.5rem 1.25rem;background:var(--sun);color:white;
+  border:none;border-radius:0.3rem;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+@media(max-width:600px){
+  .cookie-banner{padding:1rem 1.25rem;}
+  .cookie-text{font-size:0.72rem;}
+}
+
+/* ═══════════════════════════════════════
+   COMPONENT BREAKDOWN PANEL
+═══════════════════════════════════════ */
+
+/* Replaces dc-details with richer component layout */
+.dc-components{
+  display:flex;flex-direction:column;
+  border:1.5px solid var(--border2);
+  border-radius:0.625rem;overflow:hidden;
+  margin-bottom:1.25rem;
+}
+.dc-comp{
+  padding:0.875rem 1rem;
+  border-bottom:1px solid var(--border2);
+  background:white;
+}
+.dc-comp:last-child{border-bottom:none;}
+.dc-comp-header{
+  display:flex;align-items:center;gap:0.5rem;
+  margin-bottom:0.5rem;
+}
+.dc-comp-icon{
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.7rem;flex-shrink:0;
+}
+.comp-flights .dc-comp-icon{background:rgba(21,87,176,0.1);color:var(--ocean);}
+.comp-hotel .dc-comp-icon{background:rgba(232,148,10,0.1);color:var(--sun);}
+.comp-experience .dc-comp-icon{background:rgba(11,122,110,0.1);color:var(--teal);}
+.dc-comp-title{font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);}
+.dc-comp-sub{font-size:0.7rem;color:var(--muted);margin-left:2rem;margin-bottom:0.5rem;line-height:1.4;}
+
+/* Flight city buttons */
+.dc-flight-cities{display:flex;flex-wrap:wrap;gap:0.4rem;margin-left:2rem;}
+.dc-city-btn{
+  display:flex;align-items:center;gap:0.35rem;
+  font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:700;
+  padding:0.4rem 0.75rem;
+  background:var(--bg);
+  border:1.5px solid var(--border2);
+  border-radius:0.375rem;cursor:pointer;
+  text-decoration:none;color:var(--navy);
+  transition:all 0.15s;
+}
+.dc-city-btn:hover{border-color:var(--ocean);background:rgba(21,87,176,0.05);color:var(--ocean);}
+.dc-city-btn.selected{border-color:var(--ocean);background:rgba(21,87,176,0.08);color:var(--ocean);}
+.dc-city-price{font-family:'Fraunces',serif;font-size:0.9rem;font-weight:900;color:var(--sun);}
+.dc-city-label{font-size:0.65rem;color:var(--muted);font-weight:400;}
+
+/* Hotel link row */
+.dc-hotel-options{display:flex;flex-wrap:wrap;gap:0.4rem;margin-left:2rem;}
+.dc-hotel-btn{
+  display:flex;align-items:center;gap:0.35rem;
+  font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:600;
+  padding:0.4rem 0.75rem;
+  background:var(--bg);
+  border:1.5px solid var(--border2);
+  border-radius:0.375rem;cursor:pointer;
+  text-decoration:none;color:var(--navy);
+  transition:all 0.15s;
+}
+.dc-hotel-btn:hover{border-color:var(--sun);background:rgba(232,148,10,0.05);}
+.dc-hotel-btn .price{font-family:'Fraunces',serif;font-size:0.88rem;font-weight:900;color:var(--sun);}
+.dc-hotel-note{font-size:0.65rem;color:var(--muted);margin-left:2rem;margin-top:0.3rem;font-style:italic;}
+
+/* Experience row */
+.dc-exp-options{display:flex;flex-wrap:wrap;gap:0.4rem;margin-left:2rem;}
+.dc-exp-btn{
+  display:flex;align-items:center;gap:0.35rem;
+  font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:600;
+  padding:0.4rem 0.75rem;
+  background:var(--bg);
+  border:1.5px solid var(--border2);
+  border-radius:0.375rem;cursor:pointer;
+  text-decoration:none;color:var(--navy);
+  transition:all 0.15s;
+}
+.dc-exp-btn:hover{border-color:var(--teal);background:rgba(11,122,110,0.05);}
+.dc-exp-btn .price{font-family:'Fraunces',serif;font-size:0.88rem;font-weight:900;color:var(--teal);}
+.dc-exp-optional{font-size:0.62rem;color:var(--muted);background:var(--bg2);padding:0.1rem 0.35rem;border-radius:0.2rem;margin-left:0.25rem;}
+
+/* COST CALCULATOR */
+.dc-calculator{
+  background:var(--bg);
+  border:1.5px solid var(--border2);
+  border-radius:0.625rem;
+  padding:0.875rem 1rem;
+  margin-bottom:1.25rem;
+}
+.dc-calc-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:0.75rem;
+}
+.dc-calc-title{font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.dc-calc-controls{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.dc-calc-select{
+  font-family:'DM Sans',sans-serif;font-size:0.72rem;
+  padding:0.3rem 0.5rem;
+  background:white;border:1px solid var(--border);
+  border-radius:0.25rem;color:var(--navy);
+  cursor:pointer;outline:none;
+}
+.dc-calc-rows{display:flex;flex-direction:column;gap:0.3rem;margin-bottom:0.625rem;}
+.dc-calc-row{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.78rem;color:var(--muted);
+}
+.dc-calc-row span:last-child{font-weight:600;color:var(--navy);}
+.dc-calc-row.optional span:last-child{color:var(--teal);}
+.dc-calc-total{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:0.5rem;
+  border-top:1.5px solid var(--border2);
+  margin-top:0.25rem;
+}
+.dc-calc-total-label{font-size:0.82rem;font-weight:700;color:var(--navy);}
+.dc-calc-total-price{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--sun);}
+.dc-calc-disclaimer{font-size:0.6rem;color:var(--muted2);margin-top:0.35rem;font-style:italic;}
+
+/* LEAVE NOTE */
+.dc-leave-note{
+  background:#EEF4FF;
+  border-left:3px solid var(--ocean);
+  border-radius:0 0.375rem 0.375rem 0;
+  padding:0.625rem 0.875rem;
+  margin-bottom:1rem;
+  font-size:0.75rem;color:var(--ocean);
+  line-height:1.6;
+}
+.dc-leave-note strong{color:var(--navy);}
+
+/* CTA row — 3 buttons for components */
+.dc-cta-3{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:0.4rem;
+  margin-bottom:0.5rem;
+}
+.btn-comp{
+  font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:700;
+  padding:0.6rem 0.5rem;
+  border:none;border-radius:0.375rem;cursor:pointer;
+  transition:all 0.15s;text-align:center;
+  text-decoration:none;display:flex;align-items:center;justify-content:center;gap:0.25rem;
+}
+.btn-comp-flights{background:var(--ocean);color:white;}
+.btn-comp-flights:hover{background:var(--ocean-lt);}
+.btn-comp-hotel{background:var(--sun);color:white;}
+.btn-comp-hotel:hover{background:var(--sun-lt);}
+.btn-comp-exp{background:var(--teal);color:white;}
+.btn-comp-exp:hover{background:#0D9488;}
+
+@media(max-width:600px){
+  .dc-cta-3{grid-template-columns:1fr;}
+  .dc-flight-cities,.dc-hotel-options,.dc-exp-options{margin-left:0;}
+  .dc-comp-sub{margin-left:0;}
+  .dc-hotel-note{margin-left:0;}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="logo" href="holidaywindows-landing-light.html">🪟 Holiday<span>Windows</span></a>
+  <a class="logo" href="/">🪟 Holiday<span>Windows</span></a>
   <div class="nav-right">
-    <a class="nav-link" href="holidaywindows-landing-light.html">Home</a>
+    <a class="nav-link" href="/">Home</a>
     <a class="nav-link active" href="#">Deals</a>
-    <a class="nav-link" href="holiday-windows-planner.html">Planner</a>
+    <a class="nav-link" href="/holiday-windows-planner.html">Planner</a>
     <a class="nav-cta" href="#gate">Get free deals →</a>
   </div>
 </nav>
@@ -335,7 +516,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
   <!-- ── LIVE DEALS ── -->
 
   <!-- Deal 1: July Bali, gated -->
-  <div class="deal-card gated" data-window="july">
+  <div class="deal-card gated" data-window="july" id="deal-bali-july">
     <div class="dc-img-panel">
       <div class="dc-img" style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80');background-position:center 40%;">
         <div class="dc-img-badges">
@@ -352,12 +533,13 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
     <div class="dc-content">
       <div class="dc-top">
         <div class="dc-window-tag">⛷️ July 2026 · 13–24 Jul</div>
-        <div class="dc-headline">7 nights Bali with flights, family of 4</div>
-        <div class="dc-tagline">Return flights from Sydney, 4-star villa with private pool, daily breakfast included. Peak dry season. the best Bali weather of the year.</div>
+        <div class="dc-headline">7 nights Bali — flights, villa, breakfast</div>
+        <div class="dc-tagline">July is peak dry season in Bali — the best weather of the year. A 4-star villa in Seminyak with private pool and daily breakfast. Depart Friday, return Friday, use just 2 leave days. Prices at this level disappear within 48 hours of school holiday seat sales opening.</div>
+
         <div class="dc-stats">
           <div class="dc-stat">
-            <div class="dc-stat-n stat-price">$3,480</div>
-            <div class="dc-stat-l">total family of 4<br><span style="color:var(--muted2);font-size:0.55rem">vs $5,200+ peak week</span></div>
+            <div class="dc-stat-n stat-price" id="bali-total">$3,480</div>
+            <div class="dc-stat-l">est. family of 4<br><span style="color:var(--muted2);font-size:0.55rem">updates with city selection</span></div>
           </div>
           <div class="dc-stat">
             <div class="dc-stat-n stat-days">16</div>
@@ -372,19 +554,135 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
             <div class="dc-stat-l">days annual<br>leave needed</div>
           </div>
         </div>
-        <div class="dc-details">
-          <div class="dc-detail"><div class="dc-detail-icon">✈</div><strong>Flights:</strong>&nbsp;SYD–DPS return, Fri 10 Jul → Fri 17 Jul</div>
-          <div class="dc-detail"><div class="dc-detail-icon">🏨</div><strong>Stay:</strong>&nbsp;4-star villa, private pool, Seminyak</div>
-          <div class="dc-detail"><div class="dc-detail-icon">👨‍👩‍👧</div><strong>Kids:</strong>&nbsp;Children under 12 stay free (2 max)</div>
-          <div class="dc-detail"><div class="dc-detail-icon">📅</div><strong>Leave:</strong>&nbsp;Take Mon 13 + Tue 14 July (2 days), depart Fri, return Fri</div>
+
+        <!-- COMPONENT BREAKDOWN -->
+        <div class="dc-components">
+
+          <!-- Flights -->
+          <div class="dc-comp comp-flights">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">✈</div>
+              <div class="dc-comp-title">Flights — select your city</div>
+            </div>
+            <div class="dc-comp-sub">Return economy · Fri 10 Jul → Fri 17 Jul · luggage included · prices per adult</div>
+            <div class="dc-flight-cities">
+              <a class="dc-city-btn selected" href="#" onclick="selectCity('bali','syd',890,this);return false;">
+                <span>SYD</span>
+                <span class="dc-city-price">$890</span>
+                <span class="dc-city-label">pp return</span>
+              </a>
+              <a class="dc-city-btn" href="#" onclick="selectCity('bali','mel',820,this);return false;">
+                <span>MEL</span>
+                <span class="dc-city-price">$820</span>
+                <span class="dc-city-label">pp return</span>
+              </a>
+              <a class="dc-city-btn" href="#" onclick="selectCity('bali','bne',910,this);return false;">
+                <span>BNE</span>
+                <span class="dc-city-price">$910</span>
+                <span class="dc-city-label">pp return</span>
+              </a>
+              <a class="dc-city-btn" href="#" onclick="selectCity('bali','per',750,this);return false;">
+                <span>PER</span>
+                <span class="dc-city-price">$750</span>
+                <span class="dc-city-label">pp return</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Accommodation -->
+          <div class="dc-comp comp-hotel">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">🏨</div>
+              <div class="dc-comp-title">Accommodation — 7 nights</div>
+            </div>
+            <div class="dc-comp-sub">4-star villa · private pool · Seminyak · daily breakfast · children under 12 free (2 max)</div>
+            <div class="dc-hotel-options">
+              <a class="dc-hotel-btn" href="https://luxuryescapes.com/au" target="_blank">
+                <span>Luxury Escapes</span>
+                <span class="price">$95</span>
+                <span style="font-size:0.65rem;color:var(--muted)">/night</span>
+              </a>
+              <a class="dc-hotel-btn" href="https://www.booking.com" target="_blank">
+                <span>Booking.com</span>
+                <span class="price">$110</span>
+                <span style="font-size:0.65rem;color:var(--muted)">/night</span>
+              </a>
+            </div>
+            <div class="dc-hotel-note">Luxury Escapes includes daily breakfast and resort credit. Booking.com room-only but flexible cancellation.</div>
+          </div>
+
+          <!-- Experience -->
+          <div class="dc-comp comp-experience">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">🎯</div>
+              <div class="dc-comp-title">Experience <span class="dc-exp-optional">optional</span></div>
+            </div>
+            <div class="dc-comp-sub">Add an experience — highly rated by families, bookable on arrival or in advance</div>
+            <div class="dc-exp-options">
+              <a class="dc-exp-btn" href="https://www.viator.com" target="_blank">
+                <span>Ubud day tour</span>
+                <span class="price">$85</span>
+                <span style="font-size:0.65rem;color:var(--muted)">pp · via Viator</span>
+              </a>
+              <a class="dc-exp-btn" href="https://www.viator.com" target="_blank">
+                <span>Cooking class</span>
+                <span class="price">$45</span>
+                <span style="font-size:0.65rem;color:var(--muted)">pp · via Viator</span>
+              </a>
+            </div>
+          </div>
+
         </div>
+
+        <!-- COST CALCULATOR -->
+        <div class="dc-calculator">
+          <div class="dc-calc-header">
+            <div class="dc-calc-title">📊 Cost calculator</div>
+            <div class="dc-calc-controls">
+              <select class="dc-calc-select" id="bali-city" onchange="calcBali()">
+                <option value="890">From Sydney ($890pp)</option>
+                <option value="820">From Melbourne ($820pp)</option>
+                <option value="910">From Brisbane ($910pp)</option>
+                <option value="750">From Perth ($750pp)</option>
+              </select>
+              <select class="dc-calc-select" id="bali-kids" onchange="calcBali()">
+                <option value="0">No kids</option>
+                <option value="1" selected>1 child (free)</option>
+                <option value="2">2 children (free)</option>
+              </select>
+            </div>
+          </div>
+          <div class="dc-calc-rows">
+            <div class="dc-calc-row"><span>✈ Flights (2 adults)</span><span id="bali-c-flights">$1,780</span></div>
+            <div class="dc-calc-row"><span>🏨 Villa · 7 nights (Luxury Escapes)</span><span id="bali-c-hotel">$665</span></div>
+            <div class="dc-calc-row optional"><span>🎯 Ubud day tour (optional)</span><span id="bali-c-exp" style="color:var(--teal)">+$340</span></div>
+          </div>
+          <div class="dc-calc-total">
+            <div>
+              <div class="dc-calc-total-label">Estimated total</div>
+              <div class="dc-calc-disclaimer">flights + accommodation only · excl. meals, transfers, spending money</div>
+            </div>
+            <div class="dc-calc-total-price" id="bali-c-total">$2,445</div>
+          </div>
+        </div>
+
+        <!-- LEAVE NOTE -->
+        <div class="dc-leave-note">
+          📅 <strong>Leave planning:</strong> Take <strong>Mon 13 + Tue 14 July</strong> (2 days annual leave). Depart Friday 10 July, return Friday 17 July. 7 nights away using just 2 leave days. <strong>10 care days</strong> remain in the July window to arrange separately.
+          <a href="/holiday-windows-planner.html" style="color:var(--ocean);font-weight:700;margin-left:0.4rem;">Plan your July in the planner →</a>
+        </div>
+
       </div>
       <div>
-        <div class="dc-cta-row">
-          <button class="btn-book" onclick="document.getElementById('gate').scrollIntoView({behavior:'smooth'})">Join free to book →</button>
-          <button class="btn-share" onclick="sharedeal('Bali July 2026','$3,480 family of 4 · 7 nights · 2 days annual leave')">↗ Share</button>
+        <div class="dc-cta-3">
+          <a class="btn-comp btn-comp-flights" href="https://flights.google.com" target="_blank">✈ Book flights</a>
+          <a class="btn-comp btn-comp-hotel" href="https://luxuryescapes.com/au" target="_blank">🏨 Book villa</a>
+          <a class="btn-comp btn-comp-exp" href="https://www.viator.com" target="_blank">🎯 Add experience</a>
         </div>
-        <div class="dc-expires">⏱ Deal expires Friday or while seats last</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem;">
+          <div class="dc-expires">⏱ Deal expires Friday or while seats last</div>
+          <button class="btn-share" onclick="sharedeal('Bali July 2026','$3,480 family of 4 · 7 nights · 2 days annual leave')" style="font-size:0.72rem;padding:0.4rem 0.75rem;">↗ Share</button>
+        </div>
       </div>
       <!-- Gate overlay -->
       <div class="gate-overlay">
@@ -444,8 +742,12 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
       </div>
       <div>
         <div class="dc-cta-row">
-          <button class="btn-book" onclick="document.getElementById('gate').scrollIntoView({behavior:'smooth'})">Join free to book →</button>
-          <button class="btn-share" onclick="sharedeal('Koh Samui Summer 2026','$5,290 family of 4 · 10 nights · 3 days annual leave')">↗ Share</button>
+          <div class="dc-cta-3">
+            <a class="btn-comp btn-comp-flights" href="https://flights.google.com" target="_blank">✈ Book flights</a>
+            <a class="btn-comp btn-comp-hotel" href="https://luxuryescapes.com/au" target="_blank">🏨 Book resort</a>
+            <a class="btn-comp btn-comp-exp" href="https://www.viator.com" target="_blank">🐘 Add experience</a>
+          </div>
+          <button class="btn-share" onclick="sharedeal('Koh Samui Summer 2026','$5,290 family of 4 · 10 nights · 3 days annual leave')" style="width:100%;margin-top:0.4rem;font-size:0.72rem;padding:0.4rem;">↗ Share this deal</button>
         </div>
         <div class="dc-expires">⏱ December flights book out early, act by April</div>
       </div>
@@ -497,17 +799,56 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
             <div class="dc-stat-l">days annual<br>leave needed</div>
           </div>
         </div>
-        <div class="dc-details">
-          <div class="dc-detail"><div class="dc-detail-icon">✈</div><strong>Flights:</strong>&nbsp;SYD–LER return, Sat 26 Sep → Fri 2 Oct</div>
-          <div class="dc-detail"><div class="dc-detail-icon">🏕️</div><strong>Stay:</strong>&nbsp;Eco-resort, Coral Bay · snorkel gear included</div>
-          <div class="dc-detail"><div class="dc-detail-icon">🐋</div><strong>Experience:</strong>&nbsp;Whale shark snorkel tour bookable on-site (Sep–Oct)</div>
-          <div class="dc-detail"><div class="dc-detail-icon">📅</div><strong>Leave:</strong>&nbsp;Take Mon–Wed 28–30 Sep (3 days) for a full week away</div>
+        <!-- COMPONENT BREAKDOWN -->
+        <div class="dc-components">
+          <div class="dc-comp comp-flights">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">✈</div>
+              <div class="dc-comp-title">Flights — select your city</div>
+            </div>
+            <div class="dc-comp-sub">Return economy · Sat 26 Sep → Fri 2 Oct · via Perth or direct</div>
+            <div class="dc-flight-cities">
+              <a class="dc-city-btn selected" href="#" onclick="return false;"><span>SYD</span><span class="dc-city-price">$680</span><span class="dc-city-label">pp return</span></a>
+              <a class="dc-city-btn" href="#" onclick="return false;"><span>MEL</span><span class="dc-city-price">$720</span><span class="dc-city-label">pp return</span></a>
+              <a class="dc-city-btn" href="#" onclick="return false;"><span>PER</span><span class="dc-city-price">$380</span><span class="dc-city-label">pp return</span></a>
+            </div>
+          </div>
+          <div class="dc-comp comp-hotel">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">🏕️</div>
+              <div class="dc-comp-title">Accommodation — 6 nights</div>
+            </div>
+            <div class="dc-comp-sub">Eco-resort · Coral Bay · snorkel gear + kayaks included · family rooms available</div>
+            <div class="dc-hotel-options">
+              <a class="dc-hotel-btn" href="https://www.booking.com" target="_blank"><span>Booking.com</span><span class="price">$220</span><span style="font-size:0.65rem;color:var(--muted)">/night</span></a>
+            </div>
+            <div class="dc-hotel-note">Limited rooms in September — Coral Bay books out in August. Book early.</div>
+          </div>
+          <div class="dc-comp comp-experience">
+            <div class="dc-comp-header">
+              <div class="dc-comp-icon">🐋</div>
+              <div class="dc-comp-title">Experience — don't miss this <span class="dc-exp-optional">peak season</span></div>
+            </div>
+            <div class="dc-comp-sub">September is peak whale shark season at Ningaloo. One of the best wildlife experiences in Australia.</div>
+            <div class="dc-exp-options">
+              <a class="dc-exp-btn" href="https://www.viator.com" target="_blank"><span>Whale shark snorkel</span><span class="price">$380</span><span style="font-size:0.65rem;color:var(--muted)">pp · Viator</span></a>
+              <a class="dc-exp-btn" href="https://www.viator.com" target="_blank"><span>Reef snorkel tour</span><span class="price">$95</span><span style="font-size:0.65rem;color:var(--muted)">pp · Viator</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="dc-leave-note">
+          📅 <strong>Leave planning:</strong> Take <strong>Mon–Wed 28–30 Sep</strong> (3 days annual leave). Depart Saturday 26 Sep, return Friday 2 Oct. Full week away using 3 leave days. <strong>8 care days</strong> remain in the September window.
+          <a href="/holiday-windows-planner.html" style="color:var(--ocean);font-weight:700;margin-left:0.4rem;">Plan your September in the planner →</a>
         </div>
       </div>
       <div>
         <div class="dc-cta-row">
-          <button class="btn-book" onclick="document.getElementById('gate').scrollIntoView({behavior:'smooth'})">Join free to book →</button>
-          <button class="btn-share" onclick="sharedeal('Ningaloo September 2026','$4,180 family of 4 · 6 nights · 3 days annual leave')">↗ Share</button>
+          <div class="dc-cta-3">
+            <a class="btn-comp btn-comp-flights" href="https://flights.google.com" target="_blank">✈ Book flights</a>
+            <a class="btn-comp btn-comp-hotel" href="https://www.booking.com" target="_blank">🏕️ Book resort</a>
+            <a class="btn-comp btn-comp-exp" href="https://www.viator.com" target="_blank">🐋 Whale sharks</a>
+          </div>
+          <button class="btn-share" onclick="sharedeal('Ningaloo September 2026','$4,180 family of 4 · 6 nights · 3 days annual leave')" style="width:100%;margin-top:0.4rem;font-size:0.72rem;padding:0.4rem;">↗ Share this deal</button>
         </div>
         <div class="dc-expires">⏱ Coral Bay accommodation books out in August</div>
       </div>
@@ -580,12 +921,12 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);paddi
 <footer>
   <div class="foot-logo">🪟 Holiday<span>Windows</span></div>
   <div class="foot-links">
-    <a href="holidaywindows-landing-light.html">Home</a>
-    <a href="holiday-windows-planner.html">Leave Planner</a>
+    <a href="/">Home</a>
+    <a href="/holiday-windows-planner.html">Leave Planner</a>
     <a href="#">How it works</a>
     <a href="#">Unsubscribe</a>
   </div>
-  <div class="foot-copy">© 2026 Finse Pty Ltd · holidaywindows.com.au · We earn affiliate commissions from providers when you book. We never recommend deals we wouldn't book ourselves.</div>
+  <div class="foot-copy">© 2026 Finse Pty Ltd ABN 25 696 367 969 · holidaywindows.com.au · We earn affiliate commissions from providers when you book. We never recommend deals we wouldn't book ourselves.</div>
 </footer>
 
 <script>
@@ -600,20 +941,43 @@ function filterDeals(win, btn){
 }
 
 // Gate signups
-function gateSignup(){
+
+async function beehiivSignup(email, state) {
+  if(!email || !email.includes('@')) return false;
+  try {
+    const res = await fetch('https://api.beehiiv.com/v2/publications/pub_fc0eface-2431-431b-91ca-320ef7ba032c/subscriptions', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: email,
+        reactivate_existing: false,
+        send_welcome_email: true,
+        utm_source: 'website',
+        utm_medium: 'organic',
+        custom_fields: state ? [{name:'state', value:state}] : []
+      })
+    });
+    return res.ok || res.status === 201;
+  } catch(e) {
+    return false;
+  }
+}
+async function gateSignup(){
   const em=document.getElementById('gateEmail').value.trim();
   if(!em||!em.includes('@')){
     document.getElementById('gateEmail').style.borderColor='rgba(232,75,42,0.8)';
     return;
   }
+  await beehiivSignup(em, document.querySelector('.gate-form select')?.value || '');
   unlockAllDeals();
   document.querySelector('.gate-banner').innerHTML=
     '<div style="max-width:1080px;margin:0 auto;padding:0.6rem 0;font-size:0.82rem;color:rgba(255,255,255,0.7);">✓ <strong style="color:white">You\'re in!</strong> First deal email lands next Tuesday. Deals are now unlocked below.</div>';
 }
 
-function unlockDeal(btn){
+async function unlockDeal(btn){
   const em=btn.previousElementSibling.value.trim();
   if(!em||!em.includes('@')) return;
+  await beehiivSignup(em, '');
   unlockAllDeals();
   document.querySelector('.gate-banner').innerHTML=
     '<div style="max-width:1080px;margin:0 auto;padding:0.6rem 0;font-size:0.82rem;color:rgba(255,255,255,0.7);">✓ <strong style="color:white">You\'re in!</strong> Deals are now unlocked.</div>';
@@ -628,9 +992,10 @@ function unlockAllDeals(){
   document.getElementById('nl-nudge')?.remove();
 }
 
-function nudgeSignup(){
+async function nudgeSignup(){
   const em=document.getElementById('nudgeEmail')?.value.trim();
   if(!em||!em.includes('@')) return;
+  await beehiivSignup(em, '');
   unlockAllDeals();
 }
 
@@ -641,5 +1006,15 @@ function sharedeal(name, detail){
   }).catch(()=>{});
 }
 </script>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    We use cookies to improve your experience. By using Holiday Windows you agree to our
+    <a href="/holidaywindows-privacy.html">Privacy Policy</a>.
+    We never sell your data.
+  </div>
+  <button class="cookie-btn" onclick="acceptCookies()">Got it</button>
+</div>
 </body>
 </html>

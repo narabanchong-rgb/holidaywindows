@@ -39,24 +39,46 @@ footer{background:var(--navy2);padding:2rem 2.5rem;display:flex;justify-content:
 .foot-links a:hover{color:rgba(255,255,255,0.8);}
 .foot-copy{font-size:0.65rem;color:rgba(255,255,255,0.2);max-width:380px;line-height:1.5;}
 @media(max-width:600px){nav.content.page-hdr,footer{padding-left:1.25rem;padding-right:1.25rem;}}
+
+/* ── COOKIE BANNER ── */
+.cookie-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:500;
+  background:#0A1628;
+  padding:1rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;
+  box-shadow:0 -4px 24px rgba(10,22,40,0.2);
+  transform:translateY(100%);
+  transition:transform 0.3s ease;
+}
+.cookie-banner.show{transform:translateY(0);}
+.cookie-text{font-size:0.78rem;color:rgba(255,255,255,0.7);line-height:1.5;flex:1;min-width:200px;}
+.cookie-text a{color:#F5A623;text-decoration:none;}
+.cookie-btn{font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;
+  padding:0.5rem 1.25rem;background:#E8940A;color:white;
+  border:none;border-radius:0.3rem;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+@media(max-width:600px){
+  .cookie-banner{padding:1rem 1.25rem;}
+  .cookie-text{font-size:0.72rem;}
+}
 </style>
 </head>
 <body>
 <nav>
-  <a class="logo" href="holidaywindows-landing-light.html">🪟 Holiday<span>Windows</span></a>
-  <a class="nav-cta" href="holidaywindows-landing-light.html#signup">Get free deals →</a>
+  <a class="logo" href="/">🪟 Holiday<span>Windows</span></a>
+  <a class="nav-cta" href="/#signup">Get free deals →</a>
 </nav>
 <div class="page-hdr"><div class="page-hdr-inner">
   <div class="eyebrow">Legal</div>
   <h1>Terms of Use &amp; Affiliate Disclosure</h1>
-  <div class="updated">Last updated: 24 March 2026 · Finse Pty Ltd ABN [ABN]</div>
+  <div class="updated">Last updated: 24 March 2026 · Finse Pty Ltd ABN 25 696 367 969</div>
 </div></div>
 <div class="content">
 
   <div class="highlight"><strong>Plain English summary:</strong> Holiday Windows is a free newsletter and planning tool. We earn commissions when you book through our links. we always disclose this. Prices and availability change fast; always verify before booking. Use the planner for planning purposes only. it is not financial or legal advice.</div>
 
   <h2>1. About Holiday Windows</h2>
-  <p>Holiday Windows is a newsletter and web-based planning tool operated by <strong>Finse Pty Ltd</strong> (ABN [ABN]), trading as Holiday Windows, a company incorporated in New South Wales, Australia. By using the Holiday Windows website, Leave Planner, or subscribing to our newsletter, you agree to these Terms of Use.</p>
+  <p>Holiday Windows is a newsletter and web-based planning tool operated by <strong>Finse Pty Ltd</strong> (ABN 25 696 367 969), trading as Holiday Windows, a company incorporated in New South Wales, Australia. By using the Holiday Windows website, Leave Planner, or subscribing to our newsletter, you agree to these Terms of Use.</p>
 
   <h2>2. The service</h2>
   <p>Holiday Windows provides:</p>
@@ -117,6 +139,6 @@ footer{background:var(--navy2);padding:2rem 2.5rem;display:flex;justify-content:
 <footer>
   <div class="foot-logo">🪟 Holiday<span>Windows</span></div>
   <div class="foot-links">
-    <a href="holidaywindows-landing-light.html">Home</a>
-    <a href="holidaywindows-terms.html">Terms of Use</a>
-    <a href="holidaywindows-privacy.html">Privacy Polic
+    <a href="/">Home</a>
+    <a href="/holidaywindows-terms.html">Terms of Use</a>
+    <a href="/holidaywindows-privacy.html">Privacy Polic

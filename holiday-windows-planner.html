@@ -46,7 +46,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .tab:hover{color:var(--white);}
 .tab.on{background:var(--card);color:var(--white);border-color:var(--border);border-bottom-color:var(--card);}
 
-.main{padding:1.5rem 2rem;display:flex;flex-direction:column;gap:1.75rem;}
+.main{padding:1.5rem 2rem;display:flex;flex-direction:column;gap:1.75rem;min-width:0;}
 
 /* LEGEND */
 .legend{display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;padding:0.75rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:0.5rem;}
@@ -194,7 +194,9 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .wr{outline:2px solid rgba(255,184,0,0.7);outline-offset:-2px;}
 
 /* HACKS */
-.hk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
+.hk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
+.stitle{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+.ssub{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.25rem;}
 .hk-card{background:rgba(255,184,0,0.05);border:1px solid rgba(255,184,0,0.15);border-radius:0.625rem;padding:1.25rem;}
 .hk-badge{display:inline-block;background:rgba(255,184,0,0.1);border:1px solid rgba(255,184,0,0.2);color:var(--sun);font-size:0.62rem;font-weight:700;padding:0.18rem 0.5rem;border-radius:0.2rem;margin-bottom:0.55rem;}
 .hk-off{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:900;color:var(--white);line-height:1;}
@@ -253,7 +255,209 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 /* TOOLTIP */
 .tip{position:fixed;background:rgba(8,15,24,0.97);border:1px solid var(--border);border-radius:0.45rem;padding:0.6rem 0.875rem;font-size:0.73rem;line-height:1.5;pointer-events:none;z-index:1000;max-width:210px;color:var(--white);display:none;}
 
-@media(max-width:640px){nav.main{padding-left:1rem;padding-right:1rem;}.tabs.nl-banner{padding-left:1rem;}.opt-inputs{grid-template-columns:1fr 1fr;}.win-breakdown{grid-template-columns:1fr;}}
+@media(max-width:640px){
+  nav,.main,.nl-banner{padding-left:1rem;padding-right:1rem;}
+  .main{padding-top:1rem;padding-bottom:1rem;gap:1rem;}
+  .tabs{padding-left:1rem;padding-right:0;}
+  .tab{font-size:0.72rem;padding:0.4rem 0.75rem;}
+  .opt-inputs{grid-template-columns:1fr 1fr;}
+  .win-breakdown{grid-template-columns:1fr;}
+  /* Window cards */
+  .win-card{margin-bottom:0.75rem;}
+  .wbd-stats{grid-template-columns:repeat(2,1fr);}
+  /* Destination guide */
+  .dest-grid{grid-template-columns:1fr !important;}
+  .dest-filters{flex-wrap:wrap;gap:0.4rem;}
+  /* Leave hacks */
+  .hacks-grid{grid-template-columns:1fr !important;}
+  /* Packing list */
+  .pack-grid{grid-template-columns:1fr !important;}
+  /* Planner controls */
+  .opt-row{flex-direction:column;gap:0.5rem;}
+  /* Tab content padding */
+  .tab-content{padding:1rem;}
+  /* Mini calendar */
+  .mc-grid{gap:1px;}
+  .mc-day{min-height:28px;font-size:0.62rem;}
+  /* Summary gap */
+  .gap-grid{grid-template-columns:1fr !important;}
+}
+
+/* ── COOKIE BANNER ── */
+.cookie-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:500;
+  background:#0A1628;
+  padding:1rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;
+  box-shadow:0 -4px 24px rgba(10,22,40,0.2);
+  transform:translateY(100%);
+  transition:transform 0.3s ease;
+}
+.cookie-banner.show{transform:translateY(0);}
+.cookie-text{font-size:0.78rem;color:rgba(255,255,255,0.7);line-height:1.5;flex:1;min-width:200px;}
+.cookie-text a{color:#F5A623;text-decoration:none;}
+.cookie-btn{font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;
+  padding:0.5rem 1.25rem;background:#E8940A;color:white;
+  border:none;border-radius:0.3rem;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+@media(max-width:600px){
+  .cookie-banner{padding:1rem 1.25rem;}
+  .cookie-text{font-size:0.72rem;}
+}
+
+/* ═══════════════════════════════════════
+   PRINT VIEW MODAL
+═══════════════════════════════════════ */
+.print-modal{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(10,22,40,0.7);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;padding:1rem;
+}
+.print-modal.open{display:flex;}
+.print-modal-inner{
+  background:white;border-radius:1rem;
+  width:100%;max-width:860px;max-height:90vh;
+  overflow-y:auto;
+  box-shadow:0 24px 80px rgba(10,22,40,0.3);
+}
+.print-modal-header{
+  padding:1rem 1.5rem;
+  border-bottom:1px solid var(--border2);
+  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;background:white;z-index:1;border-radius:1rem 1rem 0 0;
+}
+.print-modal-title{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;color:var(--navy);}
+.print-modal-actions{display:flex;gap:0.5rem;}
+.btn-print-go{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  padding:0.5rem 1.25rem;background:var(--navy);color:white;
+  border:none;border-radius:0.375rem;cursor:pointer;
+}
+.btn-print-close{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;
+  padding:0.5rem 1rem;background:transparent;color:var(--muted);
+  border:1px solid var(--border);border-radius:0.375rem;cursor:pointer;
+}
+
+/* THE PRINTABLE DOCUMENT */
+.print-doc{
+  padding:2rem;
+  font-family:'DM Sans',sans-serif;
+}
+
+/* Family header */
+.pd-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:1.5rem;padding-bottom:1rem;
+  border-bottom:3px solid var(--navy);
+}
+.pd-family{font-family:'Fraunces',serif;font-size:1.75rem;font-weight:900;color:var(--navy);line-height:1.1;}
+.pd-year{font-size:0.78rem;color:var(--muted);margin-top:0.2rem;}
+.pd-logo{font-family:'Fraunces',serif;font-size:0.9rem;font-weight:900;color:var(--navy);text-align:right;}
+.pd-logo span{color:var(--sun);}
+.pd-logo-url{font-size:0.62rem;color:var(--muted);margin-top:0.1rem;}
+
+/* Window cards - 2x2 grid */
+.pd-windows{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;}
+.pd-win{border-radius:0.625rem;overflow:hidden;border:2px solid var(--border2);}
+.pd-win-img{
+  height:140px;background-size:cover;background-position:center;
+  position:relative;
+}
+.pd-win-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,22,40,0.85) 0%,rgba(10,22,40,0.1) 100%);
+}
+.pd-win-img-label{
+  position:absolute;bottom:0.625rem;left:0.75rem;right:0.75rem;
+  display:flex;justify-content:space-between;align-items:flex-end;
+}
+.pd-win-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:white;}
+.pd-win-dates{font-size:0.6rem;color:rgba(255,255,255,0.7);}
+.pd-win-badge{
+  font-size:0.58rem;font-weight:800;padding:0.2rem 0.5rem;
+  border-radius:0.2rem;text-transform:uppercase;letter-spacing:0.05em;
+}
+.badge-booked{background:var(--green);color:white;}
+.badge-partial{background:var(--sun);color:var(--navy);}
+.badge-open{background:rgba(255,255,255,0.2);color:white;border:1px solid rgba(255,255,255,0.3);}
+
+/* Stats bar under image */
+.pd-win-stats{
+  padding:0.625rem 0.75rem;
+  display:flex;gap:0;background:white;
+}
+.pd-stat{flex:1;text-align:center;position:relative;}
+.pd-stat+.pd-stat::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:1px;background:var(--border2);}
+.pd-stat-n{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:900;line-height:1;}
+.pd-stat-l{font-size:0.55rem;color:var(--muted);line-height:1.3;margin-top:0.1rem;}
+.stat-free{color:var(--green);}
+.stat-leave{color:var(--sun);}
+.stat-care{color:var(--coral);}
+.stat-total{color:var(--navy);}
+
+/* Mini calendar strip */
+.pd-cal{padding:0.5rem 0.75rem;background:var(--bg);border-top:1px solid var(--border2);}
+.pd-cal-label{font-size:0.58rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;}
+.pd-cal-days{display:flex;flex-wrap:wrap;gap:2px;}
+.pd-day{
+  width:18px;height:18px;border-radius:3px;
+  font-size:0.45rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--navy);
+}
+.pd-day.free{background:rgba(26,158,106,0.2);color:var(--green);}
+.pd-day.leave{background:rgba(232,148,10,0.2);color:var(--sun);}
+.pd-day.care{background:rgba(232,75,42,0.15);color:var(--coral);}
+.pd-day.unassigned{background:var(--bg2);color:var(--muted2);}
+.pd-day.outside{background:transparent;color:transparent;}
+
+/* Legend */
+.pd-legend{
+  display:flex;gap:1.25rem;margin-bottom:1rem;padding:0.625rem 0.875rem;
+  background:var(--bg2);border-radius:0.375rem;
+  flex-wrap:wrap;
+}
+.pd-leg{display:flex;align-items:center;gap:0.35rem;font-size:0.68rem;color:var(--muted);}
+.pd-leg-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+
+/* Inspiration strip */
+.pd-inspo{
+  margin-bottom:1rem;
+}
+.pd-inspo-title{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+.pd-inspo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;}
+.pd-inspo-card{border-radius:0.5rem;overflow:hidden;position:relative;}
+.pd-inspo-img{height:90px;background-size:cover;background-position:center;}
+.pd-inspo-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,22,40,0.75) 0%,transparent 60%);
+}
+.pd-inspo-label{
+  position:absolute;bottom:0.4rem;left:0.5rem;right:0.5rem;
+  font-size:0.6rem;font-weight:700;color:white;line-height:1.2;
+}
+
+/* Footer */
+.pd-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:0.875rem;border-top:1px solid var(--border2);
+  margin-top:0.5rem;
+}
+.pd-footer-text{font-size:0.6rem;color:var(--muted2);line-height:1.5;}
+.pd-qr{width:52px;height:52px;border:2px solid var(--border2);border-radius:0.375rem;display:flex;align-items:center;justify-content:center;font-size:0.45rem;color:var(--muted);text-align:center;padding:0.25rem;}
+
+/* Print media */
+@media print{
+  .print-modal-header,.print-modal-actions{display:none!important;}
+  .print-modal{position:static!important;display:block!important;background:none!important;padding:0!important;}
+  .print-modal-inner{max-height:none!important;box-shadow:none!important;border-radius:0!important;}
+  .print-doc{padding:1cm;}
+  body > *:not(.print-modal){display:none!important;}
+  .pd-win-img{height:120px;}
+  .pd-inspo-img{height:75px;}
+}
+
 </style>
 </head>
 <body>
@@ -336,6 +540,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
     <div class="opt-actions">
       <button class="opt-save" onclick="saveOpt()">💾 Save my settings</button>
       <button class="opt-reset" onclick="resetOpt()">↺ Reset</button>
+      <button class="opt-reset" onclick="openPrintView()" style="background:var(--ocean);color:white;border-color:var(--ocean);">🖨️ Print plan</button>
       <span class="opt-saved-note" id="savedNote">✓ Saved to this browser</span>
     </div>
 
@@ -1279,7 +1484,7 @@ function renderPacking(){
   const dest=document.getElementById('pkDest').value;
   const kids=document.getElementById('pkKids').value;
   const data=PACKING[dest]||{};
-  const cats={...data.primary...(data[kids]||{})};
+  const cats={...data.primary,...(data[kids]||{})};
   const allItems=Object.values(cats).flatMap(c=>c.items);
   const total=allItems.length;
   const done=[...checkedItems].filter(i=>allItems.includes(i)).length;
@@ -1653,6 +1858,220 @@ function renderExtraList(){
 // (handled in cell build, d-ph-click and d-xtra use openPopover)
 // ─────────────────────────────────────────
 
+
+// ═══════════════════════════════════════════════════
+// PRINT VIEW
+// ═══════════════════════════════════════════════════
+
+const WIN_PRINT_DATA = {
+  easter: {
+    emoji: '🐣', name: 'Easter Window', shortName: 'Easter',
+    dates: '3 Apr – 27 Apr 2026',
+    img: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&q=75',
+    inspoImg: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=70',
+    inspoLabel: 'Grampians · QLD Coast · Jervis Bay',
+    color: '#E8940A', accentBg: 'rgba(232,148,10,0.08)'
+  },
+  july: {
+    emoji: '⛷️', name: 'July Window', shortName: 'July',
+    dates: '13 – 24 Jul 2026',
+    img: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600&q=75',
+    inspoImg: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=70',
+    inspoLabel: 'Bali · Snowy Mountains · Fiji',
+    color: '#0B7A6E', accentBg: 'rgba(11,122,110,0.08)'
+  },
+  sept: {
+    emoji: '🌸', name: 'September Window', shortName: 'September',
+    dates: '26 Sep – 9 Oct 2026',
+    img: 'https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=600&q=75',
+    inspoImg: 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=400&q=70',
+    inspoLabel: 'Ningaloo · NZ Spring · Japan',
+    color: '#7C3AED', accentBg: 'rgba(124,58,237,0.08)'
+  },
+  summer: {
+    emoji: '☀️', name: 'Summer Window', shortName: 'Summer',
+    dates: '18 Dec 2026 – 27 Jan 2027',
+    img: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=75',
+    inspoImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=70',
+    inspoLabel: 'Whitsundays · Kimberley · Thailand',
+    color: '#E84B2A', accentBg: 'rgba(232,75,42,0.08)'
+  }
+};
+
+function openPrintView(){
+  const p1 = document.getElementById('optP1Name')?.value || 'Carer 1';
+  const p2 = document.getElementById('optP2Name')?.value || 'Carer 2';
+  const state = activeState || 'NSW';
+
+  // Count assignments per window
+  const winStats = {};
+  WIN_IDS.forEach(wid => {
+    const wd = WIN_DATA[state]?.[wid];
+    if(!wd) return;
+    let free=0, leave=0, care=0, unassigned=0, total=0;
+    const DIM=[31,28,31,30,31,30,31,31,30,31,30,31,31];
+    let cm=wd.m0, cd=wd.d0;
+    const days = [];
+    while(cm<wd.m1||(cm===wd.m1&&cd<=wd.d1)){
+      total++;
+      const w=dow(cm,cd);
+      const isPh=isPub(cm,cd,state);
+      const isWe=w===0||w===6;
+      const isFree=isWe||isPh;
+      const key=`${wid}-${cm}-${cd}`;
+      const assigned=dayAssign[key]||'un';
+      let type = 'unassigned';
+      if(isFree) type='free';
+      else if(assigned==='lv'||assigned==='p1'||assigned==='p2'||assigned==='bt') type='leave';
+      else if(assigned==='ca'||assigned==='ca2') type='care';
+      if(type==='free') free++;
+      else if(type==='leave') leave++;
+      else if(type==='care') care++;
+      else unassigned++;
+      days.push({d:cd,type,isSchool:isSchool(cm,cd,state)});
+      cd++; if(cd>DIM[cm]){cd=1;cm++;} if(cm>12) break;
+    }
+    const booked = leave>0||care>0;
+    const partial = booked && unassigned>0;
+    winStats[wid]={free,leave,care,unassigned,total,days,booked,partial};
+  });
+
+  // Build mini calendar strips
+  function calStrip(wid){
+    const s=winStats[wid];
+    if(!s) return '';
+    return s.days.map(d=>
+      `<div class="pd-day ${d.type}">${d.d}</div>`
+    ).join('');
+  }
+
+  // Build badge
+  function badge(wid){
+    const s=winStats[wid];
+    if(!s) return '';
+    if(s.unassigned===0 && (s.leave>0||s.care>0)) return '<span class="pd-win-badge badge-booked">Planned</span>';
+    if(s.leave>0||s.care>0) return '<span class="pd-win-badge badge-partial">In progress</span>';
+    return '<span class="pd-win-badge badge-open">Not started</span>';
+  }
+
+  // Build window cards
+  function winCard(wid){
+    const d=WIN_PRINT_DATA[wid];
+    const s=winStats[wid]||{free:0,leave:0,care:0,unassigned:0,total:0,days:[]};
+    return `
+      <div class="pd-win">
+        <div class="pd-win-img" style="background-image:url('${d.img}')">
+          <div class="pd-win-img-overlay"></div>
+          <div class="pd-win-img-label">
+            <div>
+              <div class="pd-win-name">${d.emoji} ${d.name}</div>
+              <div class="pd-win-dates">${d.dates}</div>
+            </div>
+            ${badge(wid)}
+          </div>
+        </div>
+        <div class="pd-win-stats">
+          <div class="pd-stat">
+            <div class="pd-stat-n stat-total">${s.total}</div>
+            <div class="pd-stat-l">total days</div>
+          </div>
+          <div class="pd-stat">
+            <div class="pd-stat-n stat-free">${s.free}</div>
+            <div class="pd-stat-l">free days</div>
+          </div>
+          <div class="pd-stat">
+            <div class="pd-stat-n stat-leave">${s.leave}</div>
+            <div class="pd-stat-l">annual leave</div>
+          </div>
+          <div class="pd-stat">
+            <div class="pd-stat-n stat-care">${s.care}</div>
+            <div class="pd-stat-l">care days</div>
+          </div>
+        </div>
+        <div class="pd-cal">
+          <div class="pd-cal-label">${d.shortName} days</div>
+          <div class="pd-cal-days">${calStrip(wid)}</div>
+        </div>
+      </div>`;
+  }
+
+  // Build inspiration strip
+  const inspoGrid = WIN_IDS.map(wid => {
+    const d = WIN_PRINT_DATA[wid];
+    return `<div class="pd-inspo-card">
+      <div class="pd-inspo-img" style="background-image:url('${d.inspoImg}')"></div>
+      <div class="pd-inspo-overlay"></div>
+      <div class="pd-inspo-label">${d.emoji} ${d.inspoLabel}</div>
+    </div>`;
+  }).join('');
+
+  // Family name display
+  const familyName = (p1 !== 'Carer 1' && p2 !== 'Carer 2')
+    ? `${p1} & ${p2}`
+    : p1 !== 'Carer 1' ? `${p1}'s family` : 'Our family';
+
+  const doc = `
+    <div class="pd-header">
+      <div>
+        <div class="pd-family">${familyName}</div>
+        <div class="pd-year">2026 School Holiday Plan · ${state}</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="pd-logo">🪟 Holiday<span>Windows</span></div>
+        <div class="pd-logo-url">holidaywindows.com.au</div>
+        <div style="font-size:0.58rem;color:var(--muted);margin-top:0.2rem;">Free leave planner for Australian families</div>
+      </div>
+    </div>
+
+    <div class="pd-legend">
+      <div class="pd-leg"><div class="pd-leg-dot" style="background:rgba(26,158,106,0.3)"></div>Free day (pub hols + weekends)</div>
+      <div class="pd-leg"><div class="pd-leg-dot" style="background:rgba(232,148,10,0.25)"></div>Annual leave</div>
+      <div class="pd-leg"><div class="pd-leg-dot" style="background:rgba(232,75,42,0.2)"></div>Holiday care</div>
+      <div class="pd-leg"><div class="pd-leg-dot" style="background:var(--bg2)"></div>Not yet assigned</div>
+    </div>
+
+    <div class="pd-windows">
+      ${WIN_IDS.map(winCard).join('')}
+    </div>
+
+    <div class="pd-inspo">
+      <div class="pd-inspo-title">Where will you go this year?</div>
+      <div class="pd-inspo-grid">${inspoGrid}</div>
+    </div>
+
+    <div class="pd-footer">
+      <div class="pd-footer-text">
+        Planned on Holiday Windows · holidaywindows.com.au · Free school holiday planner and deals for Australian families<br>
+        Printed ${new Date().toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})} · Finse Pty Ltd ABN 25 696 367 969
+      </div>
+      <div class="pd-qr">
+        Scan to open planner<br>holidaywindows.com.au
+      </div>
+    </div>
+  `;
+
+  document.getElementById('printDoc').innerHTML = doc;
+  document.getElementById('printModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePrintView(){
+  document.getElementById('printModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('printModal')?.addEventListener('click', function(e){
+  if(e.target === this) closePrintView();
+});
+
+function acceptCookies(){
+  localStorage.setItem('hw_cookies','1');
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+if(!localStorage.getItem('hw_cookies')){
+  setTimeout(()=>document.getElementById('cookieBanner')?.classList.add('show'),800);
+}
 </script>
 
 <!-- DAY ASSIGNMENT POPOVER -->
@@ -1695,5 +2114,33 @@ function renderExtraList(){
   </div>
 </div>
 
+
+<!-- ════════════════════════════════════
+     PRINT VIEW MODAL
+════════════════════════════════════ -->
+<div class="print-modal" id="printModal">
+  <div class="print-modal-inner">
+    <div class="print-modal-header">
+      <div class="print-modal-title">🖨️ Your family holiday plan — ready to print</div>
+      <div class="print-modal-actions">
+        <button class="btn-print-close" onclick="closePrintView()">Cancel</button>
+        <button class="btn-print-go" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </div>
+    <div class="print-doc" id="printDoc">
+      <!-- Generated by openPrintView() -->
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    We use cookies to improve your experience. By using Holiday Windows you agree to our
+    <a href="/holidaywindows-privacy.html">Privacy Policy</a>.
+    We never sell your data.
+  </div>
+  <button class="cookie-btn" onclick="acceptCookies()">Got it</button>
+</div>
 </body>
 </html>
