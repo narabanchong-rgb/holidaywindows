@@ -45,11 +45,23 @@ nav{
   background:rgba(250,250,248,0);
   transition:background 0.3s,box-shadow 0.3s;
 }
+/* White logo/links when over dark hero */
+nav:not(.scrolled) .logo{color:white;}
+nav:not(.scrolled) .logo span{color:#F5A623;}
+nav:not(.scrolled) .nav-link{color:rgba(255,255,255,0.8);}
+nav:not(.scrolled) .nav-cta{
+  background:rgba(255,255,255,0.15);
+  border-color:rgba(255,255,255,0.35);
+  color:white;
+}
+/* Navy logo/links when scrolled over white page */
 nav.scrolled{
   background:rgba(250,250,248,0.96);
   backdrop-filter:blur(16px);
   box-shadow:0 1px 0 var(--border);
 }
+nav.scrolled .logo{color:var(--navy);}
+nav.scrolled .logo span{color:var(--sun);}
 .logo{
   font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;
   color:var(--navy);text-decoration:none;letter-spacing:-0.01em;
@@ -115,7 +127,20 @@ h1 em{font-style:italic;font-weight:300;color:var(--sun-lt);}
   border:1.5px solid var(--border);
   border-radius:0.375rem;color:var(--navy);outline:none;
   transition:border-color 0.15s;
+  -webkit-appearance:auto;
 }
+/* Hero form inputs sit on dark background - keep readable */
+.hero .form-row select{
+  background:rgba(255,255,255,0.95);
+  border-color:rgba(255,255,255,0.4);
+  color:var(--navy);
+}
+.hero .form-row input{
+  background:rgba(255,255,255,0.95);
+  border-color:rgba(255,255,255,0.4);
+  color:var(--navy);
+}
+.hero .form-row input::placeholder{color:rgba(10,22,40,0.4);}
 .form-row input{flex:1;min-width:0;}
 .form-row input::placeholder{color:rgba(255,255,255,0.4);}
 .form-row input:focus{border-color:rgba(245,166,35,0.8);}
@@ -510,12 +535,12 @@ footer{
       </div>
       <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
         <div style="flex:10;background:rgba(26,158,106,0.3);" title="10 free days"></div>
-        <div style="flex:5;background:rgba(245,166,35,0.5);" title="5 annual leave"></div>
+        
         <div style="flex:10;background:rgba(10,22,40,0.08);" title="10 care days"></div>
       </div>
       <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
         <span style="color:var(--green);">10 already free</span>
-        <span style="color:var(--sun);">5 days annual leave → trip</span>
+        
         <span style="color:var(--muted);">10 days care</span>
       </div>
     </div>
@@ -539,7 +564,7 @@ footer{
       </div>
       <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
         <span style="color:var(--green);">2 already free</span>
-        <span style="color:var(--sun);">5 days annual leave → trip</span>
+        
         <span style="color:var(--muted);">5 days care</span>
       </div>
     </div>
@@ -563,7 +588,7 @@ footer{
       </div>
       <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
         <span style="color:var(--green);">4 already free</span>
-        <span style="color:var(--sun);">5 days annual leave → trip</span>
+        
         <span style="color:var(--muted);">6 days care</span>
       </div>
     </div>
@@ -587,7 +612,7 @@ footer{
       </div>
       <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
         <span style="color:var(--green);">5+ already free</span>
-        <span style="color:var(--sun);">3 days annual leave → trip</span>
+        
         <span style="color:var(--muted);">32+ days care to plan</span>
       </div>
     </div>
@@ -659,7 +684,6 @@ footer{
           <div class="win-stats">
             <div class="ws"><strong>25</strong>days in window</div>
             <div class="ws" style="color:var(--green)"><strong>10</strong>free (pub hols + wknds)</div>
-            <div class="ws" style="color:var(--sun)"><strong>5</strong>annual leave days</div>
           </div>
           <div class="win-dest">QLD Coast · Grampians · Jervis Bay · Bali shoulder season</div>
         </div>
@@ -676,7 +700,6 @@ footer{
           <div class="win-stats">
             <div class="ws"><strong>12</strong>days in window</div>
             <div class="ws" style="color:var(--green)"><strong>2</strong>free (weekends)</div>
-            <div class="ws" style="color:var(--sun)"><strong>2</strong>annual leave days</div>
           </div>
           <div class="win-dest">Snowy Mountains ski · Bali dry season · Fiji · NZ ski fields</div>
         </div>
@@ -693,7 +716,6 @@ footer{
           <div class="win-stats">
             <div class="ws"><strong>15</strong>days in window</div>
             <div class="ws" style="color:var(--green)"><strong>4</strong>free (weekends)</div>
-            <div class="ws" style="color:var(--sun)"><strong>3</strong>annual leave days</div>
           </div>
           <div class="win-dest">Ningaloo reef · NZ spring · Flinders Ranges · Europe shoulder</div>
         </div>
@@ -710,7 +732,6 @@ footer{
           <div class="win-stats">
             <div class="ws"><strong>40+</strong>days in window</div>
             <div class="ws" style="color:var(--green)"><strong>5+</strong>free (pub hols + wknds)</div>
-            <div class="ws" style="color:var(--sun)"><strong>3</strong>annual leave days</div>
           </div>
           <div class="win-dest">Kimberley road trip · Thailand · Whitsundays · Tasmania drive</div>
         </div>
