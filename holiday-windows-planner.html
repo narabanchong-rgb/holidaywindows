@@ -114,7 +114,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .mc-day.d-un{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.25);cursor:pointer;border:1px dashed rgba(255,255,255,0.1);}
 .mc-day.d-lv{background:rgba(255,184,0,0.2);color:var(--sun);cursor:pointer;border:1px solid rgba(255,184,0,0.4);}
 .mc-day.d-ca{background:rgba(255,90,54,0.18);color:var(--coral);cursor:pointer;border:1px solid rgba(255,90,54,0.3);}
-/* Carer mode */
+/* Two parent mode */
 .mc-day.d-p1{background:rgba(255,184,0,0.2);color:var(--sun);cursor:pointer;border:1px solid rgba(255,184,0,0.4);}
 .mc-day.d-p2{background:rgba(0,102,204,0.2);color:#93C5FD;cursor:pointer;border:1px solid rgba(0,102,204,0.35);}
 .mc-day.d-bt{background:linear-gradient(135deg,rgba(255,184,0,0.25) 50%,rgba(0,102,204,0.25) 50%);color:var(--white);cursor:pointer;border:1px solid rgba(255,184,0,0.3);}
@@ -194,7 +194,24 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .wr{outline:2px solid rgba(255,184,0,0.7);outline-offset:-2px;}
 
 /* HACKS */
-.hk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
+.hk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
+.hk-img{height:155px;background-size:cover;background-position:center;position:relative;border-radius:0.625rem 0.625rem 0 0;overflow:hidden;}
+.hk-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.88) 0%,rgba(10,22,40,0.15) 100%);}
+.hk-img-tag{position:absolute;top:0.625rem;left:0.625rem;font-size:0.6rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.5rem;border-radius:0.2rem;color:white;}
+.hk-img-headline{position:absolute;bottom:0.75rem;left:0.875rem;right:0.875rem;display:flex;justify-content:space-between;align-items:flex-end;}
+.hk-days-big{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;color:white;line-height:1;}
+.hk-days-big span{font-family:'DM Sans',sans-serif;font-size:0.62rem;font-weight:400;color:rgba(255,255,255,0.65);display:block;}
+.hk-leave-tag{font-size:0.65rem;font-weight:700;background:rgba(245,166,35,0.2);border:1px solid rgba(245,166,35,0.35);color:#F5A623;padding:0.18rem 0.45rem;border-radius:0.2rem;}
+.hk-body{padding:0.875rem 1rem 1rem;}
+.hk-dates-row{display:flex;gap:0.5rem;align-items:baseline;font-size:0.74rem;margin-bottom:0.25rem;}
+.hk-dates-label{font-weight:700;color:rgba(10,22,40,0.45);min-width:60px;flex-shrink:0;font-size:0.68rem;}
+.hk-dates-val{color:#0A1628;font-weight:600;}
+.hk-calc{background:#F3F1ED;border-left:3px solid #1557B0;border-radius:0 0.25rem 0.25rem 0;padding:0.45rem 0.6rem;margin:0.6rem 0;}
+.hk-calc-label{font-size:0.58rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#1557B0;margin-bottom:0.15rem;}
+.hk-calc-val{font-size:0.71rem;color:#0A1628;line-height:1.5;}
+.hk-dest{font-size:0.71rem;color:rgba(10,22,40,0.5);margin-top:0.5rem;line-height:1.5;}
+.hk-dest-label{font-weight:700;color:#0A1628;margin-right:0.25rem;}
+.hk-weather{font-size:0.66rem;color:rgba(10,22,40,0.35);margin-top:0.25rem;font-style:italic;}
 .stitle{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
 .ssub{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.25rem;}
 .hk-card{background:rgba(255,184,0,0.05);border:1px solid rgba(255,184,0,0.15);border-radius:0.625rem;padding:1.25rem;}
@@ -222,10 +239,10 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 .pk-pct{font-size:0.75rem;color:var(--muted);min-width:2.5rem;}
 
 /* FLIGHTS */
-.fl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;}
+.fl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
 .fl-card{background:var(--card);border:1px solid var(--border);border-radius:0.625rem;padding:1.1rem;}
 .fl-title{font-size:0.82rem;font-weight:600;color:var(--white);margin-bottom:0.65rem;}
-.ftip{display:flex;gap:0.45rem;margin-bottom:0.45rem;}
+.fl-tips{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.45rem;}.ftip{font-size:0.74rem;color:var(--muted);line-height:1.6;padding-left:0.875rem;position:relative;}.ftip::before{content:"\2192";position:absolute;left:0;color:#F5A623;font-weight:700;}
 .fa{color:var(--coral);flex-shrink:0;font-size:0.72rem;margin-top:0.15rem;}
 .ftip p{font-size:0.74rem;color:var(--muted);line-height:1.55;}
 .ftip p strong{color:var(--white);}
@@ -451,15 +468,8 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 /* Print media */
 @media print{
   nav,.tabs,.main,.nl-banner,.cookie-banner{display:none!important;}
-  .print-modal{
-    position:static!important;display:block!important;
-    background:none!important;padding:0!important;
-    pointer-events:none;
-  }
-  .print-modal-inner{
-    max-height:none!important;box-shadow:none!important;
-    border-radius:0!important;overflow:visible!important;
-  }
+  .print-modal{position:static!important;display:block!important;background:none!important;padding:0!important;pointer-events:none;}
+  .print-modal-inner{max-height:none!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;}
   .print-modal-header{display:none!important;}
   .print-doc{padding:0.75cm 1cm;}
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
@@ -473,7 +483,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 
 <!-- NAV -->
 <nav>
-  <div class="logo">🪟 Holiday<span>Windows</span></div>
+  <a href="/" class="logo" style="text-decoration:none;">🪟 Holiday<span>Windows</span></a>
   <div class="nav-r">
     <span style="font-size:0.7rem;color:var(--muted)">State:</span>
     <div style="display:flex;gap:0.3rem">
@@ -520,7 +530,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 <!-- YEAR PLANNER TAB -->
 <div id="tab-plan">
   <div class="stitle">Your 2026 Leave Optimiser</div>
-  <div class="ssub">School holidays are already free. This tool works out how many leave days to use as bridge days for each window, and how many days your kids will need care while you work.</div>
+  <div class="ssub">School holidays are already free. This tool works out how many leave days to use as extra days for each window, and how many days your kids will need care while you work.</div>
 
   <div class="opt-panel">
     <!-- INPUTS -->
@@ -683,6 +693,24 @@ nav{position:sticky;top:0;z-index:300;background:rgba(13,27,42,0.97);backdrop-fi
 
 </div><!-- /main -->
 
+<!-- SHARE MODAL -->
+<div class="modal-bg" id="shareModal">
+  <div class="modal">
+    <h3>Share this leave hack 🎉</h3>
+    <p>Copy and paste into your school Facebook group or parent WhatsApp chat.</p>
+    <div class="share-card-preview">
+      <div class="sc-logo">🪟 Holiday<span>Windows</span></div>
+      <div class="sc-headline" id="scHeadline">16 days off</div>
+      <div class="sc-sub" id="scSub">with just 2 days leave</div>
+      <div class="sc-dest" id="scDest">July window · Bali peak dry season ★★★★★</div>
+    </div>
+    <div class="modal-btns">
+      <button class="mbtn copy" onclick="copyShare()">📋 Copy text</button>
+      <button class="mbtn close-btn" onclick="closeModal('shareModal')">Close</button>
+    </div>
+  </div>
+</div>
+
 <!-- alert modal removed, inline alerts used instead -->
 
 <div class="tip" id="tip"></div>
@@ -743,10 +771,10 @@ const WINDOWS=[
    hack:'Take 1 Apr – 3 Apr (3 days) and combine with Good Friday, Easter Monday + school hols for 11 days straight off.',
    alert:'Easter'},
   {id:'july',name:'July Window',emoji:'⛷️',dates:'13–24 Jul 2026 (NSW/VIC)',days:16,leave:2,dest:'Bali, Fiji, Whitsundays, NZ Ski',bestDest:'Bali',score:5,
-   hack:'Add 2 bridge days either side of school hols for 16 full days. Peak dry season, best weather of the year.',
+   hack:'Add 2 extra days either side of school hols for 16 full days. Peak dry season, best weather of the year.',
    alert:'July'},
   {id:'sept',name:'September Window',emoji:'🌸',dates:'26 Sep – 9 Oct 2026',days:12,leave:3,dest:'Bali, NZ Spring, Europe shoulder',bestDest:'Bali',score:4,
-   hack:'3 bridge days around school hols creates a 12-day break. Bali still in dry season, NZ spring spectacular.',
+   hack:'3 extra days around school hols creates a 12-day break. Bali still in dry season, NZ spring spectacular.',
    alert:'September'},
   {id:'summer',name:'Summer Window',emoji:'☀️',dates:'18 Dec 2026 – 27 Jan 2027',days:40,leave:3,dest:'Kimberley 🏕️ · Thailand · Whitsundays · NZ',bestDest:'Kimberley / Thailand',score:5,
    hack:'Take 21–23 Dec (3 days leave) and get a 24-day runway without touching January leave at all.',
@@ -792,14 +820,62 @@ const DESTS=[
 ];
 
 const HACKS=[
-  {b:'Easter · Apr 2026 · All states',off:11,lv:3,n:'Easter School Holiday Extend',d:'Take Wed 1–Fri 3 April (3 days leave). With Good Friday, Easter Mon and school holidays you get 11 days off. Perfect for Bali or QLD coast, shoulder season pricing with great weather.'},
-  {b:'Anzac Day · Apr 2026 · All states',off:5,lv:1,n:'Anzac Day Long Weekend Bridge',d:'Anzac Day falls Saturday 25 April. Take Monday 27 April (1 day leave) for a 5-day weekend. Last chance for shoulder-season Bali before July prices peak.'},
-  {b:"Jun 2026 · VIC/QLD",off:9,lv:4,n:"King's Birthday Japan Trip",d:"King's Birthday long weekend (1 June). Take 4 days around it for a 9-day break. June in Japan is greenery season, rainy but dramatic, 30–40% cheaper than July peak."},
-  {b:'July · All states',off:16,lv:2,n:'July School Holidays Full Extension',d:'School hols cover 2 full weeks in July. Add 2 bridge days either side and get 16 continuous days with just 2 days leave. Peak dry season Bali and Fiji. Book 5+ months ahead.'},
-  {b:'Sep 2026 · NSW/VIC',off:12,lv:3,n:'Spring Break Extended',d:'NSW/VIC September school holidays plus 3 bridge days = 12 days off. NZ spring, Bali still dry, Europe shoulder season, outstanding value.'},
-  {b:'Sep · VIC only',off:9,lv:2,n:'AFL Grand Final Bridge (VIC)',d:'AFL Grand Final Friday public holiday in VIC. 2 leave days around September school holidays = 9-day break. Outstanding timing for Bali or NZ.'},
-  {b:'Oct-Nov · VIC only',off:9,lv:4,n:'Melbourne Cup Japan Trip (VIC)',d:'Melbourne Cup Tuesday public holiday. 4 days leave = 9 days off in early November, peak Japan autumn foliage (koyo). The most spectacular Japan timing. Book 6 months ahead.'},
-  {b:'Dec · All states',off:24,lv:3,n:'Christmas Holiday Runway',d:'Schools break ~18 Dec. Take 21–23 Dec (3 days leave) and you have a 24-day runway without touching January leave. Thailand peak season, Japan winter, NZ summer, all perfectly timed.'},
+  {b:'Easter · All states',off:11,lv:3,n:'Easter mega-window',
+   dates:'Wed 1 Apr to Sun 12 Apr 2026',leave:'Take Wed 1, Thu 2, Fri 3 April',
+   calc:'Good Friday (3 Apr) + Easter weekend + Easter Mon (6 Apr) + school hols = 11 days off, 3 leave days used.',
+   d:'Easter falls early in 2026 giving an 11-day break from just 3 leave days. Add leave days before Good Friday and depart on Wednesday with the whole window ahead.',
+   dest:'Bali · QLD Coast · Grampians · Jervis Bay',
+   weather:'Bali shoulder season — warm, quieter and cheaper than July. QLD coast sunny.',
+   img:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=70',tag:'Easter',color:'#E8940A'},
+  {b:'Anzac Day · All states',off:5,lv:1,n:'Anzac Day 5-day weekend',
+   dates:'Sat 25 Apr to Wed 29 Apr 2026',leave:'Take Mon 27 April only',
+   calc:'Anzac Day falls Sat 25 Apr. Mon 27 Apr = 1 leave day (substitute). Tue-Wed still in Easter school hols for most states = 5 days from 1 leave day.',
+   d:'One leave day gives you five consecutive days. Still within the Easter window for NSW/VIC/QLD families.',
+   dest:'Bali · Melbourne · Byron Bay · Road trip',
+   weather:'Last chance for shoulder-season Bali before July. Autumn in Melbourne and Sydney is perfect.',
+   img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=70',tag:'Anzac Day',color:'#0B7A6E'},
+  {b:"King's Birthday · VIC/QLD",off:9,lv:4,n:"King's Birthday Japan trip",
+   dates:'Sat 30 May to Sun 7 Jun 2026',leave:'Take Mon 2, Tue 3, Wed 4, Thu 5 June',
+   calc:"King's Birthday = Mon 1 Jun public holiday (VIC/QLD). Weekend (30-31 May) free + public holiday + 4 leave days + following weekend (6-7 Jun) = 9 days off.",
+   d:"VIC and QLD get a public holiday on 1 June. 4 leave days gives 9 days away. June in Japan is greenery season — 30-40% cheaper than July peak.",
+   dest:'Tokyo · Kyoto · Osaka',
+   weather:'Japan June: warm, lush and dramatic. Not peak tourist season. No school holiday crowds.',
+   img:'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&q=70',tag:"King's Birthday",color:'#DC2626'},
+  {b:'July · All states',off:16,lv:2,n:'July school holiday full run',
+   dates:'Fri 10 Jul to Sun 26 Jul 2026',leave:'Take Mon 13, Tue 14 July',
+   calc:'NSW/VIC July hols: 13-24 Jul. Depart Fri 10 Jul (weekend free) + 2 leave days Mon-Tue + 2 full weeks school hols + return Sat-Sun 25-26 Jul = 16 days, 2 leave days.',
+   d:'The July window gives you 12 school holiday days. Add leave days at each end — depart Friday before school breaks, return Sunday after — and you have 16 continuous days from just 2 leave days.',
+   dest:'Bali · Fiji · Snowy Mountains · NZ ski',
+   weather:'Peak dry season in Bali and Fiji. Best skiing in Australia and NZ. Book 5+ months ahead.',
+   img:'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=400&q=70',tag:'July Window',color:'#0B7A6E'},
+  {b:'September · NSW/VIC',off:12,lv:3,n:'September spring break',
+   dates:'Sat 26 Sep to Wed 7 Oct 2026',leave:'Take Mon 28, Tue 29, Wed 30 September',
+   calc:'NSW/VIC September hols: 26 Sep-9 Oct. Weekend (26-27 Sep) free + 3 leave days Mon-Wed + school hols continue = 12 days off.',
+   d:'The long weekend gives 2 free days. Add 3 leave days Monday to Wednesday and you have 12 days off at one of the best travel times of year.',
+   dest:'Ningaloo · NZ spring · Japan autumn · Europe shoulder',
+   weather:'Ningaloo whale shark season peaks in September. NZ spring blossoms. Europe shoulder — quieter and cheaper.',
+   img:'https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=400&q=70',tag:'September',color:'#7C3AED'},
+  {b:'AFL Grand Final · VIC only',off:9,lv:2,n:'AFL Grand Final long break (VIC)',
+   dates:'Fri 25 Sep to Sun 4 Oct 2026',leave:'Take Mon 28, Tue 29 September',
+   calc:'AFL Grand Final Friday = VIC public holiday (25 Sep). Weekend (26-27 Sep) free + 2 leave days Mon-Tue + school hols continue to 9 Oct = 9 consecutive days.',
+   d:'Victoria gets a public holiday on AFL Grand Final Friday. Combined with September school holidays, just 2 leave days gives Victorian families a 9-day break.',
+   dest:'Bali · NZ · Melbourne stays',
+   weather:'Bali transitioning to dry season. NZ spring. Perfect Melbourne weather for local stays.',
+   img:'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&q=70',tag:'AFL Grand Final',color:'#1557B0'},
+  {b:'Melbourne Cup · VIC only',off:9,lv:4,n:'Melbourne Cup Japan foliage (VIC)',
+   dates:'Sat 31 Oct to Sun 8 Nov 2026',leave:'Take Mon 2, Wed 4, Thu 5 Nov (Tue 3 = pub hol)',
+   calc:'Melbourne Cup = Tue 3 Nov VIC public holiday. Weekend (31 Oct-1 Nov) free + 3 leave days (Mon, Wed, Thu) + Tue public holiday + following weekend (7-8 Nov) = 9 days off.',
+   d:'The Melbourne Cup public holiday falls mid-week, perfect to build a 9-day break around. Early November is peak autumn foliage (koyo) season in Japan.',
+   dest:'Tokyo · Kyoto · Nikko · Osaka',
+   weather:'Japan November: crisp, stunning red and gold foliage. Peak koyo season — book early.',
+   img:'https://images.unsplash.com/photo-1569880153113-76e33fc52d5f?w=400&q=70',tag:'Melbourne Cup',color:'#DC2626'},
+  {b:'Summer · All states',off:24,lv:3,n:'Christmas runway — 24 days',
+   dates:'Wed 18 Dec 2026 to Fri 9 Jan 2027',leave:'Take Mon 21, Tue 22, Wed 23 December',
+   calc:'Schools break ~18 Dec. Christmas Day (25 Dec) + Boxing Day (26 Dec) + New Year Day (1 Jan) = 3 public holidays. 3 leave days + all weekends + public holidays = 24-day runway.',
+   d:'Take 3 leave days the week before Christmas and you have a 24-day runway to early January without touching January leave entitlement.',
+   dest:'Thailand · Bali · Japan winter · NZ summer · Whitsundays',
+   weather:'Thailand peak season. Bali sunny. Japan winter festivals. NZ and Whitsundays perfect.',
+   img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=70',tag:'Summer',color:'#E84B2A'},
 ];
 
 // PACKING DATA
@@ -863,14 +939,37 @@ const PACKING={
 };
 
 const FLIGHTS=[
-  {t:'📅 Best Days to Book',tips:['<strong>Tuesday–Wednesday</strong> afternoon is cheapest. Airlines drop fares Monday night, competitors match by Wednesday.','Avoid booking <strong>Friday–Sunday</strong>, demand and prices peak.']},
-  {t:'✈️ Best Days to Fly',tips:['<strong>Tuesday, Wednesday, Saturday</strong> are 15–25% cheaper departure days.','Monday and Friday carry a premium. Saturday departures are often cheaper than Friday.']},
-  {t:'⏰ How Far Ahead',tips:['<strong>Bali/Fiji July:</strong> book January–February, 5–6 months ahead.','<strong>Domestic school holidays:</strong> 8–12 weeks is the sweet spot.','<strong>Japan peak seasons:</strong> book 6–9 months ahead.']},
-  {t:'💥 Error Fares',tips:['Airlines occasionally publish fares 30–60% below market, they last <strong>12–48 hours</strong>.','Set Google Flights price alerts for Sydney–Denpasar, Melbourne–Nadi, Sydney–Tokyo right now.']},
-  {t:'⛷️ Ski Season Timing',tips:['<strong>Japan ski (Niseko/Hakuba):</strong> July school holidays. Book the previous September.','<strong>French Alps/NZ ski:</strong> Easter and July. NZ flights cheaper than Japan.']},
-  {t:'🏆 Frequent Flyer',tips:['Classic reward seats release <strong>353 days ahead</strong>. Set calendar reminders for school holiday dates.','Business class on points for school holidays requires <strong>12 months</strong> advance booking.']},
-  {t:'📊 Depart Early Strategy',tips:['Flying on the <strong>first day of school holidays</strong> is 20–40% more expensive.','<strong>1 day leave</strong> to depart 2 days early often saves more than the day costs.']},
-  {t:'🌐 Key Routes',tips:['<strong>Bali:</strong> Direct SYD/MEL/PER. Brisbane via Darwin.','<strong>Fiji:</strong> Jetstar/Fiji Airways direct SYD/MEL.','<strong>Japan:</strong> Qantas/JAL direct. Budget: Singapore on Scoot/Jetstar Asia.']},
+  {t:'When to book',tips:[
+    '<strong>Tuesday or Wednesday afternoon</strong> is the cheapest time to book. Airlines drop fares Monday night and competitors match by Wednesday.',
+    'For school holiday windows, book <strong>10-14 weeks ahead</strong> for domestic and <strong>5-6 months ahead</strong> for international.',
+    '<strong>Bali/Fiji in July:</strong> book by February. <strong>Japan autumn/Melbourne Cup:</strong> book by May. <strong>Christmas:</strong> book by September.',
+    'Avoid booking <strong>Friday to Sunday</strong> — leisure demand peaks and fares reflect it.',
+  ]},
+  {t:'Best days to fly',tips:[
+    '<strong>Tuesday, Wednesday and Saturday</strong> departures are typically 15-25% cheaper than peak days.',
+    '<strong>Monday and Friday</strong> carry a premium. Saturday departures are often cheaper than Friday by $80-150 per person.',
+    'For school holidays, <strong>depart Friday evening or Saturday morning</strong> and return Friday or Saturday to maximise days without extra leave.',
+    'The night before school holidays start is peak pricing. <strong>Departing one day early</strong> (Thursday vs Friday) can save 20-30%.',
+  ]},
+  {t:'How to track fares',tips:[
+    '<strong>Google Flights price tracking</strong> is free — set an alert for your route and Google emails you when prices change.',
+    '<strong>Skyscanner Price Alert</strong> watches a route and notifies you of drops. Set it as soon as you know which window you are targeting.',
+    '<strong>Jetstar and Virgin sale emails</strong> — subscribe to both. They run flash sales 8-12 weeks before school holidays, often lasting 48 hours.',
+    'For Qantas, <strong>Classic Flight Rewards</strong> (points seats) are released on the same schedule. Check Qantas directly, not Google Flights.',
+  ]},
+  {t:'Frequent flyer basics',tips:[
+    '<strong>Qantas Frequent Flyer</strong> and <strong>Virgin Velocity</strong> are both free to join. Do it today if you have not already.',
+    'The fastest way to earn points is <strong>credit card spend</strong>, not flying. A good travel card earns 1-3 points per dollar on everyday spending.',
+    '<strong>Classic Flight Rewards</strong> on Qantas can save $400-800 per person on a return international fare. The catch: availability is limited, especially school holidays.',
+    'Book points flights <strong>as soon as availability opens</strong> — usually 353 days ahead for Qantas. School holiday Classic seats disappear within days of release.',
+    '<strong>Velocity points transfer from Amex</strong> at a favourable rate. If you have an Amex card, check your balance — you may already have enough for a flight.',
+  ]},
+  {t:'School holiday hacks',tips:[
+    '<strong>Fly the day before school breaks up.</strong> Prices on the last Thursday of term are often $80-150 less than the Friday.',
+    '<strong>Saturday departures</strong> for international are frequently cheaper than Friday. The difference can be $200+ per person on Bali routes.',
+    '<strong>One-way fares on different airlines</strong> can beat return fares on one carrier. Sydney to Bali on Jetstar outbound, return on Scoot, often cheaper than a full Jetstar return.',
+    'Consider <strong>flying into a nearby cheaper airport</strong> — for Bali, compare DPS vs Lombok (LOP). For Japan, compare Tokyo (NRT/HND) vs Osaka (KIX).',
+  ]},
 ];
 
 // ─────────────────────────────────────────
@@ -1030,7 +1129,7 @@ function runOpt(){
     const m=WIN_META[winId];
     const wd=WIN_DATA[activeState]?.[winId];
     if(!wd) return;
-    const twoP=true;  // always show your carers, toggle removed
+    const twoP=true;  // always show both parents, toggle removed
     const days=countWindowDays(winId,activeState);
 
     // Count assignments for this window
@@ -1152,7 +1251,6 @@ function runOpt(){
           <div style="font-size:0.65rem;color:rgba(255,255,255,0.3);margin-top:0.15rem">${m.altDest}</div>
           <div style="display:flex;gap:0.35rem;margin-top:0.5rem;justify-content:flex-end;flex-wrap:wrap">
             <button class="wbd-alert-btn" id="wbdAlertBtn_${winId}" onclick="toggleWbdAlert('${winId}',this)">⚡ Alert me</button>
-            <button class="wbd-share-btn" onclick="openShare('${days.total}','${wP1+wP2}','${m.label} Window','${m.bestDest} ${stars[m.score]}')">↗ Share</button>
           </div>
           <div class="wbd-inline-alert" id="wbdAlert_${winId}">
             <div class="wbd-inline-row">
@@ -1322,7 +1420,6 @@ function renderWindowCards(){
         <div style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem">${w.dest}</div>
         <div class="win-card-actions">
           <button class="wca-btn alert" id="alertBtn_${w.id}" onclick="toggleWinAlert('${w.id}',this)">⚡ Alert me for deals</button>
-          <button class="wca-btn share" onclick="openShare('${w.off||w.days}','${w.leave}','${w.name}','${w.bestDest} ${starMap[w.score]}')">↗ Share</button>
         </div>
         <div class="inline-alert" id="winAlert_${w.id}">
           <div class="inline-alert-row">
@@ -1458,11 +1555,27 @@ function renderHeat(){
 function renderHacks(){
   document.getElementById('hacksWrap').innerHTML=HACKS.map(h=>`
     <div class="hk-card">
-      <div class="hk-badge">${h.b}</div>
-      <div class="hk-off">${h.off} <span>days off · only ${h.lv} days leave</span></div>
-      <div class="hk-name">${h.n}</div>
-      <p class="hk-desc">${h.d}</p>
-      <button class="hk-share" onclick="openShare('${h.off}','${h.lv}','${h.n}','')">↗ Share this hack</button>
+      <div class="hk-img" style="background-image:url('${h.img}')">
+        <div class="hk-img-overlay"></div>
+        <div class="hk-img-tag" style="background:${h.color}">${h.tag}</div>
+        <div class="hk-img-headline">
+          <div class="hk-days-big">${h.off}<span>days off</span></div>
+          <div class="hk-leave-tag">${h.lv} leave days</div>
+        </div>
+      </div>
+      <div class="hk-body">
+        <div class="hk-badge">${h.b}</div>
+        <div class="hk-name">${h.n}</div>
+        <div class="hk-dates-row"><span class="hk-dates-label">Dates</span><span class="hk-dates-val">${h.dates}</span></div>
+        <div class="hk-dates-row"><span class="hk-dates-label">Take off</span><span class="hk-dates-val">${h.leave}</span></div>
+        <div class="hk-calc">
+          <div class="hk-calc-label">How it works</div>
+          <div class="hk-calc-val">${h.calc}</div>
+        </div>
+        <p class="hk-desc">${h.d}</p>
+        <div class="hk-dest"><span class="hk-dest-label">Best for</span> ${h.dest}</div>
+        <div class="hk-weather">${h.weather}</div>
+      </div>
     </div>`).join('');
 }
 
@@ -1508,20 +1621,13 @@ function renderFlights(){
   document.getElementById('flightWrap').innerHTML=FLIGHTS.map(f=>`
     <div class="fl-card">
       <div class="fl-title">${f.t}</div>
-      ${f.tips.map(t=>`<div class="ftip"><div class="fa">→</div><p>${t}</p></div>`).join('')}
+      <ul class="fl-tips">${f.tips.map(t=>`<li class="ftip">${t}</li>`).join('')}</ul>
     </div>`).join('');
 }
 
 // ─────────────────────────────────────────
 // MODALS
 // ─────────────────────────────────────────
-function openShare(off,lv,name,dest){
-  document.getElementById('scHeadline').textContent=off+' days off';
-  document.getElementById('scSub').textContent='with just '+lv+' days leave';
-  document.getElementById('scDest').textContent=name+(dest?' · '+dest:'');
-  shareData={off,lv,name,dest};
-  document.getElementById('shareModal').classList.add('show');
-}
 
 function copyShare(){
   const{off,lv,name,dest}=shareData;
@@ -1602,21 +1708,12 @@ document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',e=>
 // ─────────────────────────────────────────
 // NEWSLETTER BANNER
 // ─────────────────────────────────────────
-async function nlSignup(){
+function nlSignup(){
   const em=document.getElementById('nlEmail').value.trim();
   const btn=document.getElementById('nlBtn');
-  if(!em||!em.includes('@')){btn.style.background='var(--coral)';btn.textContent='Enter a valid email';setTimeout(()=>{btn.style.background='var(--sun)';btn.textContent='Get free deals →';},2000);return;}
-  btn.textContent='Signing up...';
-  try{
-    await fetch('https://api.beehiiv.com/v2/publications/pub_fc0eface-2431-431b-91ca-320ef7ba032c/subscriptions',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:em,reactivate_existing:false,send_welcome_email:true,
-        utm_source:'planner',utm_medium:'organic'})
-    });
-  }catch(e){}
-  btn.textContent="✓ You're in!";
+  if(!em||!em.includes('@')){btn.style.background='var(--coral)';btn.textContent='Enter a valid email';setTimeout(()=>{btn.style.background='var(--sun)';btn.style.color='var(--darker)';btn.textContent='Get free deals →';},2000);return;}
+  btn.classList.add('done');btn.textContent='✓ You\'re in!';
   document.getElementById('nlEmail').value='';
-  document.getElementById('nlEmail').placeholder='See you Tuesday ✓';
 }
 
 // ─────────────────────────────────────────
