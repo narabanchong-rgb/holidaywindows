@@ -73,7 +73,6 @@ nav.scrolled{
   position:relative;
   display:flex;align-items:center;
   padding:8rem 2.5rem 5rem;
-  overflow:hidden;
 }
 .hero::before{
   content:'';
@@ -239,7 +238,7 @@ h2 em{font-style:italic;font-weight:300;color:var(--sun);}
   border-top:1px solid var(--border2);
   border-bottom:1px solid var(--border2);
 }
-.deal-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:5rem;align-items:start;}
+.deal-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr minmax(0,400px);gap:3rem;align-items:start;}
 .deal-feats{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;}
 .deal-card{
   background:var(--navy);border-radius:0.875rem;overflow:hidden;
@@ -376,6 +375,11 @@ footer{
   .steps{grid-template-columns:repeat(2,1fr);}
   .trust-grid{grid-template-columns:repeat(2,1fr);}
 }
+@media(max-width:480px){
+  .steps{grid-template-columns:1fr;}
+  .trust-grid{grid-template-columns:1fr;}
+  .windows{grid-template-columns:1fr;}
+}
 @media(max-width:600px){
   nav{padding:0.875rem 1.25rem;}
   footer{padding:1.5rem 1.25rem;flex-direction:column;gap:0.75rem;}
@@ -396,7 +400,7 @@ footer{
   .nav-right .nav-link{display:none;}
   .deal-inner{grid-template-columns:1fr;gap:2rem;}
   .deal-card{max-width:100%;}
-  .ph-inner{gap:2rem;}
+  .ph-inner{gap:2rem;grid-template-columns:1fr;}
   .nl-nudge{padding:1.5rem;}
   .nl-nudge-form{flex-direction:column;}
   .nl-nudge-form input{width:100%;}
@@ -471,7 +475,7 @@ footer{
       </div>
     </div>
   </div>
-
+</div>
 
 <!-- WINDOW VISUALISER -->
 <div style="background:white;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);">
