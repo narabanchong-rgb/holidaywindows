@@ -746,7 +746,10 @@ const PUB={
   QLD:{'2026-0-26':'Australia Day','2026-3-3':'Good Friday','2026-3-4':'Easter Sat','2026-3-5':'Easter Sun','2026-3-6':'Easter Mon','2026-4-25':'Anzac Day','2026-5-8':'King\'s Bday','2026-7-12':'Ekka Day','2026-11-25':'Christmas','2026-11-26':'Boxing Day'},
   SA:{'2026-0-26':'Australia Day','2026-2-9':'Adelaide Cup','2026-3-3':'Good Friday','2026-3-5':'Easter Sun','2026-3-6':'Easter Mon','2026-4-25':'Anzac Day','2026-5-8':'King\'s Bday','2026-9-7':'Labour Day','2026-11-25':'Christmas','2026-11-26':'Proc. Day'},
   WA:{'2026-0-26':'Australia Day','2026-3-3':'Good Friday','2026-3-6':'Easter Mon','2026-4-25':'Anzac Day','2026-5-4':'WA Day','2026-8-31':'Queen\'s Bday','2026-11-25':'Christmas','2026-11-26':'Boxing Day'}
-};
+,
+  ACT:{},
+  NT:{},
+  TAS:{}};
 
 // SCHOOL HOLIDAYS, fixed: January all off, summer extends properly
 const SCHOOL={
@@ -1032,7 +1035,7 @@ function isSchool(m,d,st){return SCHOOL[st].some(r=>{const s=r.s[0]*32+r.s[1],e=
 function isPub(m,d,st){if(m===12)return false;return !!(PUB[st]&&PUB[st][`2026-${m}-${d}`]);}
 function pubName(m,d,st){if(m>=12||m<0)return '';return PUB[st]?.[`2026-${m}-${d}`]||'';}
 function isHack(m,d,st){return HKD.some(h=>h[0]===m&&h[1]===d&&(h[2]==='ALL'||h[2].includes(st)));}
-function hackTip(m,d,st){return(HKD.find(h=>h[0]===m&&h[1]===d&&(h[2]==='ALL'||h[2].includes(st)))||[,,''])[3];}
+function hackTip(m,d,st){const h=HKD.find(h=>h[0]===m&&h[1]===d&&(h[2]==='ALL'||h[2].includes(st)));return h?h[3]||'':'';}
 
 // ─────────────────────────────────────────
 // OPTIMISER, mini calendar + two-parent
@@ -1501,7 +1504,7 @@ function renderCal(){
       let cls=we?'we':'wd';
       if(hk)cls='hk';else if(sc)cls='sc';else if(ph)cls='ph';
       const tip=hk?hackTip(m,d,activeState):ph?pubName(m,d,activeState):sc?`${activeState} school holidays`:'';
-      html+=`<div class="day dt ${cls}" onmouseenter="showTip(event,\`${tip.replace(/`/g,"'")}\`)" onmouseleave="hideTip()">${d}</div>`;
+      html+=`<div class="day dt ${cls}" onmouseenter="showTip(event,\`${(tip||"").replace(/`/g,"'")}\`)" onmouseleave="hideTip()">${d}</div>`;
     }
     html+=`</div>`;
 
@@ -1531,7 +1534,7 @@ function renderCal(){
     html+=`<div class="crl" style="color:var(--sun)">⚡ Leave</div><div class="cdr">`;
     for(let d=1;d<=days;d++){
       const w=dow(m,d);const we=w===0||w===6;const hk=isHack(m,d,activeState);const ht=hackTip(m,d,activeState);
-      html+=`<div class="day ${hk?'hk':we?'we':'wd'}" onmouseenter="showTip(event,\`${ht.replace(/`/g,"'")}\`)" onmouseleave="hideTip()"></div>`;
+      html+=`<div class="day ${hk?'hk':we?'we':'wd'}" onmouseenter="showTip(event,\`${(ht||"").replace(/`/g,"'")}\`)" onmouseleave="hideTip()"></div>`;
     }
     html+=`</div>`;
 
