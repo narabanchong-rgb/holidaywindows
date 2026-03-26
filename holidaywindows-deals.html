@@ -1419,6 +1419,7 @@ async function gateSignup(){
 }
 
 async function unlockDeal(btn){
+  localStorage.setItem('hwUnlocked','1');
   const em=btn.previousElementSibling.value.trim();
   if(!em||!em.includes('@')) return;
   await beehiivSignup(em, '');
@@ -1527,6 +1528,16 @@ function calcWhitsundays(){
   if(el('whit-c-total')) el('whit-c-total').textContent = '$' + total.toLocaleString();
 }
 calcWhitsundays();
+
+// Auto-unlock if already subscribed from landing page
+(function(){
+  if(localStorage.getItem('hwUnlocked')==='1'){
+    if(typeof unlockAllDeals === 'function') unlockAllDeals();
+    // Hide gate banner if present
+    const gb = document.querySelector('.gate-banner');
+    if(gb) gb.style.display='none';
+  }
+})();
 </script>
 
 <!-- COOKIE BANNER -->
