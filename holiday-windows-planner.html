@@ -104,7 +104,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,0.97);backdrop
 .mc-dn{font-size:0.72rem;font-weight:800;line-height:1;}
 .mc-dl{font-size:0.42rem;font-weight:600;text-align:center;line-height:1.2;white-space:nowrap;opacity:0.85;}
 /* Free day types */
-.mc-day.d-we{background:rgba(10,22,40,0.03);color:rgba(10,22,40,0.4);border:1px solid rgba(10,22,40,0.07);}
+.mc-day.d-we{background:#FEF3DC;color:rgba(10,22,40,0.45);border:1px solid rgba(232,148,10,0.15);}
 .mc-day.d-ph-sc{background:rgba(21,87,176,0.15);color:#1557B0;}  /* PH within school hols */
 .mc-day.d-ph-click{background:rgba(21,87,176,0.12);color:#1557B0;cursor:pointer;}  /* PH clickable */
 .mc-day.d-xtra{background:rgba(232,148,10,0.15);color:#7A4F00;cursor:pointer;border:1px solid rgba(232,148,10,0.3);}  /* extra/pupil-free */
@@ -1033,54 +1033,60 @@ function hackTip(m,d,st){return(HKD.find(h=>h[0]===m&&h[1]===d&&(h[2]==='ALL'||h
 
 const WIN_DATA={
   NSW:{
-    easter:{m0:2,d0:29,m1:4,d1:2,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
-    july:{m0:6,d0:8,m1:6,d1:29,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
-    sept:{m0:8,d0:21,m1:10,d1:14,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
-    summer:{m0:11,d0:13,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+    easter:{m0:2,d0:29,m1:4,d1:2,name:'NSW Easter hols 7 Apr–17 Apr (+5 days buffer)',note:'Good Friday + Easter weekend + school hols + Anzac sub = up to 25 days with ZERO leave. Longest free window outside summer.',isEaster:true},
+    july:{m0:6,d0:8,m1:6,d1:29,name:'NSW July hols 14 Jul–28 Jul (+5 days buffer)',note:'Peak dry season. 5 buffer days shown on each side.',isEaster:false},
+    sept:{m0:8,d0:23,m1:9,d1:14,name:'NSW spring hols 28 Sep–9 Oct (+5 days buffer)',note:'Bali still dry, NZ spring, Europe shoulder.',isEaster:false},
+    summer:{m0:11,d0:13,m1:12,d1:27,name:'NSW summer hols 18 Dec–3 Feb 2027',note:'Schools out mid-Dec through early February. The biggest window of the year.',isEaster:false},
   },
   VIC:{
-    easter:{m0:2,d0:29,m1:3,d1:22,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
-    july:{m0:6,d0:1,m1:6,d1:22,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
-    sept:{m0:8,d0:14,m1:10,d1:7,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
-    summer:{m0:11,d0:13,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+    easter:{m0:2,d0:29,m1:3,d1:22,name:'VIC Easter hols 3 Apr–17 Apr (+5 days buffer)',note:'Good Friday + Easter weekend + school hols + Anzac sub = up to 25 days with ZERO leave.',isEaster:true},
+    july:{m0:6,d0:1,m1:6,d1:22,name:'VIC July hols 4 Jul–17 Jul (+5 days buffer)',note:'Peak dry season. 5 buffer days shown on each side.',isEaster:false},
+    sept:{m0:8,d0:14,m1:9,d1:9,name:'VIC spring hols 19 Sep–4 Oct (+5 days buffer)',note:'Bali still dry, NZ spring, Europe shoulder.',isEaster:false},
+    summer:{m0:11,d0:13,m1:12,d1:27,name:'VIC summer hols 19 Dec–26 Jan 2027',note:'Schools out mid-Dec through late January.',isEaster:false},
   },
   QLD:{
-    easter:{m0:2,d0:29,m1:3,d1:22,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
-    july:{m0:5,d0:22,m1:6,d1:15,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
-    sept:{m0:8,d0:14,m1:10,d1:7,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
-    summer:{m0:11,d0:6,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+    easter:{m0:2,d0:29,m1:3,d1:22,name:'QLD Easter hols 3 Apr–17 Apr (+5 days buffer)',note:'Good Friday + Easter weekend + school hols = great window for families.',isEaster:true},
+    july:{m0:5,d0:22,m1:6,d1:15,name:'QLD July hols 27 Jun–12 Jul (+5 days buffer)',note:'QLD holidays start earlier than other states. Peak time to travel.',isEaster:false},
+    sept:{m0:8,d0:14,m1:9,d1:10,name:'QLD spring hols 19 Sep–5 Oct (+5 days buffer)',note:'Bali still dry, NZ spring, Europe shoulder.',isEaster:false},
+    summer:{m0:11,d0:6,m1:12,d1:27,name:'QLD summer hols 12 Dec–26 Jan 2027',note:'Schools out mid-December through late January.',isEaster:false},
   },
   SA:{
-    easter:{m0:2,d0:29,m1:3,d1:29,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
-    july:{m0:6,d0:1,m1:6,d1:22,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
-    sept:{m0:8,d0:21,m1:10,d1:14,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
-    summer:{m0:11,d0:6,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+    easter:{m0:2,d0:29,m1:3,d1:29,name:'SA Easter hols 11 Apr–26 Apr (+5 days buffer)',note:'Good Friday + Easter weekend + school hols = great window.',isEaster:true},
+    july:{m0:6,d0:1,m1:6,d1:22,name:'SA July hols 4 Jul–19 Jul (+5 days buffer)',note:'Peak dry season. 5 buffer days shown on each side.',isEaster:false},
+    sept:{m0:8,d0:23,m1:9,d1:16,name:'SA spring hols 28 Sep–11 Oct (+5 days buffer)',note:'Bali still dry, NZ spring, Europe shoulder.',isEaster:false},
+    summer:{m0:11,d0:6,m1:12,d1:27,name:'SA summer hols 12 Dec–26 Jan 2027',note:'Schools out mid-December through late January.',isEaster:false},
   },
   WA:{
-    easter:{m0:2,d0:29,m1:3,d1:29,name:'Good Friday 3 Apr → Anzac Sub 27 Apr (+5 days either side)',note:'Good Friday + Easter weekend + school hols + Anzac substitute = up to 25 days with ZERO leave. The longest free window of the year outside summer.',isEaster:true},
-    july:{m0:6,d0:1,m1:6,d1:22,name:'July school hols (+5 days either side)',note:'Peak dry season. 5 buffer days shown on each side, allocate leave or care as needed.',isEaster:false},
-    sept:{m0:8,d0:21,m1:10,d1:14,name:'September school hols (+5 days either side)',note:'Bali still dry, NZ spring, Europe shoulder. 5 buffer days shown on each side.',isEaster:false},
-    summer:{m0:11,d0:12,m1:12,d1:27,name:'Mid-Dec 2026 → late Jan 2027',note:'Schools out mid-Dec through late January. the biggest window of the year. Plan early, January fills fast.',isEaster:false},
+    easter:{m0:2,d0:29,m1:3,d1:22,name:'WA Easter hols 3 Apr–19 Apr (+5 days buffer)',note:'Good Friday + Easter weekend + school hols = great window.',isEaster:true},
+    july:{m0:5,d0:29,m1:6,d1:24,name:'WA winter hols 4 Jul–19 Jul (+5 days buffer)',note:'WA winter break. 5 buffer days shown on each side.',isEaster:false},
+    sept:{m0:8,d0:21,m1:9,d1:16,name:'WA spring hols 26 Sep–11 Oct (+5 days buffer)',note:'WA spring hols. King\'s Birthday 28 Sep is a public holiday in WA.',isEaster:false},
+    summer:{m0:11,d0:13,m1:12,d1:27,name:'WA summer hols 18 Dec–31 Jan 2027',note:'Schools out mid-December through late January.',isEaster:false},
   },
-};;
+  ACT:{
+    easter:{m0:2,d0:29,m1:3,d1:22,name:'ACT Easter hols 3 Apr–19 Apr (+5 days buffer)',note:'Good Friday + Easter weekend + school hols = great window.',isEaster:true},
+    july:{m0:6,d0:1,m1:6,d1:22,name:'ACT July hols 4 Jul–17 Jul (+5 days buffer)',note:'Peak dry season. 5 buffer days shown on each side.',isEaster:false},
+    sept:{m0:8,d0:21,m1:9,d1:17,name:'ACT spring hols 26 Sep–12 Oct (+5 days buffer)',note:'Bali still dry, NZ spring, Europe shoulder.',isEaster:false},
+    summer:{m0:11,d0:13,m1:12,d1:27,name:'ACT summer hols 19 Dec–1 Feb 2027',note:'Schools out mid-December through early February.',isEaster:false},
+  },
+  NT:{
+    easter:{m0:2,d0:29,m1:3,d1:22,name:'NT Easter hols 3 Apr–17 Apr (+5 days buffer)',note:'Good Friday + Easter weekend + school hols = great window.',isEaster:true},
+    july:{m0:6,d0:1,m1:6,d1:22,name:'NT July hols 4 Jul–17 Jul (+5 days buffer)',note:'Peak dry season. 5 buffer days shown on each side.',isEaster:false},
+    sept:{m0:8,d0:14,m1:9,d1:10,name:'NT spring hols 19 Sep–5 Oct (+5 days buffer)',note:'NT spring break. Good time for domestic travel.',isEaster:false},
+    summer:{m0:11,d0:5,m1:12,d1:27,name:'NT summer hols 11 Dec–26 Jan 2027',note:'NT schools out early December through late January.',isEaster:false},
+  },
+  TAS:{
+    easter:{m0:2,d0:29,m1:3,d1:22,name:'TAS Easter hols 3 Apr–17 Apr (+5 days buffer)',note:'Good Friday + Easter weekend + school hols = great window.',isEaster:true},
+    july:{m0:6,d0:6,m1:7,d1:2,name:'TAS July hols 11 Jul–26 Jul (+5 days buffer)',note:'TAS mid-year break. 5 buffer days shown on each side.',isEaster:false},
+    sept:{m0:8,d0:28,m1:9,d1:23,name:'TAS spring hols 3 Oct–18 Oct (+5 days buffer)',note:'TAS spring break starts later than other states.',isEaster:false},
+    summer:{m0:11,d0:13,m1:12,d1:27,name:'TAS summer hols 19 Dec–3 Feb 2027',note:'Schools out mid-December through early February.',isEaster:false},
+  },
+};
 
 const WIN_META={
-  easter:{emoji:'🐣',label:'Easter',cls:'easter',
-    bestDest:'QLD Coast · Grampians · Jervis Bay',score:3,
-    tripNote:'April shoulder season, great value locally. Grampians wildflowers peak. QLD coast warm and quieter than summer.',
-    altDest:'International: Bali (transition), Vietnam, NZ South Island',isEaster:true},
-  july:{emoji:'⛷️',label:'July',cls:'july',
-    bestDest:'Snowy Mountains · Bali · Fiji · NZ Ski',score:5,
-    tripNote:'Peak dry season internationally. Snowy Mountains ski season in full swing domestically. Best window of the year for both options.',
-    altDest:'Also great: Whitsundays, Cairns, Ningaloo (all dry season)',isEaster:false},
-  sept:{emoji:'🌸',label:'September',cls:'sept',
-    bestDest:'Ningaloo · NZ Spring · Flinders Ranges',score:4,
-    tripNote:'Ningaloo peak season, whale sharks, manta rays, reef snorkelling. NZ spring spectacular. Outback SA and NT ideal temperatures.',
-    altDest:'International: Bali (late dry), Europe (shoulder), Japan (mild)',isEaster:false},
-  summer:{emoji:'☀️',label:'Summer',cls:'summer',
-    bestDest:'Kimberley · Thailand · Whitsundays · Tasmania',score:5,
-    tripNote:'The big one, 6+ weeks. Kimberley and Darwin at their best. Thailand and Vietnam peak season. Tasmania summer perfect for road trips.',
-    altDest:'Also: Japan winter ski, Hawaii, Great Ocean Road, Jervis Bay',isEaster:false},
+  easter:{emoji:'🐣', label:'Easter',    color:'#E8940A'},
+  july:  {emoji:'⛷️',  label:'July',      color:'#0B7A6E'},
+  sept:  {emoji:'🌸', label:'September', color:'#7C3AED'},
+  summer:{emoji:'☀️', label:'Summer',    color:'#E84B2A'},
 };
 
 const WIN_IDS=['easter','july','sept','summer'];
@@ -1438,7 +1444,7 @@ function renderWindowCards(){
       <div class="win-card-top">
         <div class="win-card-window">${w.emoji} ${w.name}</div>
         <div class="win-card-dates">${w.dates}</div>
-        <div class="win-card-days">${w.days} school holiday days · bridge with ${w.leave} leave days</div>
+        <div class="win-card-days">${w.days} school holiday days</div>
       </div>
       <div class="win-card-body">
         <div class="win-dest-row">
