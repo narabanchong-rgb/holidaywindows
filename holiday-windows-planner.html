@@ -513,6 +513,12 @@ nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,0.97);backdrop
       <button class="sbtn" onclick="setState('QLD',this)">QLD</button>
       <button class="sbtn" onclick="setState('SA',this)">SA</button>
       <button class="sbtn" onclick="setState('WA',this)">WA</button>
+      <button class="sbtn" onclick="setState('ACT',this)">ACT</button>
+      <button class="sbtn" onclick="setState('NT',this)">NT</button>
+      <button class="sbtn" onclick="setState('TAS',this)">TAS</button>
+      <button class="sbtn" onclick="setState('ACT',this)">ACT</button>
+      <button class="sbtn" onclick="setState('NT',this)">NT</button>
+      <button class="sbtn" onclick="setState('TAS',this)">TAS</button>
     </div>
   </div>
 </nav>
@@ -747,11 +753,14 @@ const PUB={
 
 // SCHOOL HOLIDAYS, fixed: January all off, summer extends properly
 const SCHOOL={
-  NSW:[{s:[0,1],e:[1,3]},{s:[3,9],e:[3,24]},{s:[6,13],e:[6,24]},{s:[9,26],e:[10,9]},{s:[11,18],e:[12,27]}],
-  VIC:[{s:[0,1],e:[1,3]},{s:[3,2],e:[3,17]},{s:[6,6],e:[6,17]},{s:[9,19],e:[10,2]},{s:[11,18],e:[12,27]}],
-  QLD:[{s:[0,1],e:[0,30]},{s:[3,2],e:[3,17]},{s:[5,27],e:[6,10]},{s:[8,19],e:[10,2]},{s:[11,11],e:[12,27]}],
-  SA:[{s:[0,1],e:[1,1]},{s:[3,9],e:[3,24]},{s:[6,6],e:[6,17]},{s:[9,26],e:[10,9]},{s:[11,11],e:[12,27]}],
-  WA:[{s:[0,1],e:[1,6]},{s:[3,9],e:[3,24]},{s:[6,6],e:[6,17]},{s:[9,26],e:[10,9]},{s:[11,17],e:[12,27]}]
+  NSW:[{s:[0,1],e:[1,3]},{s:[3,7],e:[3,17]},{s:[6,14],e:[6,24]},{s:[8,28],e:[9,9]},{s:[11,18],e:[11,31]}],
+  VIC:[{s:[0,1],e:[1,3]},{s:[3,2],e:[3,17]},{s:[6,4],e:[6,17]},{s:[8,19],e:[9,4]},{s:[11,19],e:[11,31]}],
+  QLD:[{s:[0,1],e:[0,30]},{s:[3,2],e:[3,17]},{s:[5,27],e:[6,10]},{s:[8,19],e:[9,5]},{s:[11,12],e:[11,31]}],
+  SA:[{s:[0,1],e:[1,1]},{s:[3,11],e:[3,26]},{s:[6,4],e:[6,17]},{s:[8,28],e:[9,11]},{s:[11,12],e:[11,31]}],
+  WA:[{s:[0,1],e:[1,6]},{s:[3,3],e:[3,19]},{s:[6,4],e:[6,19]},{s:[8,26],e:[9,11]},{s:[11,18],e:[11,31]}],
+  ACT:[{s:[0,1],e:[1,3]},{s:[3,2],e:[3,17]},{s:[6,4],e:[6,17]},{s:[8,26],e:[9,12]},{s:[11,19],e:[11,31]}],
+  NT:[{s:[0,1],e:[0,30]},{s:[3,2],e:[3,17]},{s:[6,4],e:[6,17]},{s:[8,19],e:[9,5]},{s:[11,11],e:[11,31]}],
+  TAS:[{s:[0,1],e:[1,3]},{s:[3,2],e:[3,17]},{s:[6,11],e:[6,24]},{s:[9,3],e:[9,18]},{s:[11,19],e:[11,31]}],
 };
 
 // LEAVE HACKS, dates to take leave
@@ -1023,7 +1032,7 @@ function setState(s,btn){
 function dow(m,d){return m===12?new Date(2027,0,d).getDay():new Date(2026,m,d).getDay();}
 function isSchool(m,d,st){return SCHOOL[st].some(r=>{const s=r.s[0]*32+r.s[1],e=r.e[0]*32+r.e[1],c=m*32+d;return c>=s&&c<=e;});}
 function isPub(m,d,st){if(m===12)return false;return !!(PUB[st]&&PUB[st][`2026-${m}-${d}`]);}
-function pubName(m,d,st){if(m===12)return '';return PUB[st]?.[`2026-${m}-${d}`]||'';}
+function pubName(m,d,st){if(m>=12||m<0)return '';return PUB[st]?.[`2026-${m}-${d}`]||'';}
 function isHack(m,d,st){return HKD.some(h=>h[0]===m&&h[1]===d&&(h[2]==='ALL'||h[2].includes(st)));}
 function hackTip(m,d,st){return(HKD.find(h=>h[0]===m&&h[1]===d&&(h[2]==='ALL'||h[2].includes(st)))||[,,''])[3];}
 
