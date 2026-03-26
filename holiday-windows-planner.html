@@ -137,7 +137,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,0.97);backdrop
 .win-card{background:white;border:1.5px solid rgba(10,22,40,0.09);border-radius:0.75rem;overflow:hidden;}
 .win-card-top{padding:1.1rem 1.25rem 0.75rem;border-bottom:1px solid var(--border);}
 .win-card-window{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sun);margin-bottom:0.3rem;}
-.win-card-dates{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:#0A1628;}
+.win-card-dates{font-size:0.78rem;font-weight:600;color:#0A1628;}
 .win-card-days{font-size:0.75rem;color:var(--muted);margin-top:0.15rem;}
 .win-card-body{padding:0.875rem 1.25rem;}
 .win-dest-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
@@ -498,6 +498,10 @@ nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,0.97);backdrop
 }
 
 .mc-legend{display:none!important;}
+.win-alert-box{display:none;flex-direction:column;gap:0.4rem;margin-top:0.5rem;}
+.win-alert-box.open{display:flex;}
+.win-alert-box input{font-size:0.75rem;padding:0.4rem 0.6rem;border:1.5px solid rgba(10,22,40,0.15);border-radius:0.3rem;outline:none;width:100%;}
+.win-alert-box button{font-size:0.72rem;font-weight:700;padding:0.4rem 0.75rem;background:#1557B0;color:white;border:none;border-radius:0.3rem;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -1023,7 +1027,6 @@ function setState(s,btn){
   // Reset day assignments when state changes (different holiday dates)
   Object.keys(dayAssign).forEach(k=>delete dayAssign[k]);
   Object.keys(extraDays).forEach(k=>extraDays[k]=[]);
-  renderCal();
   runOpt();
 }
 
@@ -1476,7 +1479,11 @@ function renderWindowCards(){
         <div style="font-size:0.68rem;color:rgba(10,22,40,0.4);margin-top:0.3rem;">${w.dest}</div>
       </div>
       <div class="win-card-footer">
-        <button class="wca wca-alert" onclick="triggerAlert('${w.id}')">⚡ Alert me for deals</button>
+        <button class="wca wca-alert" id="alertBtn_${w.id}" onclick="triggerAlert('${w.id}',this)">⚡ Alert me for deals</button>
+        <div class="win-alert-box" id="winAlert_${w.id}">
+          <input type="email" id="winAlertEmail_${w.id}" placeholder="your@email.com"/>
+          <button onclick="submitWinAlert('${w.id}')">Notify me →</button>
+        </div>
       </div>
     </div>`;
   }).join('');
@@ -1545,7 +1552,7 @@ function renderCal(){
     }
     html+=`</div></div>`;
   }
-  document.getElementById('calWrap').innerHTML=html;
+  const _cw=document.getElementById('calWrap');if(_cw)_cw.innerHTML=html;
 }
 
 // ─────────────────────────────────────────
@@ -1713,16 +1720,33 @@ function toggleWinAlert(winId, btn){
   }
 }
 
-function submitWinAlert(winId, winName){
-  const em=document.getElementById('winAlertEmail_'+winId)?.value.trim();
-  if(!em||!em.includes('@')) return;
-  // In production: POST to Beehiiv with tag winId
+
+function triggerAlert(winId, btn){
+  document.querySelectorAll('.win-alert-box.open').forEach(el=>{
+    if(el.id!=='winAlert_'+winId) el.classList.remove('open');
+  });
   const box=document.getElementById('winAlert_'+winId);
-  const btn=document.getElementById('alertBtn_'+winId);
-  box.classList.remove('open');
-  btn.textContent='✓ Alerts set';
-  btn.classList.add('done');
-  btn.onclick=null;
+  if(box) box.classList.toggle('open');
+}
+
+async function submitWinAlert(winId){
+  const input=document.getElementById('winAlertEmail_'+winId);
+  const btn=input?.nextElementSibling;
+  const em=input?.value?.trim();
+  if(!em||!em.includes('@')){
+    if(input){input.style.borderColor='#E84B2A';setTimeout(()=>{input.style.borderColor='';},2000);}
+    return;
+  }
+  if(btn){btn.textContent='...';btn.disabled=true;}
+  try{
+    await fetch('https://api.beehiiv.com/v2/publications/pub_fc0eface-2431-431b-91ca-320ef7ba032c/subscriptions',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:em,reactivate_existing:false,send_welcome_email:true})
+    });
+  }catch(e){}
+  if(btn){btn.textContent='✓ Done!';btn.style.background='#1A9E6A';}
+  if(input)input.value='';
+  setTimeout(()=>{window.location.href='/holidaywindows-deals.html';},1500);
 }
 
 // ─────────────────────────────────────────
