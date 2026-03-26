@@ -139,7 +139,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,0.97);backdrop
 .win-card-window{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sun);margin-bottom:0.3rem;}
 .win-card-dates{font-size:0.78rem;font-weight:600;color:#0A1628;}
 .win-card-days{font-size:0.75rem;color:var(--muted);margin-top:0.15rem;}
-.win-card-body{padding:0.875rem 1.25rem;}
+.win-card-body{padding:0.5rem 1.25rem;}
 .win-dest-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
 .win-dest-name{font-size:0.8rem;font-weight:600;color:var(--white);}
 .win-dest-score{font-size:0.7rem;}
@@ -167,7 +167,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,0.97);backdrop
 .wbd-inline-row input::placeholder{color:rgba(10,22,40,0.25);}
 .wbd-inline-row button{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:700;padding:0.35rem 0.6rem;background:var(--sun);color:var(--darker);border:none;border-radius:0.25rem;cursor:pointer;}
 .wca-btn{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;padding:0.4rem 0.75rem;border-radius:0.25rem;cursor:pointer;transition:all 0.15s;flex:1;text-align:center;}
-.wca-btn.alert{background:rgba(255,184,0,0.12);border:1px solid rgba(255,184,0,0.3);color:var(--sun);}
+.wca-btn.alert{background:rgba(232,148,10,0.08);border:1px solid rgba(232,148,10,0.2);color:rgba(10,22,40,0.55);font-size:0.7rem;}
 .wca-btn.alert:hover{background:rgba(255,184,0,0.2);}
 .wca-btn.share{background:rgba(0,102,204,0.12);border:1px solid rgba(0,102,204,0.3);color:#93C5FD;}
 .wca-btn.share:hover{background:rgba(0,102,204,0.2);}
@@ -498,6 +498,8 @@ nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,0.97);backdrop
 }
 
 .mc-legend{display:none!important;}
+.wca-alert{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;padding:0.35rem 0.75rem;background:rgba(232,148,10,0.08);border:1px solid rgba(232,148,10,0.2);color:rgba(10,22,40,0.55);border-radius:0.25rem;cursor:pointer;width:100%;text-align:left;}
+.wca-alert:hover{background:rgba(232,148,10,0.14);color:rgba(10,22,40,0.75);}
 .win-alert-box{display:none;flex-direction:column;gap:0.4rem;margin-top:0.5rem;}
 .win-alert-box.open{display:flex;}
 .win-alert-box input{font-size:0.75rem;padding:0.4rem 0.6rem;border:1.5px solid rgba(10,22,40,0.15);border-radius:0.3rem;outline:none;width:100%;}
@@ -1475,8 +1477,6 @@ function renderWindowCards(){
           <div class="win-dest-name">Best pick: ${w.bestDest}</div>
           <div class="win-dest-score" style="color:rgba(34,197,94,0.9)">${starMap[w.score]}</div>
         </div>
-        <div class="win-hack">${w.hack}</div>
-        <div style="font-size:0.68rem;color:rgba(10,22,40,0.4);margin-top:0.3rem;">${w.dest}</div>
       </div>
       <div class="win-card-footer">
         <button class="wca wca-alert" id="alertBtn_${w.id}" onclick="triggerAlert('${w.id}',this)">⚡ Alert me for deals</button>
