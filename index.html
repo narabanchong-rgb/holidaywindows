@@ -450,9 +450,7 @@ footer{
   .fs-section{padding:3rem 1.25rem;}
   .fs-form{flex-direction:column;align-items:stretch;}
   .fs-form input,.fs-form select{width:100%;}
-  /* Window visualiser mobile */
-  .window-vis-grid{grid-template-columns:1fr !important;}
-}
+  }
 
 /* ── COOKIE BANNER ── */
 .cookie-banner{
@@ -520,125 +518,58 @@ footer{
   </div>
 </div>
 
-<!-- WINDOW VISUALISER -->
-<div style="background:white;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);">
-
-  <!-- Section header -->
-  <div style="max-width:1080px;margin:0 auto;padding:2.5rem 2.5rem 0;">
-    <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean);margin-bottom:0.4rem;">The planning problem</div>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.25rem;">
-      <h2 style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--navy);margin-bottom:0;">Every school holiday day needs covering.<br><em style="font-style:italic;font-weight:300;color:var(--sun);">Here's what's already free, and what isn't.</em></h2>
-      <div style="font-size:0.72rem;color:var(--muted);display:flex;align-items:center;gap:1rem;flex-shrink:0;">
-        <span style="display:flex;align-items:center;gap:0.3rem;"><span style="width:10px;height:10px;border-radius:2px;background:rgba(26,158,106,0.3);display:inline-block;"></span>Free (pub hols + weekends)</span>
-        <span style="display:flex;align-items:center;gap:0.3rem;"><span style="width:10px;height:10px;border-radius:2px;background:rgba(245,166,35,0.4);display:inline-block;"></span>Annual leave for a trip</span>
-        <span style="display:flex;align-items:center;gap:0.3rem;"><span style="width:10px;height:10px;border-radius:2px;background:rgba(10,22,40,0.1);display:inline-block;"></span>Holiday care to arrange</span>
+<!-- DEAL PREVIEW -->
+<section class="deal-section" id="deals">
+  <div class="deal-inner">
+    <div>
+      <div class="sec-tag">This week's deal</div>
+      <h2>One great deal.<br><em>No noise.</em></h2>
+      <p class="sec-body" style="margin-bottom:1.5rem">We don't fill your inbox. If there's nothing worth booking this week, we say so. When there is, you'll know before it sells out.</p>
+      <div class="deal-feats">
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Deals matched to your state's school holiday dates</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>International and Australian, resorts, camping, road trips</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Weather score and leave days required on every deal</div>
+        <div class="ph-feat"><div class="ph-feat-dot">✓</div>We only send deals we'd book ourselves</div>
       </div>
+      <div class="form-row" style="max-width:360px">
+        <input type="email" id="dealEmail" placeholder="your@email.com" style="background:white;border:1.5px solid var(--border);color:var(--navy)"/>
+        <button class="btn-navy" onclick="dealSignup()">Get free deals →</button>
+      </div>
+      <a href="/holidaywindows-deals.html" style="display:inline-block;margin-top:0.75rem;font-size:0.8rem;font-weight:600;color:var(--ocean);text-decoration:none;">Browse all deals → </a>
+    </div>
+    <div>
+      <div class="deal-card">
+        <div class="dc-head">
+          <div class="dc-from"><strong>Holiday Windows</strong> &nbsp;·&nbsp; July 2026</div>
+          <div class="dc-pill">⛷️ July · NSW</div>
+        </div>
+        <div class="dc-img">
+          <div class="dc-img-overlay">
+            <div class="dc-loc">🇦🇺 Whitsunday Island, QLD</div>
+            <div class="dc-wx">★★★★★ July weather</div>
+          </div>
+        </div>
+        <div class="dc-body">
+          <div class="dc-hed">4 nights Whitsunday Island, family of 4</div>
+          <div class="dc-meta">Return flights SYD–PPP · Whitehaven Beach access · Departs Fri 10 July · Kids stay free</div>
+          <div class="dc-price-row">
+            <div class="dc-price">$2,890</div>
+            <div class="dc-price-note">total for family of 4<br><span style="color:rgba(255,255,255,0.25);font-size:0.62rem">vs $4,100+ school holiday peak</span></div>
+          </div>
+          <div class="dc-win-tag">
+            <span>📅</span>
+            <span><strong>2 leave days</strong> needed · 16 days off · Peak dry season</span>
+          </div>
+          <div class="dc-cta-wrap">
+            <button class="dc-cta">View deal and book →</button>
+            <div class="dc-blur" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Join free to unlock deals →</div>
+          </div>
+        </div>
+      </div>
+      <div class="dc-note">Sample deal, live deals every Tuesday for subscribers</div>
     </div>
   </div>
-
-  <!-- Four window rows -->
-  <div style="max-width:1080px;margin:0 auto;padding:1.25rem 2.5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-
-    <!-- Easter -->
-    <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:0.75rem;padding:1.1rem 1.25rem;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
-        <div>
-          <div style="font-size:0.62rem;font-weight:700;color:var(--sun);text-transform:uppercase;letter-spacing:0.08em;">🐣 Easter · 3 Apr–27 Apr</div>
-          <div style="font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.1rem;">25-day holiday opportunity</div>
-        </div>
-        <div style="text-align:right;">
-          <div style="font-size:0.65rem;font-weight:700;color:var(--green);">10 days free</div>
-          <div style="font-size:0.6rem;color:var(--muted);">pub hols + weekends</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
-        <div style="flex:10;background:rgba(26,158,106,0.3);" title="10 free days"></div>
-        
-        <div style="flex:10;background:rgba(10,22,40,0.08);" title="10 care days"></div>
-      </div>
-      <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
-        <span style="color:var(--green);">10 already free</span>
-        
-        <span style="color:var(--muted);">10 days care</span>
-      </div>
-    </div>
-
-    <!-- July -->
-    <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:0.75rem;padding:1.1rem 1.25rem;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
-        <div>
-          <div style="font-size:0.62rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;">⛷️ July · 13–24 Jul</div>
-          <div style="font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.1rem;">12-day holiday opportunity</div>
-        </div>
-        <div style="text-align:right;">
-          <div style="font-size:0.65rem;font-weight:700;color:var(--green);">2 days free</div>
-          <div style="font-size:0.6rem;color:var(--muted);">weekends</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
-        <div style="flex:2;background:rgba(26,158,106,0.3);"></div>
-        <div style="flex:5;background:rgba(245,166,35,0.5);"></div>
-        <div style="flex:5;background:rgba(10,22,40,0.08);"></div>
-      </div>
-      <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
-        <span style="color:var(--green);">2 already free</span>
-        
-        <span style="color:var(--muted);">5 days care</span>
-      </div>
-    </div>
-
-    <!-- September -->
-    <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:0.75rem;padding:1.1rem 1.25rem;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
-        <div>
-          <div style="font-size:0.62rem;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:0.08em;">🌸 September · 26 Sep–9 Oct</div>
-          <div style="font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.1rem;">15-day holiday opportunity</div>
-        </div>
-        <div style="text-align:right;">
-          <div style="font-size:0.65rem;font-weight:700;color:var(--green);">4 days free</div>
-          <div style="font-size:0.6rem;color:var(--muted);">weekends</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
-        <div style="flex:4;background:rgba(26,158,106,0.3);"></div>
-        <div style="flex:5;background:rgba(245,166,35,0.5);"></div>
-        <div style="flex:6;background:rgba(10,22,40,0.08);"></div>
-      </div>
-      <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
-        <span style="color:var(--green);">4 already free</span>
-        
-        <span style="color:var(--muted);">6 days care</span>
-      </div>
-    </div>
-
-    <!-- Summer -->
-    <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:0.75rem;padding:1.1rem 1.25rem;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
-        <div>
-          <div style="font-size:0.62rem;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:0.08em;">☀️ Summer · 18 Dec–27 Jan</div>
-          <div style="font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-top:0.1rem;">40+ day holiday opportunity</div>
-        </div>
-        <div style="text-align:right;">
-          <div style="font-size:0.65rem;font-weight:700;color:var(--green);">5+ days free</div>
-          <div style="font-size:0.6rem;color:var(--muted);">pub hols + weekends</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:2px;height:10px;border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
-        <div style="flex:5;background:rgba(26,158,106,0.3);"></div>
-        <div style="flex:3;background:rgba(245,166,35,0.5);"></div>
-        <div style="flex:32;background:rgba(10,22,40,0.08);"></div>
-      </div>
-      <div style="display:flex;gap:1.25rem;font-size:0.62rem;">
-        <span style="color:var(--green);">5+ already free</span>
-        
-        <span style="color:var(--muted);">32+ days care to plan</span>
-      </div>
-    </div>
-
-  </div>
-
-
-</div>
+</section>
 
 <!-- PLANNER HOOK -->
 <div class="planner-hook">
@@ -755,58 +686,6 @@ footer{
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- DEAL PREVIEW -->
-<section class="deal-section" id="deals">
-  <div class="deal-inner">
-    <div>
-      <div class="sec-tag">What you get every Tuesday</div>
-      <h2>One great deal.<br><em>No noise.</em></h2>
-      <p class="sec-body" style="margin-bottom:1.5rem">We don't fill your inbox. If there's nothing worth booking this week, we say so. When there is, you'll know before it sells out.</p>
-      <div class="deal-feats">
-        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Deals matched to your state's school holiday dates</div>
-        <div class="ph-feat"><div class="ph-feat-dot">✓</div>International and Australian, resorts, camping, road trips</div>
-        <div class="ph-feat"><div class="ph-feat-dot">✓</div>Weather score and leave days required on every deal</div>
-        <div class="ph-feat"><div class="ph-feat-dot">✓</div>We only send deals we'd book ourselves</div>
-      </div>
-      <div class="form-row" style="max-width:360px">
-        <input type="email" id="dealEmail" placeholder="your@email.com" style="background:white;border:1.5px solid var(--border);color:var(--navy)"/>
-        <button class="btn-navy" onclick="dealSignup()">See this week's deal →</button>
-      </div>
-    </div>
-    <div>
-      <div class="deal-card">
-        <div class="dc-head">
-          <div class="dc-from"><strong>Holiday Windows</strong> &nbsp;·&nbsp; July 2026</div>
-          <div class="dc-pill">⛷️ July · NSW</div>
-        </div>
-        <div class="dc-img">
-          <div class="dc-img-overlay">
-            <div class="dc-loc">🇦🇺 Whitsunday Island, QLD</div>
-            <div class="dc-wx">★★★★★ July weather</div>
-          </div>
-        </div>
-        <div class="dc-body">
-          <div class="dc-hed">4 nights Whitsunday Island, family of 4</div>
-          <div class="dc-meta">Return flights SYD–PPP · Whitehaven Beach access · Departs Fri 10 July · Kids stay free</div>
-          <div class="dc-price-row">
-            <div class="dc-price">$2,890</div>
-            <div class="dc-price-note">total for family of 4<br><span style="color:rgba(255,255,255,0.25);font-size:0.62rem">vs $4,100+ school holiday peak</span></div>
-          </div>
-          <div class="dc-win-tag">
-            <span>📅</span>
-            <span><strong>2 leave days</strong> needed · 16 days off · Peak dry season</span>
-          </div>
-          <div class="dc-cta-wrap">
-            <button class="dc-cta">View deal and book →</button>
-            <div class="dc-blur" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Join free to unlock deals →</div>
-          </div>
-        </div>
-      </div>
-      <div class="dc-note">Sample deal, live deals every Tuesday for subscribers</div>
     </div>
   </div>
 </section>
