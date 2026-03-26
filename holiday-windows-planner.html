@@ -507,15 +507,12 @@ nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,0.97);backdrop
   <a href="/" class="logo" style="text-decoration:none;">🪟 Holiday<span>Windows</span></a>
   <div class="nav-r">
     <span style="font-size:0.7rem;color:var(--muted)">State:</span>
-    <div style="display:flex;gap:0.3rem">
+    <div style="display:flex;gap:0.3rem;flex-wrap:wrap;">
       <button class="sbtn on" onclick="setState('NSW',this)">NSW</button>
       <button class="sbtn" onclick="setState('VIC',this)">VIC</button>
       <button class="sbtn" onclick="setState('QLD',this)">QLD</button>
       <button class="sbtn" onclick="setState('SA',this)">SA</button>
       <button class="sbtn" onclick="setState('WA',this)">WA</button>
-      <button class="sbtn" onclick="setState('ACT',this)">ACT</button>
-      <button class="sbtn" onclick="setState('NT',this)">NT</button>
-      <button class="sbtn" onclick="setState('TAS',this)">TAS</button>
       <button class="sbtn" onclick="setState('ACT',this)">ACT</button>
       <button class="sbtn" onclick="setState('NT',this)">NT</button>
       <button class="sbtn" onclick="setState('TAS',this)">TAS</button>
@@ -1019,6 +1016,7 @@ function setState(s,btn){
   activeState=s;
   document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
+  renderWindowCards();
   // Reset day assignments when state changes (different holiday dates)
   Object.keys(dayAssign).forEach(k=>delete dayAssign[k]);
   Object.keys(extraDays).forEach(k=>extraDays[k]=[]);
@@ -1092,10 +1090,18 @@ const WIN_DATA={
 };
 
 const WIN_META={
-  easter:{emoji:'🐣', label:'Easter',    color:'#E8940A'},
-  july:  {emoji:'⛷️',  label:'July',      color:'#0B7A6E'},
-  sept:  {emoji:'🌸', label:'September', color:'#7C3AED'},
-  summer:{emoji:'☀️', label:'Summer',    color:'#E84B2A'},
+  easter:{emoji:'🐣', label:'Easter',    color:'#E8940A',
+    bestDest:'Bali', score:3, tripNote:'Best value Easter window — book early.',
+    altDest:'QLD Coast · Grampians · Jervis Bay'},
+  july:  {emoji:'⛷️',  label:'July',      color:'#0B7A6E',
+    bestDest:'Bali', score:5, tripNote:'Peak dry season — the best weather of the year.',
+    altDest:'Fiji · Whitsundays · NZ Ski · Snowy Mountains'},
+  sept:  {emoji:'🌸', label:'September', color:'#7C3AED',
+    bestDest:'Ningaloo', score:4, tripNote:'Whale shark season and spring wildflowers.',
+    altDest:'Whitsundays · NZ spring · Japan · Europe shoulder'},
+  summer:{emoji:'☀️', label:'Summer',    color:'#E84B2A',
+    bestDest:'Thailand', score:5, tripNote:'Peak season — biggest window of the year.',
+    altDest:'Bali · Whitsundays · Japan winter · NZ summer'},
 };
 
 const WIN_IDS=['easter','july','sept','summer'];
@@ -1290,9 +1296,9 @@ function runOpt(){
         <div class="wbd-stat s-care"><div class="wbd-stat-val">${wCare}</div><div class="wbd-stat-lbl">Care days</div></div>
         <div class="wbd-stat s-trip"><div class="wbd-stat-val">${wUn}</div><div class="wbd-stat-lbl">Unassigned</div></div>
         <div class="wbd-foot-dest">
-          <strong>${m.bestDest} ${stars[m.score]}</strong>
-          ${m.tripNote}
-          <div style="font-size:0.65rem;color:rgba(10,22,40,0.4);margin-top:0.15rem">${m.altDest}</div>
+          <strong>${m.bestDest||''} ${m.score!=null&&stars?stars[m.score]:''}</strong>
+          ${m.tripNote||''}
+          <div style="font-size:0.65rem;color:rgba(10,22,40,0.4);margin-top:0.15rem">${m.altDest||''}</div>
           <div style="display:flex;gap:0.35rem;margin-top:0.5rem;justify-content:flex-end;flex-wrap:wrap">
             <button class="wbd-alert-btn" id="wbdAlertBtn_${winId}" onclick="toggleWbdAlert('${winId}',this)">⚡ Alert me</button>
           </div>
@@ -1448,11 +1454,14 @@ function resetOpt(){
 // ─────────────────────────────────────────
 const starMap=['✗','★','★★','★★★','★★★★','★★★★★'];
 function renderWindowCards(){
-  document.getElementById('winCards').innerHTML=WINDOWS.map(w=>`
-    <div class="win-card">
+  const starMap={0:'',1:'★',2:'★★',3:'★★★',4:'★★★★',5:'★★★★★'};
+  document.getElementById('winCards').innerHTML=WINDOWS.map(w=>{
+    const wd=WIN_DATA[activeState]?.[w.id];
+    const stateDates=wd ? wd.name.replace(' (+5 days buffer)','') : w.dates;
+    return `<div class="win-card">
       <div class="win-card-top">
         <div class="win-card-window">${w.emoji} ${w.name}</div>
-        <div class="win-card-dates">${w.dates}</div>
+        <div class="win-card-dates">${stateDates}</div>
         <div class="win-card-days">${w.days} school holiday days</div>
       </div>
       <div class="win-card-body">
@@ -1460,20 +1469,14 @@ function renderWindowCards(){
           <div class="win-dest-name">Best pick: ${w.bestDest}</div>
           <div class="win-dest-score" style="color:rgba(34,197,94,0.9)">${starMap[w.score]}</div>
         </div>
-        <div style="font-size:0.72rem;color:var(--muted);line-height:1.55;margin-bottom:0.25rem">${w.hack}</div>
-        <div style="font-size:0.7rem;color:rgba(10,22,40,0.4);margin-bottom:0.5rem">${w.dest}</div>
-        <div class="win-card-actions">
-          <button class="wca-btn alert" id="alertBtn_${w.id}" onclick="toggleWinAlert('${w.id}',this)">⚡ Alert me for deals</button>
-        </div>
-        <div class="inline-alert" id="winAlert_${w.id}">
-          <div class="inline-alert-row">
-            <input type="email" id="winAlertEmail_${w.id}" placeholder="your@email.com"/>
-            <button onclick="submitWinAlert('${w.id}','${w.name}')">→ Alert me</button>
-          </div>
-        </div>
+        <div class="win-hack">${w.hack}</div>
+        <div style="font-size:0.68rem;color:rgba(10,22,40,0.4);margin-top:0.3rem;">${w.dest}</div>
       </div>
-    </div>
-  `).join('');
+      <div class="win-card-footer">
+        <button class="wca wca-alert" onclick="triggerAlert('${w.id}')">⚡ Alert me for deals</button>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 // ─────────────────────────────────────────
